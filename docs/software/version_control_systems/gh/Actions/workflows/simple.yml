@@ -1,0 +1,24 @@
+name: "Simple"
+
+on: [push]
+
+# will be available to all jobs
+env:
+  WF_ENV: "Available to all jobs"
+
+jobs:
+  run-shell-command:
+    runs-on: ubuntu-latest
+    # will be available to this job only
+    env:
+      JOB_ENV: "Available to only this job"
+    steps:
+      - name: Echo a string
+        run: echo "Hello World"
+        env:
+          # will be available to this step
+          STEP_ENV: "Available to this step only"
+      - name: multiline Script
+        run: |
+          node -v
+          npm -v

@@ -1,0 +1,25 @@
+name: Greet
+author: Kobbi Gal
+description: This is a custom action running in a docker container
+
+# We need to pass the inputs to the docker entrypoint as well
+inputs:
+  who-to-greet:
+    description: 'Who to greet'
+    required: true
+    default: Kobbi
+outputs:
+  time:
+    description: "Time of greeting"
+  
+runs:
+  using: 'docker'
+  # We can use a docker image and tag from DockerHub or a Dockerfile
+  # image: '$IMAGE_NAME:$TAG_NAME'
+  image: 'Dockerfile'
+  env:
+    KEY: VALUE
+  # entrypoint: 
+  # Here is where we pass the argument from the input to the entrypoint script
+  args:
+    - ${{ inputs.who-to-greet }}

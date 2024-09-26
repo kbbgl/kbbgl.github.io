@@ -1,0 +1,16 @@
+name: Run custom workflow
+on: push
+jobs:
+  run-custom-action:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+        name: Checkout
+      - uses: ./.github/actions/greet-docker
+        name: Greet
+        id: greet
+        with:
+          who-to-greet: Ko
+      - run: |
+          echo "Time: ${{ steps.greet.outputs.time }}"
+          echo Reading env var from greeting: $KEY

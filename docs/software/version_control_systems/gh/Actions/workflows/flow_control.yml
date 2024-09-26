@@ -1,0 +1,37 @@
+name: Functions
+
+on: push
+
+jobs:
+  one:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15 # set job timeout
+    steps:
+      - name: Create Instance
+        id: create_instance
+        run: echo Creating instance...
+      - name: Set up Instance
+        id: setup_instance
+        run: echo Setting up instance...
+        if: success()
+      - name: Open tunnel
+        id: open_tunnel
+        run: echo Openning tunnel...
+        if: success()
+        timeout-minutes: 15 # can be set in steps as well
+      - name: Install key
+        id: install_key
+        run: echo installing key
+        if: success()
+      - name: Run Tests - Latest GA
+        id: run_tests
+        run: echo Running tests...
+        continue-on-error: true
+      - name: Dump job context
+        id: job_ctx
+        run: echo '${{ toJSON(job) }}'
+        if: always()
+      - name: Dump steps context
+        id: steps_ctx
+        run: echo '${{ toJSON(steps) }}'
+        if: always()

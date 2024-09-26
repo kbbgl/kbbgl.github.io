@@ -1,0 +1,1 @@
+[Set up EFK](https://mherman.org/blog/logging-in-kubernetes-with-elasticsearch-Kibana-fluentd/)

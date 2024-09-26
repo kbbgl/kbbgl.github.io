@@ -1,0 +1,10 @@
+name: Container
+on: [push]
+jobs:
+  node-docker:
+    runs-on: ubuntu-latest
+    container: 
+      image: python:3.10-slim-bullseye
+    steps:
+      - name: Python Version
+        run: python --version

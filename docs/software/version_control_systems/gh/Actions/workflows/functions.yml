@@ -1,0 +1,53 @@
+name: Functions
+
+on: push
+
+jobs:
+  one:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Create Instance
+        id: create_instance
+        run: echos Creating instance...
+        if: always() # will always run
+      - name: Set up Instance
+        id: setup_instance
+        run: echo Setting up instance...
+        if: success()
+      - name: Open tunnel
+        id: open_tunnel
+        run: echo Openning tunnel...
+        if: success()
+      - name: Install key
+        id: install_key
+        run: echo installing key
+        if: success()
+      - name: Run Tests - Latest GA
+        id: run_tests
+        run: echo Running tests...
+        if: success()
+      - name: Dump job context
+        id: job_ctx
+        run: echo '${{ toJSON(job) }}'
+        if: always()
+      - name: Dump steps context
+        id: steps_ctx
+        run: echo '${{ toJSON(steps) }}'
+        if: always()
+      # Built in functions
+      - name: contains
+        id: contains
+        run: echo "${{ contains('K', 'Kobbi') }}"
+        if: always()
+      - name: startsWith
+        id: startsWith
+        run: echo "${{ startsWith('K', 'Kobbi') }}"
+        if: always()
+      - name: endsWith
+        id: endsWith
+        run: echo "${{ endsWith('i', 'Kobbi') }}"
+        if: always()
+      - name: format
+        id: format
+        run: echo "${{ format('Hello {0} {1}', 'Kobbi', 'Gal') }}"
+        if: always()
