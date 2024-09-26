@@ -1439,7 +1439,7 @@ cache/stepwise contains:
   - `delenv(name, raising=True)`: Delete an environmental variable
   - `syspath_prepend(path)`: Prepend path to sys.path, which is Python's list of import locations
   - `chdir(path)`: Change the current working directory
-- See: <https://docs.pytest.org/en/latest/reference.html#monkeypatch>
+- See: https://docs.pytest.org/en/latest/reference.html#monkeypatch
 - Consider (see: [`monkey/cheese.py`](ch4/monkey/cheese.py)):
 
 ```python
@@ -1524,12 +1524,12 @@ with pytest.warns(None) as warning_list:
 
 ### Finding Plugins
 
-- <https://docs.pytest.org/en/latest/plugins.html>
+- https://docs.pytest.org/en/latest/plugins.html
   - lists a few common plugins
-- <https://pypi.python.org>
+- https://pypi.python.org
   - the Python Package Index (PyPI) is a great place to find pytest plugins
   - enter "pytest," "pytest-," or "-pytest" into the search box
-- <https://github.com/pytest-dev>
+- https://github.com/pytest-dev
   - you can find some popular pytest plugins that are intended to be maintained long-term by the pytest core team
 
 ### Installing Plugins
@@ -1590,8 +1590,8 @@ $ pip install git+https://github.com/pytest-dev/pytest-cov@master​
 - Plugins can include hook functions that alter pytest's behavior
 - A lot of hook functions are available
   - see:
-    - <https://docs.pytest.org/en/latest/_modules/_pytest/hookspec.html>
-    - <https://docs.pytest.org/en/latest/reference.html#hooks>
+    - https://docs.pytest.org/en/latest/_modules/_pytest/hookspec.html
+    - https://docs.pytest.org/en/latest/reference.html#hooks
 - Frequently, changes you only intended to use on one project will become useful enough to share and grow into a plugin
   - therefore, we'll start by adding functionality to a `conftest.py` file, then, after we get things working in `conftest.py,` we'll move the code to a package
 - See: [`func/test_api_exceptions.py`](ch5/a/tasks_proj/tests/func/test_api_exceptions.py)
@@ -1714,7 +1714,7 @@ pytest-nice-0.1.0.tar.gz
 #### Distributing Plugins Through PyPI
 
 - When you are contributing a pytest plugin, a great place to start is by using the `cookiecutter-pytest-plugin`
-  - see <https://github.com/pytest-dev/cookiecutter-pytest-plugin>
+  - see https://github.com/pytest-dev/cookiecutter-pytest-plugin
 
 ## 6. Configuration
 
@@ -2033,8 +2033,8 @@ def test_list_no_args(mocker):
 ```
 
 - See:
-  - <https://docs.python.org/dev/library/unittest.mock.html>
-  - <https://pypi.org/project/pytest-mock/>
+  - https://docs.python.org/dev/library/unittest.mock.html
+  - https://pypi.org/project/pytest-mock/
 
 ### tox: Testing Multiple Configurations
 
@@ -2057,7 +2057,7 @@ def test_list_no_args(mocker):
   - `pip install tox`
 - Run tox:
   - `tox`
-- See: <https://tox.readthedocs.io/en/latest/>
+- See: https://tox.readthedocs.io/en/latest/
 
 ## A3. Plugin Sampler Pack
 
@@ -2070,7 +2070,7 @@ def test_list_no_args(mocker):
 - To run tests more than once per session, use the `pytest-repeat` plugin
 - This plugin is useful if you have an intermittent failure in a test
 - You can use `--count=2` to run everything twice
-- See: <https://pypi.org/project/pytest-repeat/>
+- See: https://pypi.org/project/pytest-repeat/
 
 ```console
 $ pytest --help
@@ -2113,7 +2113,7 @@ tests/unit/test_cli.py::test_list_dash_dash_owner[2-2] PASSED            [100%]
 - You can even push off tests onto other machines and use more than one computer
 - [`xdist/test_parallel.py`](appendices/xdist/test_parallel.py)
   - a test that takes at least a second to run, with parametrization such that it runs ten times
-- See: <https://pypi.org/project/pytest-xdist/>
+- See: https://pypi.org/project/pytest-xdist/
 
 ```console
 $ pytest --help
@@ -2187,7 +2187,7 @@ gw0 [10] / gw1 [10] / gw2 [10] / gw3 [10] / gw4 [10] / gw5 ok / gw6 [10] / gw7 o
 - The `pytest-timeout` plugin allows you pass a timeout period on the command line or mark individual tests with timeout periods in seconds
   - the mark overrides the command line timeout
     - `pytest.mark.timeout(timeout=0, method="thread|signal")`
-- See: <https://pypi.org/project/pytest-timeout/>
+- See: https://pypi.org/project/pytest-timeout/
 
 ```console
 $ pytest --help
@@ -2241,7 +2241,7 @@ FAILED test_parallel.py::test_something[0] - Failed: Timeout >0.5s
 #### pytest-instafail: See Details of Failures and Errors as They Happen
 
 - If your test suite takes quite a bit of time, you may want to see the tracebacks as they happen, rather than wait until the end
-- See: <https://pypi.org/project/pytest-instafail/>
+- See: https://pypi.org/project/pytest-instafail/
 
 ```console
 $ pytest --help
@@ -2283,7 +2283,7 @@ FAILED test_parallel.py::test_something[1] - Failed: Timeout >0.5s
 
 - Lets you see status not just as characters, but also in color
 - Also shows failure and error tracebacks during execution, and has a cool progress bar to the right of the shell
-- See: <https://pypi.org/project/pytest-sugar/>
+- See: https://pypi.org/project/pytest-sugar/
 
 ```console
 $ pytest --help
@@ -2340,13 +2340,13 @@ Results (1.05s):
 - A small plugin and is a good example on which to base your own plugins
 - Allows you to change the emoji using hook functions
   - one of the few pytest plugins that demonstrates how to add hook functions to plugin code
-- See: <https://pypi.org/project/pytest-emoji/>
+- See: https://pypi.org/project/pytest-emoji/
 
 #### pytest-html: Generate HTML Reports for Test Sessions
 
 - Useful in conjunction with continuous integration, or in systems with large, long-running test suites
 - Creates a webpage to view the test results for a pytest session
-- See: <https://pypi.org/project/pytest-html/>
+- See: https://pypi.org/project/pytest-html/
 
 ```console
 $ pytest --help
@@ -2478,7 +2478,7 @@ some_package_proj
 ```
 
 - `__init__.py` needs to be written to expose the module functionality to the outside world through the package namespace
-  - see: <https://docs.python.org/3/tutorial/modules.html#packages>
+  - see: https://docs.python.org/3/tutorial/modules.html#packages
 - If we do something like this in `__init__.py`:
 
 ```python

@@ -12,7 +12,7 @@ touch .github/actions/hello/action.yml
 
 An example of a Javascript custom action can be found in [here](./greet/action.yml).
 
-Some very useful actions for JavaScript can be found in <https://github.com/actions/toolkit>. For example, in order to get inputs and set outputs, we would need to install the `core` and `github` packages:
+Some very useful actions for JavaScript can be found in https://github.com/actions/toolkit. For example, in order to get inputs and set outputs, we would need to install the `core` and `github` packages:
 
 ```bash
 npm install @actions/core

@@ -39,4 +39,4 @@ To use work account:
 gh work
 ```
 
-Source: <https://gist.github.com/yermulnik/017837c01879ed3c7489cc7cf749ae47>
+[Source](https://gist.github.com/yermulnik/017837c01879ed3c7489cc7cf749ae47)

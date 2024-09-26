@@ -1,6 +1,6 @@
 # Handling Failures in Pipes
 
-Source: <https://www.howtogeek.com/782514/how-to-use-set-and-pipefail-in-bash-scripts-on-linux/>
+[Source](https://www.howtogeek.com/782514/how-to-use-set-and-pipefail-in-bash-scripts-on-linux/)
 
 ## Using `set -e`
 

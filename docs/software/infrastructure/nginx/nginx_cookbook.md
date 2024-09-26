@@ -5,8 +5,6 @@ authors: [kbbgl]
 tags: [nginx,proxy,load_balancing,routing,web,server,docker,devops,containers,images]
 ---
 
-# `nginx` Cookbook
-
 ## Serving Static Content
 
 ```nginx
@@ -163,17 +161,17 @@ NGINX and NGINX Plus are also classified as web-traffic controllers. You can use
 ### Split Clients between different Versions (A/B Testing)
 
 ```nginx
-split_clients "${remote_addr}AAA" $variant {
+split_clients "\$\{remote_addr\}AAA" $variant {
 	20.0%	"backendv2";
 	*		"backendv1";
 }
 ```
 
-The `split_clients` directive hashes the string "${remote_addr}AAA". The value of `variant` will be "backendv2" 20% of the client IP addresses and the rest "backendv1".
+The `split_clients` directive hashes the string "\$\{remote_addr\}AAA". The value of `variant` will be "backendv2" 20% of the client IP addresses and the rest "backendv1".
 
 ```nginx
 http {
-	split_clients ${remote_addr}" $static_site_root_folder {
+	split_clients \${\remote_addr\}" $static_site_root_folder {
 		33.3%	"/var/www/sitev2/";
 		*		"/var/www/sitev1/";
 	}

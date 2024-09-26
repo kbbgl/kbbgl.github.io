@@ -4,7 +4,7 @@ There is an `etcdctl` command to interrogate the database and `calicoctl` to vie
 
 BIRD is a dynamic IP routing daemon used by Felix to read routing state and distribute that information to other nodes in the cluster. This allows a client to connect to any node, and eventually be connected to the workload on a container, even if not the node originally contacted.
 
-<https://kubernetes.io/docs/concepts/cluster-administration/networking/>
+https://kubernetes.io/docs/concepts/cluster-administration/networking/
 
 A `Pod` is a group of co-located containers that share the same IP address. From a networking perspective, a pod can be seen as a virtual machine of physical hosts. The network needs to assign IP addresses to pods, and needs to provide traffic routes between all pods on any nodes.
 
@@ -96,4 +96,4 @@ etcdctl --endpoints=https://127.0.0.1:2379 snapshot save /var/lib/etcd/snapshot.
 Snapshot saved at /var/lib/etcd/snapshot.db7.  Verify the snapshot exists from the node perspective, the file date should have been moments earlier.V2020-10-19
 ```
 
-More details here <https://drive.google.com/file/d/1ORuz5XftUmrMCSmN3Rl6okGu_ukaQlkZ/view?usp=sharing>
+More details [here](https://drive.google.com/file/d/1ORuz5XftUmrMCSmN3Rl6okGu_ukaQlkZ/view?usp=sharing)

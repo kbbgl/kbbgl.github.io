@@ -37,5 +37,5 @@ The control unit (`CU`) decodes the instruction in the CIR and sends signals to 
 - The `CU` of the CPU passes the decoded information as signals to the CPU (`FPU` or `ALU`) to perform the instructions and storing the result back into memory, register or an output device.
 - Example operations: Add, Subtract, AND, OR, Branches of execution, XOR.
 
-<https://youtu.be/vgPFzblBh7w>
-<https://youtu.be/o_WXTRS2qTY>
+https://youtu.be/vgPFzblBh7w
+https://youtu.be/o_WXTRS2qTY

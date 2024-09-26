@@ -70,5 +70,5 @@ service rsyslog stop
 nc -w0 -u 0.0.0.0 5142 <<< "<34>Oct 11 22:14:15 mymachine su: 'su root' failed for lonvick on /dev/pts/8"
 ```
 
-<https://blog.datalust.co/seq-input-syslog/#syslogmessageformats>
-<https://www.techiecorner.com/1496/how-to-send-message-to-syslog-server/>
+https://blog.datalust.co/seq-input-syslog/#syslogmessageformats
+https://www.techiecorner.com/1496/how-to-send-message-to-syslog-server/

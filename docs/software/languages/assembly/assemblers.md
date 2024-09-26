@@ -2,8 +2,6 @@
 title: "The Assembler"
 ---
 
-# The Assembler
-
 The processor understand the instructions as numbers.
 
 Every opcode was given a mnemonic to make it easier to remember.
@@ -26,4 +24,4 @@ The assembler translates the text based instructions into numeric encoding.
 
 ## Getting FASM
 
-<http://flatassembler.net>
+http://flatassembler.net

@@ -88,7 +88,7 @@ You can find a reference to all the available tokens in the [Apache Module mod_l
 
 ## Other Configuration Options
 
-The `mod_userdir` module is used to allow all or some users to share a part of their home directory via the web server, even without access to the main document root. The URIs will look something like <http://example.com/~user/index.html> and will commonly be placed in the `/home/user/public_html/` directory.
+The `mod_userdir` module is used to allow all or some users to share a part of their home directory via the web server, even without access to the main document root. The URIs will look something like http://example.com/~user/index.html and will commonly be placed in the `/home/user/public_html/` directory.
 
 If a directory does not have an index file (index.html), the autoindex module will generate an index of the files in the directory, similar to what you see from the ls shell command.
 

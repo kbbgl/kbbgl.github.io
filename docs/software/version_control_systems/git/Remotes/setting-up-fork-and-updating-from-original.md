@@ -1,7 +1,7 @@
 # Setting up fork and updating from original"
 
 After we create a fork, we need to set up a remote so we can pull from it.
-<https://stackoverflow.com/questions/7244321/how-do-i-update-or-sync-a-forked-repository-on-github/7244456#7244456>
+https://stackoverflow.com/questions/7244321/how-do-i-update-or-sync-a-forked-repository-on-github/7244456#7244456
 
 ## 1) Configuring remote for a fork
 
