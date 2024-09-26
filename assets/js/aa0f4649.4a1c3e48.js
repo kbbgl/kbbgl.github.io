@@ -1,1 +1,0 @@
-"use strict";(self.webpackChunkkgkb=self.webpackChunkkgkb||[]).push([[6156],{9651:a=>{a.exports=JSON.parse('{"tag":{"label":"dev","permalink":"/blog/tags/dev","allTagsPath":"/blog/tags","count":1,"unlisted":false},"listMetadata":{"permalink":"/blog/tags/dev","page":1,"postsPerPage":10,"totalPages":1,"totalCount":1,"blogDescription":"Blog","blogTitle":"Blog"}}')}}]);

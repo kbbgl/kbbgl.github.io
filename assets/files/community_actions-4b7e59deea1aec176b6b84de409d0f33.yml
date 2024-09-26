@@ -1,0 +1,24 @@
+name: GitHub Action
+
+on: [push]
+
+jobs:
+  run-github-actions:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout current repo
+        uses: actions/checkout@v2.4.0  # https://github.com/marketplace/actions/checkout
+      - name: Show repo
+        run: | 
+          echo commit $GITHUB_SHA
+          echo repo $GITHUB_REPOSITORY
+          echo workspace $GITHUB_WORKSPACE
+          echo "${{ github.token }}"
+      - name: docker action
+        id: docker_action
+        uses: actions/hello-world-docker-action@master # https://github.com/actions/hello-world-docker-action
+        with:
+          who-to-greet: Kobbi
+      - name: Read Output
+        run: echo "${{ steps.docker_action.outputs.time }}"
+

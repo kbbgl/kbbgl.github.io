@@ -1,0 +1,14 @@
+name: Greet
+author: Kobbi Gal
+description: This is a custom action
+inputs:
+  who-to-greet:
+    description: 'Who to greet'
+    required: true
+    default: Kobbi
+outputs:
+  time:
+    description: "Time of greeting"
+runs:
+  using: 'node12'
+  main: 'dist/index.js'

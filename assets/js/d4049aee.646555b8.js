@@ -1,1 +1,0 @@
-"use strict";(self.webpackChunkkgkb=self.webpackChunkkgkb||[]).push([[2295],{770:a=>{a.exports=JSON.parse('{"tag":{"label":"smb","permalink":"/blog/tags/smb","allTagsPath":"/blog/tags","count":1,"unlisted":false},"listMetadata":{"permalink":"/blog/tags/smb","page":1,"postsPerPage":10,"totalPages":1,"totalCount":1,"blogDescription":"Blog","blogTitle":"Blog"}}')}}]);

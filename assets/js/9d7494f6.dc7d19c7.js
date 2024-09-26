@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkkgkb=self.webpackChunkkgkb||[]).push([[91150],{18051:a=>{a.exports=JSON.parse('{"tag":{"label":"mongo","permalink":"/blog/tags/mongo","allTagsPath":"/blog/tags","count":1,"unlisted":false},"listMetadata":{"permalink":"/blog/tags/mongo","page":1,"postsPerPage":10,"totalPages":1,"totalCount":1,"blogDescription":"Blog","blogTitle":"Blog"}}')}}]);

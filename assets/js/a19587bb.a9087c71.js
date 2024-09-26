@@ -1,1 +1,0 @@
-"use strict";(self.webpackChunkkgkb=self.webpackChunkkgkb||[]).push([[2316],{6699:l=>{l.exports=JSON.parse('{"tag":{"label":"gulp.js","permalink":"/blog/tags/gulp-js","allTagsPath":"/blog/tags","count":1,"unlisted":false},"listMetadata":{"permalink":"/blog/tags/gulp-js","page":1,"postsPerPage":10,"totalPages":1,"totalCount":1,"blogDescription":"Blog","blogTitle":"Blog"}}')}}]);

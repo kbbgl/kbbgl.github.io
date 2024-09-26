@@ -1,1 +1,0 @@
-"use strict";(self.webpackChunkkgkb=self.webpackChunkkgkb||[]).push([[2696],{5445:a=>{a.exports=JSON.parse('{"tag":{"label":"hacking","permalink":"/blog/tags/hacking","allTagsPath":"/blog/tags","count":1,"unlisted":false},"listMetadata":{"permalink":"/blog/tags/hacking","page":1,"postsPerPage":10,"totalPages":1,"totalCount":1,"blogDescription":"Blog","blogTitle":"Blog"}}')}}]);

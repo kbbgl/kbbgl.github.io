@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkkgkb=self.webpackChunkkgkb||[]).push([[17181],{93644:e=>{e.exports=JSON.parse('{"tag":{"label":"uuid","permalink":"/docs/tags/uuid","allTagsPath":"/docs/tags","count":1,"items":[{"id":"software/languages/regex/match_uuid","title":"Match UUID4","description":"","permalink":"/docs/software/languages/regex/match-uuid"}],"unlisted":false}}')}}]);
