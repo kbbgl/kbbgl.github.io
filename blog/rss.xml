@@ -4,16 +4,10 @@
         <title>Kobbi's Knowledgebase Blog</title>
         <link>https://kbbgl.github.io/blog</link>
         <description>Kobbi's Knowledgebase Blog</description>
-        <lastBuildDate>Thu, 26 Sep 2024 20:02:05 GMT</lastBuildDate>
+        <lastBuildDate>Tue, 07 Feb 2023 00:00:00 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>https://github.com/jpmonette/feed</generator>
         <language>en</language>
-        <item>
-            <title><![CDATA[Developer Blog]]></title>
-            <link>https://kbbgl.github.io/blog/intro</link>
-            <guid>https://kbbgl.github.io/blog/intro</guid>
-            <pubDate>Thu, 26 Sep 2024 20:02:05 GMT</pubDate>
-        </item>
         <item>
             <title><![CDATA[Fixing Ubuntu Hibernation]]></title>
             <link>https://kbbgl.github.io/blog/2023/02/07/fixing-ubuntu-hibernation</link>
