@@ -3,6 +3,7 @@
 Some data should not be read and can be encrypted/encoded using the `Secret` API.
 
 To create a `Secret`:
+
 ```bash
 kubectl create secret generic --help
 

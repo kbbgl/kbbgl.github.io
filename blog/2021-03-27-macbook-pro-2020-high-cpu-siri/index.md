@@ -66,7 +66,7 @@ What was immediately visible was that there were instructions in memory address 
 
 I decided to run `corespeechd` using `strace` so I could see what system calls the process was executing during run-time. I found the following output indicating there was some permission issues attempting to access a certain process probe:
 
-```plaintext
+```text
 dtrace: error on enabled probe ID 2378 (ID 918: syscall::kevent_id:return): invalid user access in action #5 at DIF offset 0
 dtrace: error on enabled probe ID 2385 (ID 904: syscall::workq_kernreturn:return): invalid user access in action #5 at DIF offset 0
 ```

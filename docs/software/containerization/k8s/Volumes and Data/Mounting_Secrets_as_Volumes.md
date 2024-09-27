@@ -19,7 +19,9 @@ spec:
         secret:
             secretName: mysql
 ```
+
 Once the pod is running, you can verify that the secret is indeed accessible in the container:
+
 ```bash
 kubectl exec -ti busybox -- cat /mysqlpassword/password
 LFTr@1n

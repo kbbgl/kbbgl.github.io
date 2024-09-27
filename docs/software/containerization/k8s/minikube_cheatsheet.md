@@ -14,7 +14,10 @@ minikube start --driver=virtualbox
 
 minikube start returned an error:
 
-```machine does not exist```
+```text
+machine does not exist
+```
+
 then you need to clear minikube's local state:
 
 ```bash

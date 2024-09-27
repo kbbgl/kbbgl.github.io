@@ -47,6 +47,6 @@ sudo hostnamectl set-hostname myhost
 
 The value is stored in:
 
-```plaintext
+```text
 /etc/hostname
 ```

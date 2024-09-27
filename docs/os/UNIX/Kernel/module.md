@@ -85,7 +85,7 @@ When loading/unloading with `modprobe`, the system will automatically load/unloa
 
 The location for kernel modules is under:
 
-```plaintext
+```text
 /lib/modules/$kernel_version/
 ```
 

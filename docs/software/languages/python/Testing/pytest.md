@@ -6,8 +6,6 @@ authors: [kbbgl]
 tags: [testing,unit_testing,dev,tests]
 ---
 
-# Python Testing with pytest
-
 - [Python Testing with pytest](#python-testing-with-pytest)
   - [1. Getting Started with pytest](#1-getting-started-with-pytest)
     - [Using Options](#using-options)
@@ -105,7 +103,7 @@ tags: [testing,unit_testing,dev,tests]
 
 ## 1. Getting Started with pytest
 
-```console
+```bash
 ​$ pytest --help​
 usage: pytest [options] [file_or_dir] [file_or_dir] [...]
 ...
@@ -158,7 +156,7 @@ def test_fail():
     assert a == 2
 ```
 
-```console
+```bash
 $ pytest
 ====================== test session starts =======================
 ...
@@ -233,7 +231,7 @@ FAILED tests/test_s_option.py::test_fail - assert 1 == 2
 
 - File structure for the Tasks project:
 
-```text
+```
 ​tasks_proj/
 ​├── CHANGELOG.rst
 ​├── LICENSE
@@ -303,7 +301,7 @@ FAILED tests/test_s_option.py::test_fail - assert 1 == 2
     - be able to modify the source code while `tasks` is installed
 - Run tests:
 
-```console
+```bash
 ​$ cd /path/to/code/ch2/tasks_proj/tests/unit​
 $ pytest test_task.py​
 ```
@@ -323,7 +321,7 @@ $ pytest test_task.py​
   - if the expression would evaluate to `False` if converted to a `bool`, the test would fail
 - pytest includes a feature called `assert` rewriting that intercepts `assert` calls and replaces them with something that can tell you more about why your assertions failed
 
-```console
+```bash
 $ pytest test_task_fail.py
 ============================= test session starts ==============================
 platform linux -- Python 3.6.9, pytest-5.4.1, py-1.8.1, pluggy-0.13.1
@@ -400,7 +398,7 @@ def test_get_raises():
 
 - Run just those tests that are marked with **`-m marker_name`**
 
-```console
+```bash
 $ pytest -v -m 'smoke or get' test_api_exceptions.py
 
 ============================= test session starts ==============================
@@ -425,7 +423,7 @@ def test_unique_id_1():
     ...
 ```
 
-```console
+```bash
 $ pytest test_unique_id_2.py
 ============================= test session starts ==============================
 ...
@@ -450,7 +448,7 @@ def test_unique_id_1():
     ...
 ```
 
-```console
+```bash
 $ pytest -r s test_unique_id_3.py
 ============================= test session starts ==============================
 ...
@@ -467,7 +465,7 @@ SKIPPED [1] func/test_unique_id_3.py:8: not supported until version 0.2.0
   - not required in `skip`, but it is required in `skipif`
   - show skip reason in test output with `pytest -r s`
 
-```console
+```bash
   -r chars              show extra test summary info as specified by chars:
                         (f)ailed, (E)rror, (s)kipped, (x)failed, (X)passed,
                         (p)assed, (P)assed with output, (a)ll except passed
@@ -502,7 +500,7 @@ def test_unique_id_not_a_duck():
     ...
 ```
 
-```console
+```bash
 $ pytest -r sxX test_unique_id_4.py
 ============================= test session starts ==============================
 ...
@@ -533,7 +531,7 @@ xfail_strict=true
 - To run all the tests from one directory, use the directory as a parameter to pytest
   - `​pytest tests/func`
 
-```console
+```bash
 $ pytest --disable-warnings -v tests/func
 ============================= test session starts ==============================
 ...
@@ -607,7 +605,7 @@ class TestUpdate:
 - The `-k` option enables you to pass in an expression to run tests that have certain names specified by the expression as a substring of the test name
   - you can use `and`, `or`, and `not` in your expression
 
-```console
+```bash
 $ pytest -v -k "_raises and not delete"
 ============================= test session starts ==============================
 ...
@@ -647,7 +645,7 @@ def test_add_2(task):
     assert equivalent(t_from_db, task)
 ```
 
-```console
+```bash
 $ pytest -v tests/func/test_add_variety.py::test_add_2
 ============================= test session starts ==============================
 ...
@@ -677,7 +675,7 @@ def test_add_3(summary, owner, done):
     ...
 ```
 
-```console
+```bash
 $ pytest -v tests/func/test_add_variety.py::test_add_3
 ============================= test session starts ==============================
 ...
@@ -694,7 +692,7 @@ tests/func/test_add_variety.py::test_add_3[eat eggs-BrIaN-False] PASSED  [100%]
 - You can use that whole test identifier (**node**) to re-run a test
   - use quotes if there are spaces in the identifier
 
-```console
+```bash
 $ pytest -v "tests/func/test_add_variety.py::test_add_3[eat eggs-BrIaN-False]"
 ============================= test session starts ==============================
 ...
@@ -722,7 +720,7 @@ def test_add_4(task):
     ...
 ```
 
-```console
+```bash
 $ pytest -v tests/func/test_add_variety.py::test_add_4
 ============================= test session starts ==============================
 ...
@@ -760,7 +758,7 @@ def test_add_5(task):
     ...
 ```
 
-```console
+```bash
 $ pytest -v tests/func/test_add_variety.py::test_add_5
 ============================= test session starts ==============================
 ...
@@ -791,7 +789,7 @@ class TestAdd:
         ...
 ```
 
-```console
+```bash
 $ pytest -v tests/func/test_add_variety.py::TestAdd
 ============================= test session starts ==============================
 ...
@@ -830,7 +828,7 @@ def test_add_6(task):
     ...
 ```
 
-```console
+```bash
 $ pytest -v tests/func/test_add_variety.py::test_add_6
 ============================= test session starts ==============================
 ...
@@ -916,7 +914,7 @@ def test_add_returns_valid_id(tasks_db):
     ...
 ```
 
-```console
+```bash
 $ pytest --setup-show func/test_add.py -k valid_id
 ============================= test session starts ==============================
 ...
@@ -944,7 +942,7 @@ TEARDOWN S tmp_path_factory
   - you can return anything
 - When an exception occurs in a fixture:
 
-```console
+```bash
 $ pytest test_fixtures.py::test_other_data
 ============================= test session starts ==============================
 ...
@@ -1014,7 +1012,7 @@ def test_add_increases_count(db_with_3_tasks):
     assert tasks.count() == 4
 ```
 
-```console
+```bash
 $ pytest --setup-show func/test_add.py::test_add_increases_count
 ============================= test session starts ==============================
 ...
@@ -1100,7 +1098,7 @@ def test_add_increases_count(db_with_3_tasks):
     assert tasks.count() == 4
 ```
 
-```console
+```bash
 $ pytest --setup-show func/test_add.py::test_add_increases_count
 ============================= test session starts ==============================
 ...
@@ -1150,7 +1148,7 @@ def test_everything(lue):
     assert lue == 42
 ```
 
-```console
+```bash
 $ pytest --setup-show test_rename_fixture.py
 ============================= test session starts ==============================
 ...
@@ -1167,13 +1165,13 @@ test_rename_fixture.py
 - Use the `--fixtures` pytest option to find out where `lue` is defined
   - lists all the fixtures available for the test, including ones that have been renamed
 
-```console
+```bash
 --fixtures, --funcargs
                         show available fixtures, sorted by plugin appearance
                         (fixtures with leading '_' are only shown with '-v')
 ```
 
-```console
+```bash
 $ pytest --fixtures test_rename_fixture.py
 ============================= test session starts ==============================
 ...
@@ -1219,7 +1217,7 @@ def test_add_a(tasks_db, a_task):
 - `request` is a built-in fixture that represents the calling state of the fixture
   - has a field `param` that is filled in with one element from the list assigned to `params` in `@pytest.fixture(params=tasks_to_try)`
 
-```console
+```bash
 $ pytest --setup-show test_add_variety2.py::test_add_a
 ============================= test session starts ==============================
 ...
@@ -1327,7 +1325,7 @@ def test_add_c(tasks_db, c_task):
     - should be done via plugins or in the `conftest.py` file at the top of your project directory structure
     - see: [`pytestconfig/conftest.py`](ch4/pytestconfig/conftest.py)
 
-```console
+```bash
 $ pytest --help
 usage: pytest [options] [file_or_dir] [file_or_dir] [...]
 
@@ -1344,7 +1342,7 @@ custom options:
   - access builtin options as well as information about how pytest was started (the directory, the arguments, and so on)
   - see: [`pytestconfig/test_config.py`](ch4/pytestconfig/test_config.py)
 
-```console
+```bash
 $ pytest -s -q --myopt --foo baz test_config.py::test_option
 "foo" set to: baz
 "myopt" set to: True
@@ -1371,7 +1369,7 @@ rootdir         : /.../ch4/pytestconfig
   - with the `cache` builtin fixture
 - `cache` is used for the `--last-failed` and `--failed-first` builtin functionality
 
-```console
+```bash
 $ pytest --cache-clear cache/test_pass_fail.py
 ============================= test session starts ==============================
 ...
@@ -1439,7 +1437,7 @@ cache/stepwise contains:
   - `delenv(name, raising=True)`: Delete an environmental variable
   - `syspath_prepend(path)`: Prepend path to sys.path, which is Python's list of import locations
   - `chdir(path)`: Change the current working directory
-- See: https://docs.pytest.org/en/latest/reference.html#monkeypatch
+- See: [monkeypatch](https://docs.pytest.org/en/latest/reference.html#monkeypatch)
 - Consider (see: [`monkey/cheese.py`](ch4/monkey/cheese.py)):
 
 ```python
@@ -1488,7 +1486,7 @@ monkeypatch.setattr(
   - see: [`3/conftest.py`](ch4/dt/3/conftest.py)
   - any doctests found within the scope of this `conftest.py` file will have the `um` symbol defined
 
-```console
+```bash
 $ pytest -v --doctest-modules dt/3/unnecessary_math.py
 ============================= test session starts ==============================
 ...
@@ -1524,12 +1522,12 @@ with pytest.warns(None) as warning_list:
 
 ### Finding Plugins
 
-- https://docs.pytest.org/en/latest/plugins.html
+- [Plugins](https://docs.pytest.org/en/latest/plugins.html)
   - lists a few common plugins
-- https://pypi.python.org
+- [PyPi](https://pypi.python.org)
   - the Python Package Index (PyPI) is a great place to find pytest plugins
   - enter "pytest," "pytest-," or "-pytest" into the search box
-- https://github.com/pytest-dev
+- [`pytest-dev`](https://github.com/pytest-dev)
   - you can find some popular pytest plugins that are intended to be maintained long-term by the pytest core team
 
 ### Installing Plugins
@@ -1538,8 +1536,8 @@ with pytest.warns(None) as warning_list:
 
 - As PyPI is the default location for pip, installing plugins from PyPI is the easiest method
 
-```console
-$ pip install pytest-cov​
+```bash
+pip install pytest-cov​
 ```
 
 - This installs the latest stable version from PyPI.
@@ -1549,7 +1547,7 @@ $ pip install pytest-cov​
 - File Packages on PyPI are distributed as zipped files with the extensions `.tar.gz` (tar balls) and/or `.whl` (wheels)
   - you can download and install from that
 
-```console
+```bash
 $ pip install pytest-cov-2.4.0.tar.gz​
 ​# or
 $ pip install pytest_cov-2.4.0-py2.py3-none-any.whl​
@@ -1559,9 +1557,9 @@ $ pip install pytest_cov-2.4.0-py2.py3-none-any.whl​
 
 - You can keep a local stash of plugins (and other Python packages) in a local or shared directory in `.tar.gz` or `.whl` format, and use that instead
 
-```console
-$ cp pytest_cov-2.4.0-py2.py3-none-any.whl some_plugins/​
-$ pip install --no-index --find-links=./some_plugins/ pytest-cov​
+```bash
+cp pytest_cov-2.4.0-py2.py3-none-any.whl some_plugins/​
+pip install --no-index --find-links=./some_plugins/ pytest-cov​
 ```
 
 - `--no-index` tells `pip` to not connect to PyPI
@@ -1569,20 +1567,20 @@ $ pip install --no-index --find-links=./some_plugins/ pytest-cov​
 
 #### Install from a Git Repository
 
-```console
-$ pip install git+https://github.com/pytest-dev/pytest-cov
+```bash
+pip install git+https://github.com/pytest-dev/pytest-cov
 ```
 
 - With version tag:
 
-```console
-$ pip install git+https://github.com/pytest-dev/pytest-cov@v2.4.0​
+```bash
+pip install git+https://github.com/pytest-dev/pytest-cov@v2.4.0​
 ```
 
 - Specify a branch:
 
-```console
-$ pip install git+https://github.com/pytest-dev/pytest-cov@master​
+```bash
+pip install git+https://github.com/pytest-dev/pytest-cov@master​
 ```
 
 ### Writing Your Own Plugins
@@ -1590,13 +1588,13 @@ $ pip install git+https://github.com/pytest-dev/pytest-cov@master​
 - Plugins can include hook functions that alter pytest's behavior
 - A lot of hook functions are available
   - see:
-    - https://docs.pytest.org/en/latest/_modules/_pytest/hookspec.html
-    - https://docs.pytest.org/en/latest/reference.html#hooks
+    - [Hookspec](https://docs.pytest.org/en/latest/_modules/_pytest/hookspec.html)
+    - [Hooks](https://docs.pytest.org/en/latest/reference.html#hooks)
 - Frequently, changes you only intended to use on one project will become useful enough to share and grow into a plugin
   - therefore, we'll start by adding functionality to a `conftest.py` file, then, after we get things working in `conftest.py,` we'll move the code to a package
 - See: [`func/test_api_exceptions.py`](ch5/a/tasks_proj/tests/func/test_api_exceptions.py)
 
-```console
+```bash
 $ pytest -v --tb=no func/test_api_exceptions.py::TestAdd
 ============================= test session starts ==============================
 ...
@@ -1615,7 +1613,7 @@ func/test_api_exceptions.py::TestAdd::test_done_not_bool FAILED          [100%]
   - use the `--nice` option to turn the behavior on
     - [`pytest_addoption(parser)`](https://docs.pytest.org/en/latest/reference.html#_pytest.hookspec.pytest_addoption)
 
-```console
+```bash
 $ pytest --nice --tb=no func/test_api_exceptions.py::TestAdd
 ============================= test session starts ==============================
 ...
@@ -1632,7 +1630,7 @@ OPPORTUNITY for improvement func/test_api_exceptions.py::TestAdd::test_done_not_
 =================== 1 failed, 1 passed, 3 warnings in 0.26s ====================
 ```
 
-```console
+```bash
 $ pytest --nice -v --tb=no func/test_api_exceptions.py::TestAdd
 ============================= test session starts ==============================
 ...
@@ -1654,7 +1652,7 @@ OPPORTUNITY for improvement func/test_api_exceptions.py::TestAdd::test_done_not_
 
 - Directory structure:
 
-```text
+```
 pytest-nice
 ​├── LICENSE
 ​├── README.rst
@@ -1680,7 +1678,7 @@ pytest-nice
 - Tests: [`tests/test_nice.py`](ch5/pytest-nice/tests/test_nice.py)
 - To run the tests:
 
-```console
+```bash
 $ cd /path/to/ch5/pytest-nice/
 $ pip install .
 ...
@@ -1695,7 +1693,7 @@ $ pytest -v
 
 - We can use the `setup.py` file to create a distribution
 
-```console
+```bash
 $ cd /path/to/ch5/pytest-nice/
 $ python setup.py sdist
 ...
@@ -1714,7 +1712,7 @@ pytest-nice-0.1.0.tar.gz
 #### Distributing Plugins Through PyPI
 
 - When you are contributing a pytest plugin, a great place to start is by using the `cookiecutter-pytest-plugin`
-  - see https://github.com/pytest-dev/cookiecutter-pytest-plugin
+  - see [cookiecutter](https://github.com/pytest-dev/cookiecutter-pytest-plugin)
 
 ## 6. Configuration
 
@@ -1759,7 +1757,7 @@ addopts = -rsxX -l --tb=short --strict
   get: Run the test functions that test tasks.get()
 ```
 
-```console
+```bash
 $ pytest --markers
 @pytest.mark.smoke: Run the smoke test test functions
 
@@ -1795,7 +1793,7 @@ norecursedirs = .* venv src *.egg dist build
   - a list of directories relative to the root directory
 - Example:
 
-```text
+```
 tasks_proj/
 ​├── pytest.ini
 ​├── src
@@ -1860,7 +1858,7 @@ python_functions = test_* check_*
   - other navigation commands like `step` and `next` aren't that useful since we are sitting right at an `assert` statement
   - you can also just type variable names and get the values
 
-```console
+```bash
 $ pytest -x --pdb ch2/tasks_proj/tests
 ============================= test session starts ==============================
 ...
@@ -1894,16 +1892,16 @@ ch2/tasks_proj/tests/func/test_unique_id_1.py:11: AssertionError
 1
 (Pdb) l
   6
-  7  	def test_unique_id():
-  8  	    """Calling unique_id() twice should return different numbers."""
-  9  	    id_1 = tasks.unique_id()
- 10  	    id_2 = tasks.unique_id()
- 11  ->	    assert id_1 != id_2
+  7   def test_unique_id():
+  8       """Calling unique_id() twice should return different numbers."""
+  9       id_1 = tasks.unique_id()
+ 10       id_2 = tasks.unique_id()
+ 11  ->     assert id_1 != id_2
  12
  13
- 14  	@pytest.fixture(autouse=True)
- 15  	def initialized_tasks_db(tmpdir):
- 16  	    """Connect to db before testing, disconnect after."""
+ 14   @pytest.fixture(autouse=True)
+ 15   def initialized_tasks_db(tmpdir):
+ 16       """Connect to db before testing, disconnect after."""
 (Pdb) u
 > /path/to/venv/lib/python3.6/site-packages/_pytest/python.py(184)pytest_pyfunc_call()
 -> result = testfunction(**testargs)
@@ -1930,7 +1928,7 @@ FAILED ch2/tasks_proj/tests/func/test_unique_id_1.py::test_unique_id - assert...
 - Installing `pytest-cov` plugin will pull in `coverage.py` since coverage is one its dependencies
   - `pip install pytest-cov`
 
-```console
+```bash
 $ pytest --help
 usage: pytest [options] [file_or_dir] [file_or_dir] [...]
 
@@ -1957,7 +1955,7 @@ coverage reporting with distributed testing support:
                         Dynamic contexts to use. "test" for now.
 ```
 
-```console
+```bash
 $ pytest --cov=src
 ============================= test session starts ==============================
 ...
@@ -2033,8 +2031,8 @@ def test_list_no_args(mocker):
 ```
 
 - See:
-  - https://docs.python.org/dev/library/unittest.mock.html
-  - https://pypi.org/project/pytest-mock/
+  - [`unittest-mock`](https://docs.python.org/dev/library/unittest.mock.html)
+  - [`pytest-mock`](https://pypi.org/project/pytest-mock/)
 
 ### tox: Testing Multiple Configurations
 
@@ -2057,7 +2055,6 @@ def test_list_no_args(mocker):
   - `pip install tox`
 - Run tox:
   - `tox`
-- See: https://tox.readthedocs.io/en/latest/
 
 ## A3. Plugin Sampler Pack
 
@@ -2070,9 +2067,9 @@ def test_list_no_args(mocker):
 - To run tests more than once per session, use the `pytest-repeat` plugin
 - This plugin is useful if you have an intermittent failure in a test
 - You can use `--count=2` to run everything twice
-- See: https://pypi.org/project/pytest-repeat/
+- See: [repeat](https://pypi.org/project/pytest-repeat/)
 
-```console
+```bash
 $ pytest --help
 usage: pytest [options] [file_or_dir] [file_or_dir] [...]
 
@@ -2083,7 +2080,7 @@ custom options:
                         Scope for repeating tests
 ```
 
-```console
+```bash
 $ pytest --count=2 -v -k test_list
 ============================= test session starts ==============================
 ...
@@ -2113,9 +2110,9 @@ tests/unit/test_cli.py::test_list_dash_dash_owner[2-2] PASSED            [100%]
 - You can even push off tests onto other machines and use more than one computer
 - [`xdist/test_parallel.py`](appendices/xdist/test_parallel.py)
   - a test that takes at least a second to run, with parametrization such that it runs ten times
-- See: https://pypi.org/project/pytest-xdist/
+- See: [`xdist`](https://pypi.org/project/pytest-xdist/)
 
-```console
+```bash
 $ pytest --help
 usage: pytest [options] [file_or_dir] [file_or_dir] [...]
 
@@ -2158,7 +2155,7 @@ distributed and subprocess testing:
                         run failing test set until all pass.
 ```
 
-```console
+```bash
 $ pytest test_parallel.py
 ============================= test session starts ==============================
 plugins: xdist-1.32.0, forked-1.1.3, repeat-0.8.0, cov-2.8.1, mock-3.1.0
@@ -2173,7 +2170,7 @@ test_parallel.py ..........                                              [100%]
   - `-n numprocesses` to run each test in a subprocess
   - `-n auto` to automatically detect the number of CPUs on the system
 
-```console
+```bash
 $ pytest -n auto test_parallel.py
 ============================= test session starts ==============================
 plugins: xdist-1.32.0, forked-1.1.3, repeat-0.8.0, cov-2.8.1, mock-3.1.0
@@ -2187,9 +2184,9 @@ gw0 [10] / gw1 [10] / gw2 [10] / gw3 [10] / gw4 [10] / gw5 ok / gw6 [10] / gw7 o
 - The `pytest-timeout` plugin allows you pass a timeout period on the command line or mark individual tests with timeout periods in seconds
   - the mark overrides the command line timeout
     - `pytest.mark.timeout(timeout=0, method="thread|signal")`
-- See: https://pypi.org/project/pytest-timeout/
+- See: [`pytest-timeout`](https://pypi.org/project/pytest-timeout/)
 
-```console
+```bash
 $ pytest --help
 usage: pytest [options] [file_or_dir] [file_or_dir] [...]
 
@@ -2205,7 +2202,7 @@ Interrupt test run and dump stacks of all threads after a test times out:
                         to use 'signal' and fall back to 'thread'.
 ```
 
-```console
+```bash
 $ pytest --timeout=0.5 -x test_parallel.py
 ============================= test session starts ==============================
 ...
@@ -2241,9 +2238,9 @@ FAILED test_parallel.py::test_something[0] - Failed: Timeout >0.5s
 #### pytest-instafail: See Details of Failures and Errors as They Happen
 
 - If your test suite takes quite a bit of time, you may want to see the tracebacks as they happen, rather than wait until the end
-- See: https://pypi.org/project/pytest-instafail/
+- See: [`pytest-instafail`](https://pypi.org/project/pytest-instafail/)
 
-```console
+```bash
 $ pytest --help
 usage: pytest [options] [file_or_dir] [file_or_dir] [...]
 
@@ -2254,7 +2251,7 @@ reporting:
                         (disabled by default).
 ```
 
-```console
+```bash
 $ pytest --instafail --timeout=0.5 --tb=line --maxfail=2 test_parallel.py
 ============================= test session starts ==============================
 ...
@@ -2283,9 +2280,9 @@ FAILED test_parallel.py::test_something[1] - Failed: Timeout >0.5s
 
 - Lets you see status not just as characters, but also in color
 - Also shows failure and error tracebacks during execution, and has a cool progress bar to the right of the shell
-- See: https://pypi.org/project/pytest-sugar/
+- See: [`pytest-sugar`](https://pypi.org/project/pytest-sugar/)
 
-```console
+```bash
 $ pytest --help
 usage: pytest [options] [file_or_dir] [file_or_dir] [...]
 
@@ -2296,7 +2293,7 @@ reporting:
   --force-sugar         Force pytest-sugar output even when not in real terminal
 ```
 
-```console
+```bash
 $ pytest test_parallel.py
 Test session starts (platform: linux, Python 3.6.9, pytest 5.4.1, pytest-sugar 0.9.3)
 ...
@@ -2308,7 +2305,7 @@ Results (10.09s):
       10 passed
 ```
 
-```console
+```bash
 $ pytest --timeout=0.5 --tb=line --maxfail=2 test_parallel.py
 Test session starts (platform: linux, Python 3.6.9, pytest 5.4.1, pytest-sugar 0.9.3)
 ...
@@ -2340,15 +2337,14 @@ Results (1.05s):
 - A small plugin and is a good example on which to base your own plugins
 - Allows you to change the emoji using hook functions
   - one of the few pytest plugins that demonstrates how to add hook functions to plugin code
-- See: https://pypi.org/project/pytest-emoji/
+- See: [`pytest-emoji`](https://pypi.org/project/pytest-emoji/)
 
 #### pytest-html: Generate HTML Reports for Test Sessions
 
 - Useful in conjunction with continuous integration, or in systems with large, long-running test suites
 - Creates a webpage to view the test results for a pytest session
-- See: https://pypi.org/project/pytest-html/
 
-```console
+```bash
 $ pytest --help
 usage: pytest [options] [file_or_dir] [file_or_dir] [...]
 
@@ -2365,7 +2361,7 @@ reporting:
   --css=path            append given css file content to report style file.
 ```
 
-```console
+```bash
 $ pytest --html=report.html
 ============================= test session starts ==============================
 ...
@@ -2438,7 +2434,7 @@ ERROR test_outcomes.py::test_error - assert 1 == 2
 
 - For a simple one-module project, the minimal configuration is small
 
-```text
+```
 ​some_module_proj/
 ​├── setup.py
 ​└── some_module.py
@@ -2447,7 +2443,7 @@ ERROR test_outcomes.py::test_error - assert 1 == 2
 - The code we want to share is in `some_module.py`
 - To make it installable with pip, we need a [`setup.py`](appendices/packaging/some_module_proj/setup.py) file
 
-```console
+```bash
 $ pip install ./some_module_proj
 Processing ./some_module_proj
 Installing collected packages: some-module
@@ -2455,7 +2451,7 @@ Installing collected packages: some-module
 Successfully installed some-module-0.0.0
 ```
 
-```console
+```bash
 $ python
 Python 3.6.9 (default, Apr 18 2020, 01:56:04)
 [GCC 8.4.0] on linux
@@ -2468,7 +2464,7 @@ Type "help", "copyright", "credits" or "license" for more information.
 
 ### Creating an Installable Package
 
-```text
+```
 some_package_proj
 ├── setup.py
 └── src
@@ -2478,7 +2474,6 @@ some_package_proj
 ```
 
 - `__init__.py` needs to be written to expose the module functionality to the outside world through the package namespace
-  - see: https://docs.python.org/3/tutorial/modules.html#packages
 - If we do something like this in `__init__.py`:
 
 ```python
@@ -2504,7 +2499,7 @@ some_package.some_func()
 - [`some_package_proj/setup.py`](appendices/packaging/some_package_proj/setup.py)
   - specify packages
 
-```console
+```bash
 $ pip install ./some_package_proj/
 Processing ./some_package_proj
 Installing collected packages: some-package
@@ -2512,7 +2507,7 @@ Installing collected packages: some-package
 Successfully installed some-package-0.0.0
 ```
 
-```console
+```bash
 $ python
 Python 3.6.9 (default, Apr 18 2020, 01:56:04)
 [GCC 8.4.0] on linux
@@ -2527,7 +2522,7 @@ Type "help", "copyright", "credits" or "license" for more information.
 
 ### Creating a Source Distribution and Wheel
 
-```text
+```
 some_package_proj_v2/
 ├── CHANGELOG.rst
 ├── LICENSE
@@ -2539,11 +2534,11 @@ some_package_proj_v2/
         └── some_module.py
 ```
 
-```console
-$ pip install --upgrade setuptools wheel
+```bash
+pip install --upgrade setuptools wheel
 ```
 
-```console
+```bash
 $ python setup.py sdist bdist_wheel
 running sdist
 running egg_info
@@ -2604,7 +2599,7 @@ adding 'some_package-1.0.dist-info/RECORD'
 removing build/bdist.linux-x86_64/wheel
 ```
 
-```console
+```bash
 $ pip install --no-index --find-links=dist some_package
 Collecting some_package
 Installing collected packages: some-package

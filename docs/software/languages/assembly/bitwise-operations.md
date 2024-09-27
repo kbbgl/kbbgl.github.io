@@ -110,6 +110,6 @@ And we want the 7th bit (where first bit from the right is `k=0`, we will `AND` 
 0000 0000 0000 0000 0000 0000 1000 0000
 ```
 
-```assembly
+```armasm
 
 ```

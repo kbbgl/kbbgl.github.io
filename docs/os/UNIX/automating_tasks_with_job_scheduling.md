@@ -12,7 +12,7 @@ crontab -e
 
 There are also useful shortcuts:
 
-```plaintext
+```text
 @reboot Run once, at startup.
 @yearly Run once a year (replaces: 0 0 1 1 *)
 @monthly Run once a month (replaces: 0 0 1 * *)

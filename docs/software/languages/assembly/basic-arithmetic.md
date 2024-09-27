@@ -64,7 +64,7 @@ Examples:
 
 `edx:eax` is the extension of `edx:eax` so:
 
-```assembly
+```armasm
 mv edx, '20' ; edx:eax is now 0000002000000000
 mv ebx, '3A' 
 

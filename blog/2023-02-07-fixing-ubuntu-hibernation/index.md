@@ -7,16 +7,15 @@ tags: [ubuntu,boot,hibernation,raspberry_pi,swap,fs]
 
 ## Introduction
 
-One day, seemingly out of the blue, my (using [Docusaurus](https://docusaurus.io/) blog site, which is set up as an Ubuntu `systemd` service on the Raspberry Pi 4, stopped being accessible. 
+One day, seemingly out of the blue, my (using [Docusaurus](https://docusaurus.io/) blog site, which is set up as an Ubuntu `systemd` service on the Raspberry Pi 4, stopped being accessible.
 
 I tried pinging it and checking whether is it was connected to my local network but it was nowhere to be found. This meant that I needed to physically access the Raspberry Pi so I connected it to a monitor and reset it.
 
 ## Boot No Good
 
-
 Upon reboot, I was greeted by a console with the following worrying "Kernel panic" message:
 
-```text
+```
 /init: conf/conf.d/zz-resume-auto: line 1: syntax error: unexpected "{" 
 [ 1.344964] Kernel panic - not syncing: Attempted to kill mitt exitcode=0x00000200 
 [ 1.352769] CPU: 0 PID: 1 Comm: init Not tainted 5.19.0-1011-raspi #18-Ubuntu
@@ -51,7 +50,7 @@ The first line was the one that stood out. Seems that the file `zz-resume-auto` 
 
 ### Who are you `zz-resume-auto`?
 
-Since I couldn't access the Raspberry Pi remotely, I had to somehow be able to access it's filesystem without it booting. Since the Raspberry Pi's storage comes in a form of an SD card, I could just pull out the SD card from the slot on the Raspberry Pi, mount it onto an adapter and connect it to another computer. 
+Since I couldn't access the Raspberry Pi remotely, I had to somehow be able to access it's filesystem without it booting. Since the Raspberry Pi's storage comes in a form of an SD card, I could just pull out the SD card from the slot on the Raspberry Pi, mount it onto an adapter and connect it to another computer.
 
 After inserting the SD card adapter to one of the USB slots on my other machine, I ran the following command to create a directory for the Raspberry Pi filesystem and mounted the SD card onto it:
 
@@ -80,5 +79,3 @@ Device     Boot  Start       End   Sectors  Size Id Type
 bin   dev  home  lost+found  mnt  proc  run   snap  sys  usr
 boot  etc  lib   media       opt  root  sbin  srv   tmp  var
 ```
-
-

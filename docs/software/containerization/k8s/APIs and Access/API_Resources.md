@@ -11,7 +11,6 @@ kubectl --v=10 get pods firstpod | grep curl
 curl -k -v -XGET  -H "User-Agent: kubectl/v1.20.2 (linux/arm64) kubernetes/faecb19" -H "Accept: application/json;as=Table;v=v1;g=meta.k8s.io,application/json;as=Table;v=v1beta1;g=meta.k8s.io,application/json" -H "Authorization: Bearer <masked>" 'https://10.100.102.95:16443/api/v1/namespaces/test/pods/firstpod'
 ```
 
-
 We can see the server information is stored in `/home/student/.kube/config`:
 
 ```bash

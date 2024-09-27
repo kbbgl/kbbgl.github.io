@@ -3,13 +3,14 @@
 Points: 40
 
 ## Description
+
 The new Justice League movies nerfed the Flash, so clam made his [own rendition](https://the-flash.web.actf.co/)! Can you get the flag before the Flash swaps it out at the speed of light?
 
 ## Solution
 
 When loading the page, we can see that we're greeted with a paragraph saying:
 
-```html
+```markup
 <p id="flash">actf{this_is_not_the_flag}</p>
 ```
 
@@ -29,6 +30,6 @@ I decided to utilize the Chrome developer tools feature to [define a breakpoint 
 
 In the Elements tab, I right clicked on the `body` tag > Break on > subtree modifications. The next time the `p` element refreshed, the debugger paused execution and the flag was exposed:
 
-```html
+```markup
 <p id="flash">actf{sp33dy_l1ke_th3_fl4sh}</p>
 ```

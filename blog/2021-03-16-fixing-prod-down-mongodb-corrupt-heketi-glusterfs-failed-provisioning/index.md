@@ -57,7 +57,7 @@ All it does is watch DNS for changes in the set of endpoints that are part of th
 
 When we ran `kubectl logs mongod-replicaset-0 --all-containers` we noticed the following error:
 
-```plaintext
+```text
 E STORAGE  WiredTiger error, file:WiredTiger.wt, connection: unable to read root page from file:WiredTiger.wt: WT_ERROR: non-specific WiredTiger error
 E STORAGE  WiredTiger error, file:WiredTiger.wt, connection: WiredTiger has failed to open its metadata
 E STORAGE  WiredTiger error, file:WiredTiger.wt, connection: This may be due to the database files being encrypted, being from an older version or due to corruption on disk
@@ -68,7 +68,7 @@ I STORAGE  WT_ERROR: non-specific WiredTiger error, terminating
 
 The log that immediately grabbed our attention was the following:
 
-```plaintext
+```text
 E STORAGE  WiredTiger error, file:WiredTiger.wt, connection: This may be due to the database files being encrypted, being from an older version or due to corruption on disk
 ```
 
@@ -137,7 +137,7 @@ WiredTiger.turtle:1:Compatibility version
 
 We managed to find something interesting within the WiredTiger.turtle file which was clear text. The whole file contents looked like this:
 
-```plaintext
+```text
 Compatibility version
 major=4,minor=2
 WiredTiger version string
@@ -148,7 +148,7 @@ major=4,minor=2,patch=1
 
 Since we were in dire straits, we decided it was worth to modify the versions in this file and see if we could work around the MongoDB server validation. We modified it to the following:
 
-```plaintext
+```text
 Compatibility version
 major=3,minor=6
 WiredTiger version string

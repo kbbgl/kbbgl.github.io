@@ -13,7 +13,7 @@ Notable devices are:
 
 * Drives are sometimes split up into partitions and are represented by numbers in the end of the name:
 
-```plaintext
+```text
     sda1 - First partition of first SATA hard drive
     
     sda2 - Second partition of first SATA hard drive

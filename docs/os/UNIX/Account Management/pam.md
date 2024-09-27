@@ -6,13 +6,13 @@ Various applications have used `libpam` to be able to configure a uniform authen
 
 Each PAM-aware application or service can be configured in a configuration file in:
 
-```plaintext
+```text
 /etc/pam.d/
 ```
 
 Each file in `/etc/pam.d` corresponds to a service and each line in the file specifies a rule. The rule is formatted as:
 
-```plaintext
+```text
 type control module-path module-arguments
 ```
 
@@ -47,7 +47,7 @@ DAP uses PAM and `system-config-authentication` or `authconfig-tui`. One has to 
 
 When you configure a system for LDAP authentication, five files are changed:
 
-```plaintext
+```text
 /etc/openldap/ldap.conf
 /etc/pam_ldap.conf
 /etc/nslcd.conf

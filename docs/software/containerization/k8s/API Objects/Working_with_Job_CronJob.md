@@ -1,6 +1,7 @@
 ## Working with `Job/CronJob`s
 
 ### `Job`
+
 1) Create a `Job` spec:
 
 ```yaml
@@ -31,4 +32,3 @@ kubectl create -f job.yaml
 ```
 
 ### `CronJob`
-

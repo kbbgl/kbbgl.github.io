@@ -1,6 +1,6 @@
 # Keyboard Shortcuts
 
-```plaintext
+```text
 # Hide current window
 CMD + H
 ```

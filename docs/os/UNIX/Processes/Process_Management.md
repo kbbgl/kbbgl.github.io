@@ -17,7 +17,7 @@ Press `?` or `H` while running `top` to get a list of options
 The `nice` command is used to the prioritize the process to the kernel.
 The values range from `-19 to +19` where a high value is being very _nice_ => lower priority so:
 
-```plaintext
+```text
 -19 == very nice == lowest priority
 +19 == not nice  == highest priority
 ```

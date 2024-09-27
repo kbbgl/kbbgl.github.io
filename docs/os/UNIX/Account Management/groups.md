@@ -3,13 +3,13 @@
 Groups are collection of users that have a commonality.
 They are defined in:
 
-```plaintext
+```text
 /etc/group
 ```
 
 And attributes are:
 
-```plaintext
+```text
 groupname:password:GID:user1,user2,...
 ```
 

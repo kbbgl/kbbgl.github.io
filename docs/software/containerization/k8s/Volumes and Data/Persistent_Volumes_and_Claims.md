@@ -17,16 +17,17 @@ The following are the phases of Persistent Storage:
 5) `Reclaim`: could be:
     - `Retain`: keeps data intact allowing an admin to handle storage and data.
     - `Delete`: tells volume plugin to delete the API object as well as storage.
-    - `Recycle`: run `rm -rf /mountpoint` and then makes it available to a new claim. 
-
+    - `Recycle`: run `rm -rf /mountpoint` and then makes it available to a new claim.
 
 We can see the PV and PVC:
+
 ```bash
 kubectl get pv
 kubectl get pvc
 ```
 
 The following specification is a basic declaration of a PV using `hostPath`:
+
 ```yaml
 apiVersion: v1
 kind: PersistentVolume
@@ -61,6 +62,7 @@ spec:
 ```
 
 In the `Pod`:
+
 ```yaml
 spec:
   containers:
@@ -70,4 +72,3 @@ spec:
       persistentVolumeClaim:
         claimName: myclain
 ```
-

@@ -32,13 +32,13 @@ ssh -L 9221:localhost:9229 user@host
 
 1. Open Chrome and visit:
 
-```plaintext
+```text
 chrome://inspect
 ```
 
 Click on Configure and add:
 
-```plaintext
+```text
 localhost:9221
 ```
 

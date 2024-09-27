@@ -31,4 +31,3 @@ metadata:
   namespace: linuxcon
 ...
 ```
-

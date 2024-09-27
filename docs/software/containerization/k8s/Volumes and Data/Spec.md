@@ -3,6 +3,7 @@
 One of the may types of storage available is an `emptyDir`. The `kubelet` will create the directory in the container but not mount any storage. Any data created is written to the shared container space so it will not be persistent. When the `Pod` is deleted, the directory is deleted along with the container.
 
 Creating a `Pod` with the following specification would create a container with a volume named `scratch-volume` with a directory `/scratch` inside the container.
+
 ```yaml
 apiVersion: v1
 kind: Pod
@@ -45,4 +46,3 @@ volumes:
   - name: sharevol
     emptyDir: {}
 ```
-

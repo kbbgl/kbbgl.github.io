@@ -25,7 +25,7 @@ The configuration file is in `/etc/rsyslog.conf`.
 
 The configuration file includes a section called _Rules_ where we can see the following:
 
-```plaintext
+```text
 #### RULES ####
 
 # auth,authpriv.* /var/log/auth.log 
@@ -40,7 +40,7 @@ user.* -/var/log/user.log
 
 Basic rule format is:
 
-```plaintext
+```text
 facility.priority   action
 ```
 
@@ -70,5 +70,5 @@ service rsyslog stop
 nc -w0 -u 0.0.0.0 5142 <<< "<34>Oct 11 22:14:15 mymachine su: 'su root' failed for lonvick on /dev/pts/8"
 ```
 
-https://blog.datalust.co/seq-input-syslog/#syslogmessageformats
-https://www.techiecorner.com/1496/how-to-send-message-to-syslog-server/
+See [SysLog Message Formats](https://blog.datalust.co/seq-input-syslog/#syslogmessageformats)
+See [How to Send a messae to a syslog server](https://www.techiecorner.com/1496/how-to-send-message-to-syslog-server/)

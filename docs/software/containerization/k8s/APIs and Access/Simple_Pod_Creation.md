@@ -14,8 +14,7 @@ spec:
 ```
 
 To create the `Pod`:
+
 ```bash
 kubectl create -f simple.yaml
 ```
-
- 

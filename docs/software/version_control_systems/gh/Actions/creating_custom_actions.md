@@ -12,7 +12,7 @@ touch .github/actions/hello/action.yml
 
 An example of a Javascript custom action can be found in [here](./greet/action.yml).
 
-Some very useful actions for JavaScript can be found in https://github.com/actions/toolkit. For example, in order to get inputs and set outputs, we would need to install the `core` and `github` packages:
+Some very useful actions for JavaScript can be found in [toolkit](https://github.com/actions/toolkit). For example, in order to get inputs and set outputs, we would need to install the `core` and `github` packages:
 
 ```bash
 npm install @actions/core
@@ -33,7 +33,7 @@ npx ncc build .github/actions/greet/index.js -o .github/actions/greet/dist
 
 And change the action to use the bundle:
 
-```yml
+```yaml
 runs:
   using: 'node12'
   main: 'dist/index.js' # reference the bundle
@@ -45,7 +45,7 @@ To create an action that will run in a Docker container, we need to create:
 
 - An [action YAML](./greet-docker/action.yml) that will hold the inputs, outputs and Docker run specification:
 
- ```yml
+ ```yaml
  runs:
  using: 'docker'
  # We can use a docker image and tag from DockerHub or a Dockerfile

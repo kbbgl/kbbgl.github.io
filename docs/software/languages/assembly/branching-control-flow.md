@@ -18,7 +18,7 @@ It is **32 bits** in size (64 bits in size in long-mode). In 32 bit protected mo
 
 The `JMP` instruction sets the value of `eip`.
 
-```assembly
+```armasm
 JMP ecx ; changes eip to contents of ecx. it will continue from the address ecx
 JMP 777d1044h ; changes eip to 0x777d1044. The program will continue execution on that address
 ```
@@ -38,7 +38,7 @@ Labels allow us to refer to a location in our program without knowing the exact 
 
 Example of an infinite loop:
 
-```assembly
+```armasm
     mov ecx, 0
 my_label:        ; label
     inc ecx
@@ -70,7 +70,7 @@ The most basic and fundamental flag.
 - Is set (to 1) whenever the last calculation had a result of 0.
 - Is cleared (set to 0) when the last calculation had a non-zero result.
 
-```assembly
+```armasm
 mov   eax,3h ;no effect on zero flag
 mov   ecx,3h
 sub   eax,ecx ; 3-3 = 0, zf is set (1)
@@ -80,7 +80,7 @@ sub   eax,ecx ; 3-3 = 0, zf is set (1)
 
 The flag equals the most significant bit of the last result.
 
-```assembly
+```armasm
 mov edx,0
 dec edx ; edx == 0xffffffff therefore sf == 1
 
@@ -94,12 +94,12 @@ The carry flag understands unsigned addition and subtraction.
 
 cf is set to 1 when the addition of two numbers causes a carry out of the most significant bits. For example:
 
-```assembly
+```armasm
 mov eax,ffffffffh
 add eax,1 ; eax == 0, cf == 1
 ```
 
-```asm
+```armasm
 mov eax,f0h
 mov ecx,35h
 sub cl,al
@@ -127,7 +127,7 @@ If `x > 0` and `y < 0`, `of` is never set because the result of the operation ca
 
 Example:
 
-```assembly
+```armasm
 mov al,7fh
 mov cl,1h
 add al,cl

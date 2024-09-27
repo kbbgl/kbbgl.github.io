@@ -28,7 +28,7 @@ Based on [Remote debug a Springboot Application on Kuberenetes](https://urosht.d
 
 1. Create debug configuration
 
-  ```plaintext
+  ```text
   Debugger mode: Attach to remote JVM
   Host: IP(!) of remote server
   Port: port debugger wil listen on (default is 5005)
@@ -36,7 +36,7 @@ Based on [Remote debug a Springboot Application on Kuberenetes](https://urosht.d
 
   In XML:
 
-  ```xml
+  ```markup
     <component name="ProjectRunConfigurationManager">
       <configuration default="false" name="k8s_debug" type="Remote">
         <module name="management" />

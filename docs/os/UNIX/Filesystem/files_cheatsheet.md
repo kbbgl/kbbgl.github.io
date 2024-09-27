@@ -62,6 +62,6 @@ find . -name "*log*" | while read -r file; do echo $file; head -n 1 $file; tail 
 
 ## Creating Files
 
-```zsh
+```bash
 touch {config,main}.py
 ```

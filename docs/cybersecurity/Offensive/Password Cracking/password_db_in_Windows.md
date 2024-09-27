@@ -13,11 +13,11 @@ SAM uses cryptographic measures to prevent unauthenticated users accessing the s
 `%SystemRoot%/system32/config/SAM` and `HKLM/SAM` in registry.
 
 can use `meterpreter` command `hashdump` after reverse shell access to collect the
-Then we can use [`johnthereaper`](https://www.openwall.com/john/)  or [`hashcat`] (https://hashcat.net/hashcat/) to crack them.
+Then we can use [`johnthereaper`](https://www.openwall.com/john/)  or [`hashcat`](https://hashcat.net/hashcat/) to crack them.
 
 ### Hash structure
 
-```plain
+```
 Jason:502:aad3c435b514a4eeaad3b935b51304fe:c46b9e588fa0d112de6f59fd6d58eae3:::
 ```
 

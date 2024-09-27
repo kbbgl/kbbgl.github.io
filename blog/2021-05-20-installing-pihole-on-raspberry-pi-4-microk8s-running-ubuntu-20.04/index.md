@@ -328,7 +328,7 @@ tar xvf pihole.tar -C /tmp/pihole
 and review the source code to check why startup was failing.
 Since I knew that the failure occurs on the following line:
 
-```plaintext
+```text
 ::: Testing pihole-FTL DNS: [cont-init.d] 20-start.sh: exited 1.
 ```
 

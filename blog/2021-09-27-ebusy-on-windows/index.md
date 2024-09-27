@@ -11,7 +11,7 @@ During a debugging session of one of our NodeJS microservices misbehaving on a W
 
 But when I scrolled down to the timestamp where I was supposed to start investigating, I found out that the log was full of the following errors thrown by an attempt to read the microservice log file:
 
-```plaintext
+```text
 Error: EBUSY: resource busy or locked, lstat %PROGRAMDATA%/microservice_b/mb.log
 ```
 

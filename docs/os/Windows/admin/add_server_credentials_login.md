@@ -1,6 +1,6 @@
 
 # Add Server Credentials
 
-```cmd
+```batch
 cmdkey /generic:"server" /user:"admin" /pass:"admin"
 ```

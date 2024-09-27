@@ -12,7 +12,7 @@ Then change the code in yml/`index.js`, install all missing dependencies and use
 
 To the [action yml](../actions/greet/action.yml), we also need to add the `branding` section:
 
-```yml
+```yaml
 outputs:
   # ...
 runs:
@@ -24,6 +24,6 @@ branding:
   icon: 'alert-octagon'
 ```
 
-Then fill out `README.md` that explains how to use the Action.	 
+Then fill out `README.md` that explains how to use the Action.  
 
-https://docs.github.com/en/actions/creating-actions/metadata-syntax-for-github-actions
+[Metadata syntax for GitHub Actions](https://docs.github.com/en/actions/creating-actions/metadata-syntax-for-github-actions)

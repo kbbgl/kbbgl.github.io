@@ -40,7 +40,7 @@ docker build -t $TAG .
 docker run -d -p 8080:8080 anna/docker-multi-stage-build-demo:1.0-SNAPSHOT
 ```
 
-## Get system information:
+## Get system information
 
 ```bash
 sudo docker info
@@ -102,7 +102,7 @@ WARNING: No cpu cfs period support
 
 Adding `RUN --mount=type=cache` keeps your package cache intact between builds. No more re-downloading the entire internet every time you build your image. It’s especially handy when you’re working with large dependencies. Implement this, and watch your build efficiency go through the roof.
 
-```Dockerfile
+```dockerfile
 # Use an official Node base image
 FROM node:14
  

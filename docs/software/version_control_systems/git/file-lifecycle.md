@@ -2,7 +2,7 @@
 
 Move between:
 
-```plain
+```
 working dir <-> staging <-> repo
 ```
 

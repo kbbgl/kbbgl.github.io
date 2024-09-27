@@ -11,7 +11,7 @@ items:                 # list of items
 
 ### Configuration Metadata
 
-```yaml 
+```yaml
 metadata: 
   annotations:
     deployment.kubernetes.io/revision: "1"

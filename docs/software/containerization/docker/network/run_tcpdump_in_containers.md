@@ -9,7 +9,7 @@ tags: [docker, network, debug, tcpdump]
 
 1) Add to container to deployment:
 
-```yml
+```yaml
 - name: tcpdump
    image: corfr/tcpdump
    command:

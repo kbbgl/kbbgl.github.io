@@ -224,7 +224,7 @@ do {
 The script basically runs an infinite loop with a configurable timeout (line 6, variable `waitTimeBetweenBuildsInMinutes`) executing the `gulp` task. We can also configure the name of the task in line 9, variable `taskName`.
 I needed to ensure that the PowerShell script would be initialized after a reboot so I wrote a Task Scheduler XML to automatically start the script upon server boot:
 
-```xml
+```markup
 <?xml version="1.0" encoding="UTF-16"?>
 <Task version="1.2" xmlns="http://schemas.microsoft.com/windows/2004/02/mit/task">
   <RegistrationInfo>
@@ -280,7 +280,7 @@ powershell.exe -ExecutionPolicy Bypass gulpTaskSequentialWithWait.ps1
 
 And ensures that the Task is run on boot:
 
-```xml
+```markup
 <Triggers>
     <BootTrigger>
       <ExecutionTimeLimit>PT12H</ExecutionTimeLimit>

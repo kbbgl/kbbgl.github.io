@@ -4,6 +4,7 @@ Secrets can be specified as environmental variables.
 They must exist before being requested.
 
 An example of a `Secret` as an env var:
+
 ```yaml
 # secret
 ...
@@ -19,4 +20,3 @@ spec:
             key: password
 ...
 ```
-

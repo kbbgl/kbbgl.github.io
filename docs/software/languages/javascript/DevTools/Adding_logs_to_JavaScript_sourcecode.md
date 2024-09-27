@@ -6,7 +6,7 @@ To add a log point, open a script in the `Sources` panel, right-click any line n
 
 Enter an expression such as one you would use in a console command, e.g.
 
-```plaintext
+```text
 "The value of x is", x
 ```
 

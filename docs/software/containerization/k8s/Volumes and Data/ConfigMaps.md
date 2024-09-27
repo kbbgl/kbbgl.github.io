@@ -1,8 +1,8 @@
 ## `ConfigMap`s
 
-A similar API resource to `Secret`s is the `ConfigMap`, except the data is not encoded. In keeping with the concept of decoupling in Kubernetes, using a `ConfigMap` decouples a container image from configuration artifacts. 
+A similar API resource to `Secret`s is the `ConfigMap`, except the data is not encoded. In keeping with the concept of decoupling in Kubernetes, using a `ConfigMap` decouples a container image from configuration artifacts.
 
-They store data as sets of key-value pairs or plain configuration files in any format. The data can come from a collection of files or all files in a directory. It can also be populated from a literal value. 
+They store data as sets of key-value pairs or plain configuration files in any format. The data can come from a collection of files or all files in a directory. It can also be populated from a literal value.
 
 A `ConfigMap` can be used in several different ways. A container can use the data as environmental variables from one or more sources. The values contained inside can be passed to commands inside the `Pod`. A Volume or a file in a Volume can be created, including different names and particular access modes. In addition, cluster components like controllers can use the data.
 
@@ -55,4 +55,3 @@ volumes:
     configMap:
       name: special-config
 ```
-
