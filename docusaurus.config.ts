@@ -52,12 +52,22 @@ const config: Config = {
       items: [
         {
           type: "docSidebar",
-          sidebarId: "tutorialSidebar",
+          sidebarId: "docsSidebar",
           position: "left",
           label: "Docs",
         },
-        { to: "/blog", label: "Blog", position: "left" },
-        { to: "/hack_blog", label: "Hack Blog", position: "left" },
+        {
+          to: "/blog",
+          sidebarId: "blogSidebar",
+          position: "left",
+          label: "Blog",
+        },
+        {
+          to: "/hack_blog",
+          sidebarId: "hackBlogSidebar",
+          position: "left",
+          label: "Hack Blog",
+        },
       ],
     },
     footer: {

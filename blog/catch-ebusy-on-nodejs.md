@@ -30,7 +30,7 @@ High Availability is a concept that is synonymous with the microservice architec
 
 There are different approaches to fault tolerance, the most popular one is using replicas of the same microservices to listen on the same requests. For example, in the architecture I was working with, the Angular frontend application was sending requests to the NodeJS/Express servers who were talking between them in Produces/Consumer fashion using a RabbitMQ message broker. Each microservice (and its instances) was bound to one queue in an exchange.
 
-![arch](./arch.jpeg)
+![arch](./res/arch.jpeg)
 
 The specific microservice that was malfunctioning had only one instance configured (Instance 1 of Microservice B in the diagram above). In order to provide High Availability in this case, all I needed to do was to find out how to increase the number of instances of a microservice.
 

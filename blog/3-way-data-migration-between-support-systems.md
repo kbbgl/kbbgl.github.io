@@ -149,7 +149,7 @@ As previously mentioned, the data from the chat platform was sent to me in CSV f
 The `chat_data.csv` file included all chat conversations which meant that every line in the CSV represented one message sent on the chatting platform. Since users (or `AUTHOR_ID` in this case) can write multiple messages in different `CONVERSATION_ID`s, I needed a way to take only the unique `AUTHOR_ID`s from this CSV. This is where I was introduced to the power of the Python `pandas` library.
 I was able to generate a list of unique users using the following script:
 
-```python
+```python title="generate_unique_users.py"
 #!/usr/bin/env python
 """
 generate_unique_users.py
@@ -245,7 +245,7 @@ Luckily, `pandas` was there to lend a hand.
 I wrote 3 similar scripts, one for each data set.
 For the `user` CSV:
 
-```python
+```python title="generate_user_json.py"
 #!/usr/bin/env python
 """
 # generate_user_json.py
@@ -276,7 +276,7 @@ with open('all_users_lines.json', 'w', encoding='utf-8') as f:
 
 For `comment`:
 
-```python
+```python title="generate_comment_json.py"
 #!/usr/bin/env python
 """
 generate_comment_json.py
@@ -338,7 +338,7 @@ with open(outfile, 'w', encoding='utf-8') as f:
 
 For `ticket`:
 
-```python
+```python title="generate_ticket_json.py"
 #!/usr/bin/env python
 
 """ 
@@ -382,7 +382,7 @@ I used the `DataFrame::to_json(lines=True)` method, option because it generated 
 
 I developed the following script to produce just that:
 
-```python
+```python title="split_into_batch_files.py"
 #!/usr/bin/env python
 """
 split_into_batch_files.py
@@ -435,7 +435,7 @@ ls ./users_split/*.json | wc -l
 The final step was to iterate over each folder, read the `n`th file within that folder and insert the 100 JSON objects into an output JSON file named `backup_tickets_{batch_number}.json`.
 This is the script I wrote to produce just that:
 
-```python
+```python title="backup_tickets.py"
 #!/usr/bin/env python
 
 import os

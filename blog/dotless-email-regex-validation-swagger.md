@@ -4,7 +4,7 @@ title: How To Set Up Dotless Email Validation in Swagger
 description: A detailed explanation what dotless emails are and how to set them up in Swagger.
 authors: [kbbgl]
 tags: [email, regex, web-dev, swagger]
-image: ./swagger-logo.png
+image: ./res/swagger-logo.png
 ---
 
 ## Introduction

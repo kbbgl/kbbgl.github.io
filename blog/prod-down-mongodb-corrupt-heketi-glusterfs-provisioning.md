@@ -33,7 +33,7 @@ Init Containers:
       until nc -zv mongodb-service.prod 27017; do echo waiting for mongodb; sleep 2; done;
 ```
 
-It was pretty evident that the MongoDB service was the cause for the dependent application services inability to initialize because we saw that all 3 replica set member’s `Pod`s were in `Init: CrashLoopBackOff`` state.
+It was pretty evident that the MongoDB service was the cause for the dependent application services inability to initialize because we saw that all 3 replica set member’s `Pod`s were in `Init: CrashLoopBackOff` state.
 
 We needed to understand which `initContainer` of MongoDB was crashing. We were able to figure out why using `kubectl describe pod mongodb-replicaset-0` and `kubectl logs mongodb-replicaset-0 --all-containers`.
 When running `kubectl describe pod mongodb-replicaset-0` we saw that the failing `initContainer` was one called `bootstrap`:
