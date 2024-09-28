@@ -78,7 +78,7 @@ Every time we run `letter_frequency_concurrent.go`, we will get a different resu
 
 #### Race Conditions
 
-In [`race_condition_demo.go](./code/race_condition_demo.go), we can see that we have a variable with an initial value (100) that we pass as a reference to 2 functions that either increase or decrease the value by 10. We run this increase and decrease the same amount of times in its own goroutine so we're expecting that after the functions finish, the amount would equal to the initial value. But this doesn't happen.
+In [`race_condition_demo.go`](./code/race_condition_demo.go), we can see that we have a variable with an initial value (100) that we pass as a reference to 2 functions that either increase or decrease the value by 10. We run this increase and decrease the same amount of times in its own goroutine so we're expecting that after the functions finish, the amount would equal to the initial value. But this doesn't happen.
 
 The cause is that the increase/decrease operation is not an **atomic operation**. An atomic operation is an operation that is indivisible and cannot be interrupted. The `*money -= 10` and `*money += 10` operations have 3 steps:
 
