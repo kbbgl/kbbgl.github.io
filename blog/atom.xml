@@ -188,12 +188,12 @@ This is the script I wrote to produce just that:</p>
             <name>Kobbi Gal</name>
             <uri>https://github.com/kbbgl</uri>
         </author>
-        <category label="bash" term="bash"/>
-        <category label="data engineering" term="data engineering"/>
-        <category label="jq" term="jq"/>
-        <category label="migration" term="migration"/>
-        <category label="pandas" term="pandas"/>
-        <category label="python" term="python"/>
+        <category label="Bash" term="Bash"/>
+        <category label="Data_engineering" term="Data_engineering"/>
+        <category label="Jq" term="Jq"/>
+        <category label="Migration" term="Migration"/>
+        <category label="Pandas" term="Pandas"/>
+        <category label="Python" term="Python"/>
     </entry>
     <entry>
         <title type="html"><![CDATA[Angstrom CTF2021 | Exploiting Python Pickle in Flask Web App]]></title>
@@ -322,10 +322,10 @@ I then ran the script:</p>
             <name>Kobbi Gal</name>
             <uri>https://github.com/kbbgl</uri>
         </author>
-        <category label="ctf" term="ctf"/>
-        <category label="python" term="python"/>
-        <category label="security" term="security"/>
-        <category label="web" term="web"/>
+        <category label="Ctf" term="Ctf"/>
+        <category label="Python" term="Python"/>
+        <category label="Security" term="Security"/>
+        <category label="Web" term="Web"/>
     </entry>
     <entry>
         <title type="html"><![CDATA[How To Catch EBUSY Event on Windows using NodeJS]]></title>
@@ -392,21 +392,21 @@ I then ran the script:</p>
             <name>Kobbi Gal</name>
             <uri>https://github.com/kbbgl</uri>
         </author>
-        <category label="nodejs" term="nodejs"/>
-        <category label="windows" term="windows"/>
-        <category label="web-dev" term="web-dev"/>
-        <category label="debugging" term="debugging"/>
+        <category label="Nodejs" term="Nodejs"/>
+        <category label="Windows" term="Windows"/>
+        <category label="Web-dev" term="Web-dev"/>
+        <category label="Debugging" term="Debugging"/>
     </entry>
     <entry>
         <title type="html"><![CDATA[Debugging NodeJS Microservice with Shared Storage on Kubernetes]]></title>
-        <id>https://kbbgl.github.io/blog/debugging-nodejs-microservice-with-shared-storage-on kubernetes</id>
-        <link href="https://kbbgl.github.io/blog/debugging-nodejs-microservice-with-shared-storage-on kubernetes"/>
+        <id>https://kbbgl.github.io/blog/debugging-nodejs-microservice-with-shared-storage-on-kubernetes</id>
+        <link href="https://kbbgl.github.io/blog/debugging-nodejs-microservice-with-shared-storage-on-kubernetes"/>
         <updated>2024-09-26T20:02:05.000Z</updated>
         <summary type="html"><![CDATA[Fill me up!]]></summary>
         <content type="html"><![CDATA[<p><img decoding="async" loading="lazy" src="https://tilsupport.files.wordpress.com/2021/05/sort_exceeded-1.png" alt="sort-exceeded" class="img_ev3q"></p>
-<h2 class="anchor anchorWithStickyNavbar_LWe7" id="introduction">Introduction<a href="https://kbbgl.github.io/blog/debugging-nodejs-microservice-with-shared-storage-on%C2%A0kubernetes#introduction" class="hash-link" aria-label="Direct link to Introduction" title="Direct link to Introduction">​</a></h2>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="introduction">Introduction<a href="https://kbbgl.github.io/blog/debugging-nodejs-microservice-with-shared-storage-on-kubernetes#introduction" class="hash-link" aria-label="Direct link to Introduction" title="Direct link to Introduction">​</a></h2>
 <p>One of our largest customer recently had a problem loading a list of resources from our web application. The problem was a blocker for the customer and required to identify the problem and provide a workaround, if possible. I was assigned the task as I was the SME in this area (NodeJS microservices, infrastructure such as storage, microservice messaging and configuration).</p>
-<h2 class="anchor anchorWithStickyNavbar_LWe7" id="initial-analysis-and-reproduction">Initial Analysis and Reproduction<a href="https://kbbgl.github.io/blog/debugging-nodejs-microservice-with-shared-storage-on%C2%A0kubernetes#initial-analysis-and-reproduction" class="hash-link" aria-label="Direct link to Initial Analysis and Reproduction" title="Direct link to Initial Analysis and Reproduction">​</a></h2>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="initial-analysis-and-reproduction">Initial Analysis and Reproduction<a href="https://kbbgl.github.io/blog/debugging-nodejs-microservice-with-shared-storage-on-kubernetes#initial-analysis-and-reproduction" class="hash-link" aria-label="Direct link to Initial Analysis and Reproduction" title="Direct link to Initial Analysis and Reproduction">​</a></h2>
 <p>The issue was constantly reproducible which always simplifies things. All I needed to do was to restore the MongoDB dump, log in with a certain user and attempt to load the webpage with the list of resources.
 I restored the MongoDB dump using:</p>
 <div class="language-bash codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_biex"><pre tabindex="0" class="prism-code language-bash codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token plain">mongorestore /path/to/dump</span><br></span></code></pre><div class="buttonGroup__atx"><button type="button" aria-label="Copy code to clipboard" title="Copy" class="clean-btn"><span class="copyButtonIcons_eSgA" aria-hidden="true"><svg viewBox="0 0 24 24" class="copyButtonIcon_y97N"><path fill="currentColor" d="M19,21H8V7H19M19,5H8A2,2 0 0,0 6,7V21A2,2 0 0,0 8,23H19A2,2 0 0,0 21,21V7A2,2 0 0,0 19,5M16,1H4A2,2 0 0,0 2,3V17H4V3H16V1Z"></path></svg><svg viewBox="0 0 24 24" class="copyButtonSuccessIcon_LjdS"><path fill="currentColor" d="M21,7L9,19L3.5,13.5L4.91,12.09L9,16.17L19.59,5.59L21,7Z"></path></svg></span></button></div></div></div>
@@ -414,21 +414,21 @@ I restored the MongoDB dump using:</p>
 I saw that the webpage layout loaded just fine but the actual resource tree was missing. I then opened up the Chrome Developer Tools and navigated to the ‘Network’ tab which allowed me to see the requests sent to the server and find the failing API call. Easily enough, I discovered that the:</p>
 <div class="language-bash codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_biex"><pre tabindex="0" class="prism-code language-bash codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token function" style="color:#d73a49">curl</span><span class="token plain"> </span><span class="token parameter variable" style="color:#36acaa">-X</span><span class="token plain"> GET </span><span class="token variable" style="color:#36acaa">$SERVER</span><span class="token plain">/api/list</span><br></span></code></pre><div class="buttonGroup__atx"><button type="button" aria-label="Copy code to clipboard" title="Copy" class="clean-btn"><span class="copyButtonIcons_eSgA" aria-hidden="true"><svg viewBox="0 0 24 24" class="copyButtonIcon_y97N"><path fill="currentColor" d="M19,21H8V7H19M19,5H8A2,2 0 0,0 6,7V21A2,2 0 0,0 8,23H19A2,2 0 0,0 21,21V7A2,2 0 0,0 19,5M16,1H4A2,2 0 0,0 2,3V17H4V3H16V1Z"></path></svg><svg viewBox="0 0 24 24" class="copyButtonSuccessIcon_LjdS"><path fill="currentColor" d="M21,7L9,19L3.5,13.5L4.91,12.09L9,16.17L19.59,5.59L21,7Z"></path></svg></span></button></div></div></div>
 <p>Returned a <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/500" target="_blank" rel="noopener noreferrer">500 HTTP response code (Internal Server Error)</a>. This indicates that there must be some uncaught exception thrown from the server side. The only way to understand the problem is to check the server logs and proceed from there.</p>
-<h2 class="anchor anchorWithStickyNavbar_LWe7" id="reviewing-server-logs">Reviewing Server Logs<a href="https://kbbgl.github.io/blog/debugging-nodejs-microservice-with-shared-storage-on%C2%A0kubernetes#reviewing-server-logs" class="hash-link" aria-label="Direct link to Reviewing Server Logs" title="Direct link to Reviewing Server Logs">​</a></h2>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="reviewing-server-logs">Reviewing Server Logs<a href="https://kbbgl.github.io/blog/debugging-nodejs-microservice-with-shared-storage-on-kubernetes#reviewing-server-logs" class="hash-link" aria-label="Direct link to Reviewing Server Logs" title="Direct link to Reviewing Server Logs">​</a></h2>
 <p>As I had a lot of experience dealing with the specific microservice and storage, I knew the architecture and dependencies pretty well. In short, it’s a NEAM (NodeJS + Express + Angular + MongoDB) stack. The list of resources were stored in a MongoDB collection (let’s call it resources). The DAL (data access layer) interacting with the resources collection was a NodeJS microservice running an Express server. The client generating the API call was running Angular. The microservices were running in Docker containers in a Kubernetes cluster.</p>
 <p>Reviewing the NodeJS microservice logs, I saw the following error:</p>
 <div class="language-text codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_biex"><pre tabindex="0" class="prism-code language-text codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token plain">Exceeded memory limit for $group, but didn't allow external sort</span><br></span></code></pre><div class="buttonGroup__atx"><button type="button" aria-label="Copy code to clipboard" title="Copy" class="clean-btn"><span class="copyButtonIcons_eSgA" aria-hidden="true"><svg viewBox="0 0 24 24" class="copyButtonIcon_y97N"><path fill="currentColor" d="M19,21H8V7H19M19,5H8A2,2 0 0,0 6,7V21A2,2 0 0,0 8,23H19A2,2 0 0,0 21,21V7A2,2 0 0,0 19,5M16,1H4A2,2 0 0,0 2,3V17H4V3H16V1Z"></path></svg><svg viewBox="0 0 24 24" class="copyButtonSuccessIcon_LjdS"><path fill="currentColor" d="M21,7L9,19L3.5,13.5L4.91,12.09L9,16.17L19.59,5.59L21,7Z"></path></svg></span></button></div></div></div>
 <p>Researching this issue, I found that it’s related to the size of the MongoDB query generated. To understand the magnitude of the query, I checked the MongoDB collection size:</p>
 <div class="language-javascript codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_biex"><pre tabindex="0" class="prism-code language-javascript codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token plain">db</span><span class="token punctuation" style="color:#393A34">.</span><span class="token plain">resources</span><span class="token punctuation" style="color:#393A34">.</span><span class="token function" style="color:#d73a49">count</span><span class="token punctuation" style="color:#393A34">(</span><span class="token punctuation" style="color:#393A34">)</span><span class="token plain"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain"></span><span class="token comment" style="color:#999988;font-style:italic">// 1242731</span><br></span></code></pre><div class="buttonGroup__atx"><button type="button" aria-label="Copy code to clipboard" title="Copy" class="clean-btn"><span class="copyButtonIcons_eSgA" aria-hidden="true"><svg viewBox="0 0 24 24" class="copyButtonIcon_y97N"><path fill="currentColor" d="M19,21H8V7H19M19,5H8A2,2 0 0,0 6,7V21A2,2 0 0,0 8,23H19A2,2 0 0,0 21,21V7A2,2 0 0,0 19,5M16,1H4A2,2 0 0,0 2,3V17H4V3H16V1Z"></path></svg><svg viewBox="0 0 24 24" class="copyButtonSuccessIcon_LjdS"><path fill="currentColor" d="M21,7L9,19L3.5,13.5L4.91,12.09L9,16.17L19.59,5.59L21,7Z"></path></svg></span></button></div></div></div>
 <p>This was the largest number of documents I’ve seen in this collection. It seems that the sort aggregation query generated to MongoDB was too large and couldn’t be processed by the server.</p>
-<h2 class="anchor anchorWithStickyNavbar_LWe7" id="brainstorming-solutions">Brainstorming Solutions<a href="https://kbbgl.github.io/blog/debugging-nodejs-microservice-with-shared-storage-on%C2%A0kubernetes#brainstorming-solutions" class="hash-link" aria-label="Direct link to Brainstorming Solutions" title="Direct link to Brainstorming Solutions">​</a></h2>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="brainstorming-solutions">Brainstorming Solutions<a href="https://kbbgl.github.io/blog/debugging-nodejs-microservice-with-shared-storage-on-kubernetes#brainstorming-solutions" class="hash-link" aria-label="Direct link to Brainstorming Solutions" title="Direct link to Brainstorming Solutions">​</a></h2>
 <p>Starting to think about the possible solutions, the first one that came to mind was to run some sort of cleanup scripts to remove MongoDB duplicates. Since I had a tool like that at my disposal, I ran it. But the script removed less than 1% of the documents.
 The second solution was also related to decreasing the number of documents. But have the customer review the system and begin purging irrelevant resources from the web app. The customer reviewed their list of resources but could not find any particular resources that could be removed. So it seems that we need to somehow resolve the issue without decreasing the size of the collection.
 After reviewing the NodeJS microservice source code, I found that the query generated by the DAL to MongoDB was the following (simplified version):</p>
 <div class="language-javascript codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_biex"><pre tabindex="0" class="prism-code language-javascript codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token comment" style="color:#999988;font-style:italic">// /path/to/resources.dal.js</span><span class="token plain"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">db</span><span class="token punctuation" style="color:#393A34">.</span><span class="token function" style="color:#d73a49">getCollection</span><span class="token punctuation" style="color:#393A34">(</span><span class="token string" style="color:#e3116c">'resources'</span><span class="token punctuation" style="color:#393A34">)</span><span class="token punctuation" style="color:#393A34">.</span><span class="token function" style="color:#d73a49">aggregate</span><span class="token punctuation" style="color:#393A34">(</span><span class="token punctuation" style="color:#393A34">[</span><span class="token plain"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">  </span><span class="token punctuation" style="color:#393A34">{</span><span class="token plain"> </span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">    </span><span class="token string-property property" style="color:#36acaa">"$group"</span><span class="token operator" style="color:#393A34">:</span><span class="token plain"> </span><span class="token punctuation" style="color:#393A34">{</span><span class="token plain"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">      </span><span class="token string-property property" style="color:#36acaa">"ids"</span><span class="token operator" style="color:#393A34">:</span><span class="token plain"> </span><span class="token punctuation" style="color:#393A34">{</span><span class="token plain"> </span><span class="token string-property property" style="color:#36acaa">"$push"</span><span class="token operator" style="color:#393A34">:</span><span class="token plain"> </span><span class="token string" style="color:#e3116c">"$_id"</span><span class="token plain"> </span><span class="token punctuation" style="color:#393A34">}</span><span class="token plain"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">    </span><span class="token punctuation" style="color:#393A34">}</span><span class="token plain"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">  </span><span class="token punctuation" style="color:#393A34">}</span><span class="token plain"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain"></span><span class="token punctuation" style="color:#393A34">]</span><span class="token punctuation" style="color:#393A34">)</span><br></span></code></pre><div class="buttonGroup__atx"><button type="button" aria-label="Copy code to clipboard" title="Copy" class="clean-btn"><span class="copyButtonIcons_eSgA" aria-hidden="true"><svg viewBox="0 0 24 24" class="copyButtonIcon_y97N"><path fill="currentColor" d="M19,21H8V7H19M19,5H8A2,2 0 0,0 6,7V21A2,2 0 0,0 8,23H19A2,2 0 0,0 21,21V7A2,2 0 0,0 19,5M16,1H4A2,2 0 0,0 2,3V17H4V3H16V1Z"></path></svg><svg viewBox="0 0 24 24" class="copyButtonSuccessIcon_LjdS"><path fill="currentColor" d="M21,7L9,19L3.5,13.5L4.91,12.09L9,16.17L19.59,5.59L21,7Z"></path></svg></span></button></div></div></div>
 <p>So seems that 1 million documents with this specific query was not going to be processed. I needed to find a way to modify the query to be able to execute successfully.
 I did some research and found that MongoDB has a <code>100MB</code> system limit on blocking sort operation. There was no way to increase this limit. But, there was a way to work around this problem by using the disk as swap space to complement the RAM used by the query. MongoDB creates a temporary directory (<code>_tmp</code>) inside the <code>dbPath</code> storage location to generate and process the query.</p>
-<h2 class="anchor anchorWithStickyNavbar_LWe7" id="allowdiskuse-and-changing-source-code"><code>allowDiskUse</code> and Changing Source Code<a href="https://kbbgl.github.io/blog/debugging-nodejs-microservice-with-shared-storage-on%C2%A0kubernetes#allowdiskuse-and-changing-source-code" class="hash-link" aria-label="Direct link to allowdiskuse-and-changing-source-code" title="Direct link to allowdiskuse-and-changing-source-code">​</a></h2>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="allowdiskuse-and-changing-source-code"><code>allowDiskUse</code> and Changing Source Code<a href="https://kbbgl.github.io/blog/debugging-nodejs-microservice-with-shared-storage-on-kubernetes#allowdiskuse-and-changing-source-code" class="hash-link" aria-label="Direct link to allowdiskuse-and-changing-source-code" title="Direct link to allowdiskuse-and-changing-source-code">​</a></h2>
 <p>The configuration to use the disk as swap space to increase the MongoDB system limit is quite easy. All we need to do is add the following object to the query:</p>
 <div class="language-javascript codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_biex"><pre tabindex="0" class="prism-code language-javascript codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token punctuation" style="color:#393A34">{</span><span class="token literal-property property" style="color:#36acaa">allowDiskUse</span><span class="token operator" style="color:#393A34">:</span><span class="token plain"> </span><span class="token boolean" style="color:#36acaa">true</span><span class="token punctuation" style="color:#393A34">}</span><br></span></code></pre><div class="buttonGroup__atx"><button type="button" aria-label="Copy code to clipboard" title="Copy" class="clean-btn"><span class="copyButtonIcons_eSgA" aria-hidden="true"><svg viewBox="0 0 24 24" class="copyButtonIcon_y97N"><path fill="currentColor" d="M19,21H8V7H19M19,5H8A2,2 0 0,0 6,7V21A2,2 0 0,0 8,23H19A2,2 0 0,0 21,21V7A2,2 0 0,0 19,5M16,1H4A2,2 0 0,0 2,3V17H4V3H16V1Z"></path></svg><svg viewBox="0 0 24 24" class="copyButtonSuccessIcon_LjdS"><path fill="currentColor" d="M21,7L9,19L3.5,13.5L4.91,12.09L9,16.17L19.59,5.59L21,7Z"></path></svg></span></button></div></div></div>
 <p>Adding it to the source code on my test machine, it looked like this:</p>
@@ -463,18 +463,18 @@ Next step was to add a couple of more commands to the container before the NodeJ
             <name>Kobbi Gal</name>
             <uri>https://github.com/kbbgl</uri>
         </author>
-        <category label="containers" term="containers"/>
-        <category label="debugging" term="debugging"/>
-        <category label="dev" term="dev"/>
-        <category label="docker" term="docker"/>
-        <category label="droppy" term="droppy"/>
-        <category label="k8s" term="k8s"/>
-        <category label="kubernetes" term="kubernetes"/>
-        <category label="node" term="node"/>
-        <category label="nodejs" term="nodejs"/>
-        <category label="web" term="web"/>
-        <category label="webapplication" term="webapplication"/>
-        <category label="webdevelopment" term="webdevelopment"/>
+        <category label="Containers" term="Containers"/>
+        <category label="Debugging" term="Debugging"/>
+        <category label="Dev" term="Dev"/>
+        <category label="Docker" term="Docker"/>
+        <category label="Droppy" term="Droppy"/>
+        <category label="K8s" term="K8s"/>
+        <category label="Kubernetes" term="Kubernetes"/>
+        <category label="Node" term="Node"/>
+        <category label="Nodejs" term="Nodejs"/>
+        <category label="Web" term="Web"/>
+        <category label="Webapplication" term="Webapplication"/>
+        <category label="Webdevelopment" term="Webdevelopment"/>
     </entry>
     <entry>
         <title type="html"><![CDATA[How To Set Up Dotless Email Validation in Swagger]]></title>
@@ -545,10 +545,10 @@ Next step was to add a couple of more commands to the container before the NodeJ
             <name>Kobbi Gal</name>
             <uri>https://github.com/kbbgl</uri>
         </author>
-        <category label="email" term="email"/>
-        <category label="regex" term="regex"/>
-        <category label="web-dev" term="web-dev"/>
-        <category label="swagger" term="swagger"/>
+        <category label="Email" term="Email"/>
+        <category label="Regex" term="Regex"/>
+        <category label="Web-dev" term="Web-dev"/>
+        <category label="Swagger" term="Swagger"/>
     </entry>
     <entry>
         <title type="html"><![CDATA[Fixing Ubuntu Hibernation]]></title>
@@ -575,12 +575,12 @@ Next step was to add a couple of more commands to the container before the NodeJ
             <name>Kobbi Gal</name>
             <uri>https://github.com/kbbgl</uri>
         </author>
-        <category label="ubuntu" term="ubuntu"/>
-        <category label="boot" term="boot"/>
-        <category label="hibernation" term="hibernation"/>
-        <category label="raspberry_pi" term="raspberry_pi"/>
-        <category label="swap" term="swap"/>
-        <category label="fs" term="fs"/>
+        <category label="Ubuntu" term="Ubuntu"/>
+        <category label="Boot" term="Boot"/>
+        <category label="Hibernation" term="Hibernation"/>
+        <category label="Raspberry_pi" term="Raspberry_pi"/>
+        <category label="Swap" term="Swap"/>
+        <category label="Fs" term="Fs"/>
     </entry>
     <entry>
         <title type="html"><![CDATA[How to Run a Sequential gulp.js Task using PowerShell]]></title>
@@ -589,7 +589,8 @@ Next step was to add a couple of more commands to the container before the NodeJ
         <updated>2024-09-26T20:02:05.000Z</updated>
         <summary type="html"><![CDATA[Fill me up!]]></summary>
         <content type="html"><![CDATA[<h2 class="anchor anchorWithStickyNavbar_LWe7" id="introduction">Introduction<a href="https://kbbgl.github.io/blog/gulpjs-task-using-powershell#introduction" class="hash-link" aria-label="Direct link to Introduction" title="Direct link to Introduction">​</a></h2>
-<p>One of our largest and strategic customer recently requested to be able to execute an automated ETL pipeline from one of their Windows multinode cluster in a sequential manner. The ETL pipeline has basically 3-stages:</p>
+<p>One of our largest and strategic customer recently requested to be able to execute an automated ETL pipeline from one of their Windows multinode cluster in a sequential manner.</p>
+<p>The ETL pipeline has basically 3-stages:</p>
 <ol>
 <li>Initialize an import from their many data sources into a consolidated database on master node.</li>
 <li>After the import step finishes, copy the flat files representing the consolidated database to the slave nodes.</li>
@@ -653,13 +654,13 @@ I needed to ensure that the PowerShell script would be initialized after a reboo
             <name>Kobbi Gal</name>
             <uri>https://github.com/kbbgl</uri>
         </author>
-        <category label="gulp" term="gulp"/>
-        <category label="gulp.js" term="gulp.js"/>
-        <category label="gulpjs" term="gulpjs"/>
-        <category label="script" term="script"/>
-        <category label="scripting" term="scripting"/>
-        <category label="task_scheduler" term="task_scheduler"/>
-        <category label="windows" term="windows"/>
+        <category label="Gulp" term="Gulp"/>
+        <category label="Gulp.js" term="Gulp.js"/>
+        <category label="Gulpjs" term="Gulpjs"/>
+        <category label="Script" term="Script"/>
+        <category label="Scripting" term="Scripting"/>
+        <category label="Task_scheduler" term="Task_scheduler"/>
+        <category label="Windows" term="Windows"/>
     </entry>
     <entry>
         <title type="html"><![CDATA[Hack The Box ‘Archetype’ Challenge]]></title>
@@ -775,12 +776,12 @@ I did some research and found <a href="https://superuser.com/a/1421775/506517" t
             <name>Kobbi Gal</name>
             <uri>https://github.com/kbbgl</uri>
         </author>
-        <category label="capture_the_flag" term="capture_the_flag"/>
-        <category label="ctf" term="ctf"/>
-        <category label="cybersecurity" term="cybersecurity"/>
-        <category label="hacking" term="hacking"/>
-        <category label="smb" term="smb"/>
-        <category label="windows" term="windows"/>
+        <category label="Capture_the_flag" term="Capture_the_flag"/>
+        <category label="Ctf" term="Ctf"/>
+        <category label="Cybersecurity" term="Cybersecurity"/>
+        <category label="Hacking" term="Hacking"/>
+        <category label="Smb" term="Smb"/>
+        <category label="Windows" term="Windows"/>
     </entry>
     <entry>
         <title type="html"><![CDATA[How To Trace/Read RabbitMQ Messages]]></title>
@@ -789,7 +790,8 @@ I did some research and found <a href="https://superuser.com/a/1421775/506517" t
         <updated>2024-09-26T20:02:05.000Z</updated>
         <summary type="html"><![CDATA[Fill me up!]]></summary>
         <content type="html"><![CDATA[<h2 class="anchor anchorWithStickyNavbar_LWe7" id="introduction">Introduction<a href="https://kbbgl.github.io/blog/how-to-trace-read-rabbitmq%C2%A0messages#introduction" class="hash-link" aria-label="Direct link to Introduction" title="Direct link to Introduction">​</a></h2>
-<p>This week, I needed to debug a production issue where one of the critical ReactJS applications happened to load exactly after 60 seconds. When I opened the browser development tools network tab, I saw that the request was stuck in Pending state indicating that it was waiting for the server to respond.</p>
+<p>This week, I needed to debug a production issue where one of the critical ReactJS applications happened to load exactly after 60 seconds.</p>
+<p>When I opened the browser development tools network tab, I saw that the request was stuck in Pending state indicating that it was waiting for the server to respond.</p>
 <p>As I am already quite familiar with the relevant GraphQL server which works as a backend for this ReactJS application, I knew that the constant 60 seconds response time was no coincidence. It was a hardcoded RabbitMQ RPC (Remote Procedure Call) timeout which is configured systemwide. This means that any microservice in the cluster has 60 seconds to respond to the RPC, and if it doesn’t do so by that interval, the message is dropped. In order to further debug the issue, I needed to somehow figure out which RPC call was stuck as neither the RabbitMQ or the GraphQL services DEBUG/TRACE logs had printed information about these RPCs.</p>
 <p><img decoding="async" loading="lazy" src="https://www.cloudamqp.com/img/blog/workflow-rabbitmq.png" alt="broker" class="img_ev3q"></p>
 <p>Microservices use the RabbitMQ message broker to transfer messages between them. These messages, when consumed by the destination service, will <a href="https://developer.mozilla.org/en-US/docs/Glossary/TCP_handshake" target="_blank" rel="noopener noreferrer"><code>ACK</code></a> with a response message to the service which requested the information. Once the reply was accepted by the requesting service, the message is deleted from the queue.</p>
@@ -862,11 +864,11 @@ We first need to install it:</p>
             <name>Kobbi Gal</name>
             <uri>https://github.com/kbbgl</uri>
         </author>
-        <category label="debugging" term="debugging"/>
-        <category label="docker" term="docker"/>
-        <category label="kubernetes" term="kubernetes"/>
-        <category label="rabbitmq" term="rabbitmq"/>
-        <category label="trace" term="trace"/>
+        <category label="Debugging" term="Debugging"/>
+        <category label="Docker" term="Docker"/>
+        <category label="Kubernetes" term="Kubernetes"/>
+        <category label="Rabbitmq" term="Rabbitmq"/>
+        <category label="Trace" term="Trace"/>
     </entry>
     <entry>
         <title type="html"><![CDATA[Installing PiHole On Raspberry Pi 4, MicroK8s running Ubuntu 20.04 (focal)]]></title>
@@ -1026,14 +1028,14 @@ We need to run the following sequence of commands to be able to ensure that our 
             <name>Kobbi Gal</name>
             <uri>https://github.com/kbbgl</uri>
         </author>
-        <category label="docker" term="docker"/>
-        <category label="how-to" term="how-to"/>
-        <category label="k8s" term="k8s"/>
-        <category label="kubernetes" term="kubernetes"/>
-        <category label="linux" term="linux"/>
-        <category label="pihole" term="pihole"/>
-        <category label="raspberry_pi" term="raspberry_pi"/>
-        <category label="troubleshooting" term="troubleshooting"/>
+        <category label="Docker" term="Docker"/>
+        <category label="How-to" term="How-to"/>
+        <category label="K8s" term="K8s"/>
+        <category label="Kubernetes" term="Kubernetes"/>
+        <category label="Linux" term="Linux"/>
+        <category label="Pihole" term="Pihole"/>
+        <category label="Raspberry_pi" term="Raspberry_pi"/>
+        <category label="Troubleshooting" term="Troubleshooting"/>
     </entry>
     <entry>
         <title type="html"><![CDATA[Installing Ubuntu 20.04 on 2013 MacBook Air]]></title>
@@ -1059,7 +1061,7 @@ I wasn’t buying it that the hardware would not be able to run the browser and 
 I decided the best approach would be to initially dual boot MacOS and Ubuntu, ensure that Ubuntu is stable and then remove the partition where MacOS lives.</p>
 <h2 class="anchor anchorWithStickyNavbar_LWe7" id="create-a-bootable-ubuntu-usb-stick">Create a Bootable Ubuntu USB Stick<a href="https://kbbgl.github.io/blog/installing-ubuntu-2004-on-2013-macbook-air#create-a-bootable-ubuntu-usb-stick" class="hash-link" aria-label="Direct link to Create a Bootable Ubuntu USB Stick" title="Direct link to Create a Bootable Ubuntu USB Stick">​</a></h2>
 <p>The first step was to generate a bootable USB stick which would hold the Ubuntu image.
-I logged into MacOS and downloaded the latest Ubuntu image from <a href="https://ubuntu.com/download/desktop" target="_blank" rel="noopener noreferrer">https://ubuntu.com/download/desktop</a> and saved it in <code>~/Downloads/ubuntu-20.04.2.0-desktop-amd.iso</code>.</p>
+I logged into MacOS and downloaded the latest Ubuntu image from <a href="https://ubuntu.com/download/desktop" target="_blank" rel="noopener noreferrer">Ubuntu Desktop</a> and saved it in <code>~/Downloads/ubuntu-20.04.2.0-desktop-amd.iso</code>.</p>
 <p>I then opened the Terminal and ran the following command:</p>
 <div class="language-bash codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_biex"><pre tabindex="0" class="prism-code language-bash codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token plain">hdiutil convert </span><span class="token parameter variable" style="color:#36acaa">-format</span><span class="token plain"> UDRW </span><span class="token parameter variable" style="color:#36acaa">-o</span><span class="token plain"> /tmp/ubuntu.img ~/Downloads/ubuntu-20.04.2.0-desktop-amd.iso</span><br></span></code></pre><div class="buttonGroup__atx"><button type="button" aria-label="Copy code to clipboard" title="Copy" class="clean-btn"><span class="copyButtonIcons_eSgA" aria-hidden="true"><svg viewBox="0 0 24 24" class="copyButtonIcon_y97N"><path fill="currentColor" d="M19,21H8V7H19M19,5H8A2,2 0 0,0 6,7V21A2,2 0 0,0 8,23H19A2,2 0 0,0 21,21V7A2,2 0 0,0 19,5M16,1H4A2,2 0 0,0 2,3V17H4V3H16V1Z"></path></svg><svg viewBox="0 0 24 24" class="copyButtonSuccessIcon_LjdS"><path fill="currentColor" d="M21,7L9,19L3.5,13.5L4.91,12.09L9,16.17L19.59,5.59L21,7Z"></path></svg></span></button></div></div></div>
 <p>The command utilizes the MacOS <code>hdutil</code> tool to convert an image between two data types: <code>.iso</code> (disk image in ISO-9660 standard) to <code>.img.dmg</code> (disk image specifically by MacOS). The <code>-format UDRW</code> argument specifies that we want to read and write the image with the Apple <code>UDIF</code> format. To read more about the hdutil and UDIF format, I suggest reading the <a href="https://ss64.com/osx/hdiutil.html" target="_blank" rel="noopener noreferrer">hdutil man page</a> and <a href="http://disktype.sourceforge.net/doc/ch03s13.html" target="_blank" rel="noopener noreferrer">disk image formats</a>.</p>
@@ -1109,8 +1111,8 @@ But once I restarted the computer, I saw that the changes were reverted. I neede
             <name>Kobbi Gal</name>
             <uri>https://github.com/kbbgl</uri>
         </author>
-        <category label="mac" term="mac"/>
-        <category label="ubuntu" term="ubuntu"/>
+        <category label="Mac" term="Mac"/>
+        <category label="Ubuntu" term="Ubuntu"/>
     </entry>
     <entry>
         <title type="html"><![CDATA[MacBook Pro 2020 High CPU caused by Siri]]></title>
@@ -1182,11 +1184,11 @@ What I found was that the OS crashed because of a segmentation fault:</p>
             <name>Kobbi Gal</name>
             <uri>https://github.com/kbbgl</uri>
         </author>
-        <category label="apple" term="apple"/>
-        <category label="corespeechd" term="corespeechd"/>
-        <category label="cpu" term="cpu"/>
-        <category label="debugging" term="debugging"/>
-        <category label="macos" term="macos"/>
+        <category label="Apple" term="Apple"/>
+        <category label="Corespeechd" term="Corespeechd"/>
+        <category label="Cpu" term="Cpu"/>
+        <category label="Debugging" term="Debugging"/>
+        <category label="Macos" term="Macos"/>
     </entry>
     <entry>
         <title type="html"><![CDATA[Fixing Production Down caused by MongoDB Corruption and Heketi/GlusterFS Failed Provisioning]]></title>
@@ -1195,8 +1197,8 @@ What I found was that the OS crashed because of a segmentation fault:</p>
         <updated>2024-09-26T20:02:05.000Z</updated>
         <summary type="html"><![CDATA[Fill me up!]]></summary>
         <content type="html"><![CDATA[<h2 class="anchor anchorWithStickyNavbar_LWe7" id="introduction">Introduction<a href="https://kbbgl.github.io/blog/prod-down-mongodb-corrupt-heketi-glusterfs-provisioning#introduction" class="hash-link" aria-label="Direct link to Introduction" title="Direct link to Introduction">​</a></h2>
-<p>Today I received an escalation from one of our largest and most strategic customers. Over the weekend, the customer had ‘patched’ their 3 Ubuntu 18.04 nodes running Kubernetes 1.17.  They were using <a href="https://www.gluster.org/" target="_blank" rel="noopener noreferrer"><code>glusterfs</code></a> as their shared storage class.
-I was trying to figure out what this ‘patching’ job entailed so we could assess which step of the maintenance to focus on but could not get all the necessary details from the customer support team except for the following order of operations:</p>
+<p>Today I received an escalation from one of our largest and most strategic customers. Over the weekend, the customer had ‘patched’ their 3 Ubuntu 18.04 nodes running Kubernetes 1.17.  They were using <a href="https://www.gluster.org/" target="_blank" rel="noopener noreferrer"><code>glusterfs</code></a> as their shared storage class.</p>
+<p>I was trying to figure out what this ‘patching’ job entailed so we could assess which step of the maintenance to focus on but could not get all the necessary details from the customer support team except for the following order of operations:</p>
 <ol>
 <li>They ran <code>kubectl drain</code> to prepare their 3 nodes for the patching. This ensured that all <code>Pods</code> would get evicted, including all persistent storage and services.</li>
 <li>They ran kernel updates to patch security vulnerabilities.</li>
@@ -1294,15 +1296,15 @@ We had the GlusterFS <code>PVC</code> provisioned, we had all 3 MongoDB replica 
             <name>Kobbi Gal</name>
             <uri>https://github.com/kbbgl</uri>
         </author>
-        <category label="cluster" term="cluster"/>
-        <category label="gluster" term="gluster"/>
-        <category label="glusterfs" term="glusterfs"/>
-        <category label="heketi" term="heketi"/>
-        <category label="kubectl" term="kubectl"/>
-        <category label="kubernetes" term="kubernetes"/>
-        <category label="mongo" term="mongo"/>
-        <category label="mongodb" term="mongodb"/>
-        <category label="production" term="production"/>
-        <category label="troubleshooting" term="troubleshooting"/>
+        <category label="Cluster" term="Cluster"/>
+        <category label="Gluster" term="Gluster"/>
+        <category label="Glusterfs" term="Glusterfs"/>
+        <category label="Heketi" term="Heketi"/>
+        <category label="Kubectl" term="Kubectl"/>
+        <category label="Kubernetes" term="Kubernetes"/>
+        <category label="Mongo" term="Mongo"/>
+        <category label="Mongodb" term="Mongodb"/>
+        <category label="Production" term="Production"/>
+        <category label="Troubleshooting" term="Troubleshooting"/>
     </entry>
 </feed>
