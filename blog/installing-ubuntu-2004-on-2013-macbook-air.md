@@ -30,7 +30,7 @@ I decided the best approach would be to initially dual boot MacOS and Ubuntu, en
 ## Create a Bootable Ubuntu USB Stick
 
 The first step was to generate a bootable USB stick which would hold the Ubuntu image.
-I logged into MacOS and downloaded the latest Ubuntu image from <https://ubuntu.com/download/desktop> and saved it in `~/Downloads/ubuntu-20.04.2.0-desktop-amd.iso`.
+I logged into MacOS and downloaded the latest Ubuntu image from [Ubuntu Desktop](https://ubuntu.com/download/desktop) and saved it in `~/Downloads/ubuntu-20.04.2.0-desktop-amd.iso`.
 
 I then opened the Terminal and ran the following command:
 

@@ -3,7 +3,7 @@ slug: 3-way-data-migration-between-support-systems
 title: 3-Way Data Migration between Support Systems
 description: Fill me up!
 authors: [kbbgl]
-tags: [bash,data engineering,jq,migration,pandas,python]
+tags: [bash,data_engineering,jq,migration,pandas,python]
 ---
 
 ## Introduction
