@@ -1,6 +1,6 @@
 ---
 slug: thread-communication
-title: Thread Communcation
+title: Thread Communication
 author: [kbbgl]
 tags: [go,concurrency,threads]
 ---
