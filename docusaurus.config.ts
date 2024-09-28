@@ -111,6 +111,8 @@ const config: Config = {
         "powershell",
         "python",
         "yaml",
+        "excel-formula",
+        "css",
       ],
     },
   } satisfies Preset.ThemeConfig,

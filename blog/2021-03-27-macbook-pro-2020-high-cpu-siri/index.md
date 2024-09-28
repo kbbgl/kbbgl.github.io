@@ -36,7 +36,7 @@ According to the online research, all fingers were pointing to one feature: Siri
 Since the machine had crashed a few times, I decided the next step would be to review the system crash report.
 What I found was that the OS crashed because of a segmentation fault:
 
-```segfault
+```bash
 Crashed Thread:        0  Dispatch queue: com.apple.main-thread
 
 Exception Type:        EXC_BAD_ACCESS (SIGSEGV)
@@ -66,7 +66,7 @@ What was immediately visible was that there were instructions in memory address 
 
 I decided to run `corespeechd` using `strace` so I could see what system calls the process was executing during run-time. I found the following output indicating there was some permission issues attempting to access a certain process probe:
 
-```text
+```bash
 dtrace: error on enabled probe ID 2378 (ID 918: syscall::kevent_id:return): invalid user access in action #5 at DIF offset 0
 dtrace: error on enabled probe ID 2385 (ID 904: syscall::workq_kernreturn:return): invalid user access in action #5 at DIF offset 0
 ```

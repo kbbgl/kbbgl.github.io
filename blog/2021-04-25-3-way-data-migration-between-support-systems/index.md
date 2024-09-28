@@ -208,7 +208,7 @@ I imported both CSVs into two separate sheets named after their filenames, namel
 
 The name and email rows were taken from Sheet 2, the `id` had the following formula in it (in the 2nd row of the sheet):
 
-```xlsx
+```excel-formula
 =IFNA(VLOOKUP(A2, ticket_platform_users!$A$2:$B$56748, 2, false), chat_platform_users!C2)
 ```
 
