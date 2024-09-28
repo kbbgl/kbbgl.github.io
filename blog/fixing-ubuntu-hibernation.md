@@ -9,6 +9,8 @@ tags: [ubuntu,boot,hibernation,raspberry_pi,swap,fs]
 
 One day, seemingly out of the blue, my (using [Docusaurus](https://docusaurus.io/) blog site, which is set up as an Ubuntu `systemd` service on the Raspberry Pi 4, stopped being accessible.
 
+<!-- truncate -->
+
 I tried pinging it and checking whether is it was connected to my local network but it was nowhere to be found. This meant that I needed to physically access the Raspberry Pi so I connected it to a monitor and reset it.
 
 ## Boot No Good

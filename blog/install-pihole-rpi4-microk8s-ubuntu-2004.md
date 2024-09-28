@@ -21,6 +21,8 @@ I wanted to deploy it for a few reasons:
 
 This post is here to explain how was able to deploy PiHole on Kubernetes and how I resolved some of the problems that occurred during the deployment process.
 
+<!-- truncate -->
+
 ## Setting Up Kubernetes on Ubuntu
 
 There are a few ways to do this. I was looking at the different options but decided to choose MicroK8s in the end (over Charmed Kubernetes or kubeadm) simply because the Canonical team maintains it (Canonical is the publisher of Ubuntu) so I thought it would be the wisest decision long term as any kernel/software upgrades on the OS level would likely be QA’d in the future in accordance with MicroK8s maintenance.

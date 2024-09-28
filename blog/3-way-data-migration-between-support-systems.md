@@ -12,6 +12,8 @@ The company I work for decided a few months ago that we’ll be moving all custo
 My task was to perform the migration between the systems.
 Even though I’m not data engineer by any means, I accepted the challenge and thought it would teach me a lot about the planning and execution of such a complex project. It would also allow me to hone in my development/scripting skills and finally have some hands-on experience using a Python library I was always interested in working with, [pandas](https://pandas.pydata.org/).
 
+<!-- truncate -->
+
 ## Planning the Migration
 
 The first step was to understand what format the source and destination platforms supplied and expected the data in, respectively.

@@ -9,7 +9,11 @@ image_url: https://tilsupport.files.wordpress.com/2021/04/1_unyl-2r54_7anewqv0cv
 
 ## Introduction
 
-This week, I needed to debug a production issue where one of the critical ReactJS applications happened to load exactly after 60 seconds. When I opened the browser development tools network tab, I saw that the request was stuck in Pending state indicating that it was waiting for the server to respond.
+This week, I needed to debug a production issue where one of the critical ReactJS applications happened to load exactly after 60 seconds.
+
+<!-- truncate -->
+
+When I opened the browser development tools network tab, I saw that the request was stuck in Pending state indicating that it was waiting for the server to respond.
 
 As I am already quite familiar with the relevant GraphQL server which works as a backend for this ReactJS application, I knew that the constant 60 seconds response time was no coincidence. It was a hardcoded RabbitMQ RPC (Remote Procedure Call) timeout which is configured systemwide. This means that any microservice in the cluster has 60 seconds to respond to the RPC, and if it doesn’t do so by that interval, the message is dropped. In order to further debug the issue, I needed to somehow figure out which RPC call was stuck as neither the RabbitMQ or the GraphQL services DEBUG/TRACE logs had printed information about these RPCs.
 

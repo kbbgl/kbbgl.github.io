@@ -9,6 +9,8 @@ tags: [nodejs, windows, web-dev, debugging]
 
 During a debugging session of one of our NodeJS microservices misbehaving on a Windows Server 2019 instances, I opened the microservice log to begin investigating the faulty behavior.
 
+<!-- truncate -->
+
 But when I scrolled down to the timestamp where I was supposed to start investigating, I found out that the log was full of the following errors thrown by an attempt to read the microservice log file:
 
 ```text

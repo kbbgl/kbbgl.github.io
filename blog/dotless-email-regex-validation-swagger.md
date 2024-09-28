@@ -11,6 +11,8 @@ image: ./res/swagger-logo.png
 
 One of our customers recently attempted (for reason unknown to us) to log into our platform using [Okta Single Sign On (SSO)](https://www.okta.com/products/single-sign-on/) and [OpenID-Connect](https://openid.net/connect/) with emails missing a top-level domain (TLD) while they could log in just fine with a standard email address.
 
+<!-- truncate -->
+
 While most of us in the day-to-day use the standard email address format with a top-level domain added, e.g. `user@domain.org`, this customer required to be able to log in with user@domain. Our platform rejected the user and they were unable to log in.
 
 My first question was whether this email address (`user@domain`) was even allowed. If it was, I needed to find why it's being rejected.

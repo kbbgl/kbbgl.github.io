@@ -10,6 +10,8 @@ tags: [apple,corespeechd,cpu,debugging,macos]
 
 A few months ago, I received a highly-anticipated 2020 32GB, 2.3 GHz Quad-Core Intel Core i7 MacBook Pro. Highly-anticipated because I already had one stolen (a 2019 version) earlier last year in a robbery in an AirBnB apartment I was renting while I was staying in Barcelona. It was quite a dramatic story but I won’t get into the details. This is a tech blog after all.
 
+<!-- truncate -->
+
 Back to the new computer I acquired, the thing was flying. I could open large projects in IntelliJ and VSCode, run a Kubernetes cluster using [`minikube`](https://minikube.sigs.k8s.io/docs/start/) and endless amounts of terminals simultaneously on different workspaces and the thing would not miss a beat.
 
 Within the first week of receiving machine, I got a notification indicating that there was a system update. I never had any fears come with system updates. I always found myself jumping ship and hoping no regressions or new issues are introduced upon upgrades/updates. I’m not a skeptic, I believe Apple’s QA is up to the highest testing standards.

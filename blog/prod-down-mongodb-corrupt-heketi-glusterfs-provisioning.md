@@ -8,6 +8,9 @@ tags: [cluster,gluster,glusterfs,heketi,kubectl,kubernetes,mongo,mongodb,product
 ## Introduction
 
 Today I received an escalation from one of our largest and most strategic customers. Over the weekend, the customer had ‘patched’ their 3 Ubuntu 18.04 nodes running Kubernetes 1.17.  They were using [`glusterfs`](https://www.gluster.org/) as their shared storage class.
+
+<!-- truncate -->
+
 I was trying to figure out what this ‘patching’ job entailed so we could assess which step of the maintenance to focus on but could not get all the necessary details from the customer support team except for the following order of operations:
 
 1. They ran `kubectl drain` to prepare their 3 nodes for the patching. This ensured that all `Pods` would get evicted, including all persistent storage and services.

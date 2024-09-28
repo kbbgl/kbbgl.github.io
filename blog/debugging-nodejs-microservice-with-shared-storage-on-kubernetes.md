@@ -1,5 +1,5 @@
 ---
-slug: debugging-nodejs-microservice-with-shared-storage-on kubernetes
+slug: debugging-nodejs-microservice-with-shared-storage-on-kubernetes
 title: Debugging NodeJS Microservice with Shared Storage on Kubernetes
 description: Fill me up!
 authors: [kbbgl]
@@ -11,6 +11,8 @@ tags: [containers,debugging,dev,docker,droppy,k8s,kubernetes,node,nodejs,web,web
 ## Introduction
 
 One of our largest customer recently had a problem loading a list of resources from our web application. The problem was a blocker for the customer and required to identify the problem and provide a workaround, if possible. I was assigned the task as I was the SME in this area (NodeJS microservices, infrastructure such as storage, microservice messaging and configuration).
+
+<!-- truncate -->
 
 ## Initial Analysis and Reproduction
 

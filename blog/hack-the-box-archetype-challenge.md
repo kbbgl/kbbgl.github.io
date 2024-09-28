@@ -11,6 +11,8 @@ tags: [capture_the_flag,ctf,cybersecurity,hacking,smb,windows]
 [Hack The Box](https://www.hackthebox.eu/) is a website offering vulnerable machines for practising hacking skills. The goal of the ‘Labs’ are to hack into the system and capture the flag (CTF) which can be found in a text file in the desktop of a regular and an administrator user.
 On my pursuit to get some practical exercise in the field, I decided to sign up and attempt one of the beginner exercises. This post describes how I managed to get remote code execution (RCE) in the one of the boxes and access the flags.
 
+<!-- truncate -->
+
 ## Connecting to Hack The Box Network
 
 The first step is to connect to the Hack The Box network to be able to enumerate the target machine. To do this, we need to download an OpenVPN configuration file (`.ovpn`) and use the `openvpn` utility to create the tunnel into the Hack The Box network:

@@ -8,7 +8,11 @@ tags: [gulp,gulp.js,gulpjs,script,scripting,task_scheduler,windows]
 
 ## Introduction
 
-One of our largest and strategic customer recently requested to be able to execute an automated ETL pipeline from one of their Windows multinode cluster in a sequential manner. The ETL pipeline has basically 3-stages:
+One of our largest and strategic customer recently requested to be able to execute an automated ETL pipeline from one of their Windows multinode cluster in a sequential manner.
+
+<!-- truncate -->
+
+The ETL pipeline has basically 3-stages:
 
 1. Initialize an import from their many data sources into a consolidated database on master node.
 2. After the import step finishes, copy the flat files representing the consolidated database to the slave nodes.
