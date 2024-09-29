@@ -6,7 +6,7 @@
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://kbbgl.github.io/blog"/>
     <subtitle>Kobbi's Knowledgebase Blog</subtitle>
-    <icon>https://kbbgl.github.io/img/favicon.ico</icon>
+    <icon>https://kbbgl.github.io/img/favicon.svg</icon>
     <entry>
         <title type="html"><![CDATA[3-Way Data Migration between Support Systems]]></title>
         <id>https://kbbgl.github.io/blog/3-way-data-migration-between-support-systems</id>
