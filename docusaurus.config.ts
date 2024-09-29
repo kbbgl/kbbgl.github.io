@@ -5,7 +5,7 @@ import type * as Preset from "@docusaurus/preset-classic";
 const config: Config = {
   title: "Kobbi's Knowledgebase",
   tagline: "",
-  favicon: "img/favicon.ico",
+  favicon: "img/favicon.svg",
   url: "https://kbbgl.github.io",
   baseUrl: "/",
   organizationName: "kbbgl",
