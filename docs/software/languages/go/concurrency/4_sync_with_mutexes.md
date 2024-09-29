@@ -21,3 +21,35 @@ In case another goroutine attempts to lock a mutex that is already locked, the g
 In Go, mutex functionality is provided in the `sync` package under the `Mutex` type and provides the `Lock()` and `Unlock()` operations.
 
 An example of how to use these operations can be found in [race_condition_mutex.go](./code/race_condition_mutex.go) when there are 2 goroutines and in [letter_frequency_concurrent_fixed.go](./code/letter_frequency_concurrent_fixed.go) when numerous goroutines are executed.
+
+There's also a `TryLock()` operation but it should not be used in the majority of cases.
+
+## Readers-Writer Mutexes
+
+Mutexes have a performance penalty since it blocks concurrency. In some cases, such as read-heavy operations on shared data, readers-writer mutexes are a better fit. Readers-writer mutexes only block concurrency when we need to update a shared resource, not when reading. This is true because race conditions only happen if we change the shared state without proper synchronization. If we don't modify the shared data, there is no risk of race conditions.
+
+Go has its own implementation of a readers-writer lock in `sync.RWMutex` type. These are the functions that it offers:
+
+```go
+type RWMutex
+    // Locks writer part of mutex
+    func (rw *RWMutex) Lock()
+
+    // Locks read part of mutex
+    func (rw *RWMutex) RLock()
+
+    // Returns read part locker of mutex
+    func (rw *RWMutex) RLocker() Locker
+
+    // Unlocks read part of mutex
+    func (rw *RWMutex) RUnlock()
+
+    // Tries to lock writer part of mutex
+    func (rw *RWMutex) TryLock() bool
+
+    // Tries to lock read part of mutex
+    func (rw *RWMutex) TryRLock() bool
+
+    // Unlock writer part of mutex
+    func (rw *RWMutex) Unlock()
+```
