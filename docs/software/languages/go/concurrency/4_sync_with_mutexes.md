@@ -53,3 +53,5 @@ type RWMutex
     // Unlock writer part of mutex
     func (rw *RWMutex) Unlock()
 ```
+
+A custom readers-writer mutex is implemented in [`custommutex.go`](./code/custommutex.go).
