@@ -55,3 +55,76 @@ go doWork(&sharedState, &condition)
 ### Synchronizing multiple goroutines
 
 In cases wen multiple goroutines are suspended on `Wait()`, `Signal()` will arbitrarily wake up one of the goroutines. `Broadcast()` will wake up all goroutines that are suspended on a `Wait()`.
+
+## Semaphores
+
+Semaphores allow us to specify the number of concurrent executions that are permitted. This means that we can control how many goroutines can access our shared resources. A semaphore is basically a mutex but with a variable amount of goroutines that are allowed to interact with the shared resource. However, in case of a mutex, the execution should hold and release it. Using semaphores, this is not always the case.
+
+Semaphores provide 3 functions:
+
+* New semaphore function which creates a new semaphore with variable amount of permits.
+* Acquire permit function which allows a goroutine to take one permit from the semaphore. If none are available, the goroutine will suspend and wait until one of them is available.
+* Release permit function which releases one permit so a goroutine can use it again with the acquire function.
+
+### Building a semaphore
+
+Go comes with an [extension to the `sync` package](golang.org/x/sync/semaphore).
+
+A sample implementation of a semaphore:
+
+```go
+package main
+
+import (
+    "sync"
+)
+
+type Semaphore struct {
+    // Permits remaining on the semaphore
+    permits int
+
+    // Condition variable used for waiting when
+    // there are not enough permits
+    cond *sync.Cond
+}
+
+func NewSemaphore(n int) *Semaphore {
+    return &Semaphore{
+        // Initial number of permits 
+        permits: n,
+
+        // Condition variable used for waiting when
+        // there are not enough permits
+        cond: *sync.NewCond(&sync.Mutex{})
+    }
+}
+
+func (rw *Sempahore) Acquire() {
+    // Acquires mutex to protect permits variable
+    rw.cond.L.Lock()
+    for rw.permits <= 0 {
+        // Waits until there is an available permit
+        rw.cond.Wait()
+    }
+    // Decrease the number of available permits
+    rw.permits--
+    // Release mutex
+    rw.cond.L.Unlock()
+
+}
+
+func (rw *Semaphore) Release() {
+    // Acquires mutex to protect permits variable
+    rw.cond.L.Lock()
+
+    // Increases the number of available permits
+    rw.permits++
+
+    // Signals condition variable that one more permit 
+    // is available
+    rw.cond.Signal()
+
+    // Releases mutex
+    rw.cond.L.Unlock()
+}
+```
