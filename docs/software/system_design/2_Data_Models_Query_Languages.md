@@ -1,7 +1,7 @@
 ---
-slug: data_models_query_langs
+slug: data-models-query-langs
 title: Data Models and Query Languages
-description: Fill me up!
+description: Chapter 2 of Designing Data Intensive Applications
 authors: [kbbgl]
 tags: [system_design,data_model,query]
 ---
