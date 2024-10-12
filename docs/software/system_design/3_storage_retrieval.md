@@ -20,7 +20,7 @@ This is an important trade-off in storage systems. Indexes speed up reading but 
 
 ### Hash Indexes
 
-Key-value, dictionary stores internally implement a hash map. When a new object is stored in the dictionary, the hash function appends a byte offset to the key to help locate the value. 
+Key-value, dictionary stores internally implement a hash map. When a new object is stored in the dictionary, the hash function appends a byte offset to the key to help locate the value.
 
 A log is usually also cut up into **segments** of a certain size. When a record with the same key value is appended to the log segment, a **compaction** process occurs where the older record is disposed and replaced by the new record. This ensures there are no duplicates.
 
@@ -41,7 +41,6 @@ SSTables use red-black or AVL trees under-the-hood to read unsorted incoming wri
 When a write comes in, it's added to an in-memory tree called a **memtable**. When the memtable gets bigger in size than some threshold (e.g. 5MB), it's written out to disk and other writes are written to the memtable. The most recent segment of the database is the most recent file written to disk.
 
 ![](https://www.scylladb.com/wp-content/uploads/sstable-diagram-1100x373.png)
-
 
 To serve a read request, try to find the key in the memtable then in the most recent on-disk segment.
 
@@ -69,14 +68,13 @@ Most databases fit into a B-tree that is 3 to 4 levels deep (4 level tree of 4KB
 
 To make B-Trees **reliable** and resilient to crashes, they implement a **write-ahead log (WAL)** data structure on disk. This is an append-only file used that is written before any writes are done to the tree. It's used to restore the tree in case a database crashes.
 
-
 ## Performance
 
 B-trees are typically known to be faster for reads whereas LSM-trees are known to be faster for writes.
 
-**Write amplification** is the sum of all one write operation to a database's lifetime that resulted in multiple writes. For example, when a record is inserted into either B or LSM tree results in writing to the WAL and the tree itself (B-tree) or compaction/merge (LSM-tree). In write-heavy applications, write amplification means that the more the engine writes, the less writes it can perform on disk. 
+**Write amplification** is the sum of all one write operation to a database's lifetime that resulted in multiple writes. For example, when a record is inserted into either B or LSM tree results in writing to the WAL and the tree itself (B-tree) or compaction/merge (LSM-tree). In write-heavy applications, write amplification means that the more the engine writes, the less writes it can perform on disk.
 
-LSM-Trees have more efficient use of disk space since there's no halving of blocks that leave fragmented/empty block space. 
+LSM-Trees have more efficient use of disk space since there's no halving of blocks that leave fragmented/empty block space.
 
 Reading from LSM-Trees depends on disk and I/O resources since there could be a heavy compaction process that needs to happen at the time of reading. This affect response times. The larger the database becomes, the more disk bandwidth is required for compaction.
 
@@ -88,7 +86,6 @@ A transaction is a group of reads and writes and uses a pattern known as **onlin
 
 In data analytics, a query needs to scan a large number of records and run some calculation over them. Data analytics uses a pattern known as **online analytic processing (OLAP)**.
 
-
 | Property             | OLTP                                              | OLAP                                      |
 |----------------------|---------------------------------------------------|-------------------------------------------|
 | Main read pattern    | Small number of records per query, fetched by key | Aggregate large number of records         |
@@ -97,7 +94,6 @@ In data analytics, a query needs to scan a large number of records and run some 
 | What data represents | Latest state of data (current point in time)      | History of events that happened over time |
 | Dataset size         | GB/TB                                             | TB/PB                                     |
 
-
 ### Data Warehousing
 
-A **Data warehouse** is a separate database from the rest of the databases that analysts can query to freely without affecting the OLTP operations. It contains a read-only copy of the data in all the OLTP systems in the company. 
+A **Data warehouse** is a separate database from the rest of the databases that analysts can query to freely without affecting the OLTP operations. It contains a read-only copy of the data in all the OLTP systems in the company.
