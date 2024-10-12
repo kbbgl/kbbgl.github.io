@@ -123,6 +123,7 @@ const config: Config = {
         "yaml",
         "excel-formula",
         "css",
+        "protobuf",
       ],
     },
   } satisfies Preset.ThemeConfig,
