@@ -48,7 +48,7 @@ As schemas change, we need to make sure to maintain compatibility.
 
 To send some data to another process which you don't share memory with, such as sending data over a network to write it to a file, we need to encode it as a sequence of bytes. **The most common ways for how data flows between processes is using databases, service calls and async message passing**.
 
-The process that writes to the database encodes the data and the process that reads from the database decodes it.
+In case of databases, the process that writes to the database encodes the data and the process that reads from the database decodes it.
 
 In case of service calls, the most common way is to use clients and servers using REST. Services expose an application-specific API that only allows outputs and inputs predetermined by the business logic.
 
@@ -59,3 +59,6 @@ A client request (a **message**) is delivered to another process passing through
 Message brokers have one process, the **publisher**, send a message to a name queue or topic, and the broker ensures that the message is delivered to one or more **consumers/subscribers**.
 
 Using a message queue is more reliable than RPCs.
+
+The **actor model** is a design pattern for concurrency in a single process. Actors are usually an instance of the system which has some logic and state within it and it communicates with other actors by sending/receiving async messages. In this case, there's no need to encode and decode the messages since it's an IPC.
+There's also the **distributed actor framework** where the actors are spread across different nodes so the messages are encoded/decoded before and after the message is sent over the network. 
