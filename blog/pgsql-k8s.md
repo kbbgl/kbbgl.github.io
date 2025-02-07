@@ -8,6 +8,8 @@ tags: [k8s,kubernetes,database,storage,postgres,web,webapplication,webdevelopmen
 
 In this tutorial we deploy a PostgresSQL database in Kubernetes cluster.
 
+<!-- truncate -->
+
 ## Set Up Postgres
 
 We first create a new namespace to hold the database-related services.

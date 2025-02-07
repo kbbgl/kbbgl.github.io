@@ -1,5 +1,5 @@
 ---
-slug: how-to-trace-read-rabbitmq messages
+slug: how-to-trace-read-rabbitmq-messages
 title: How To Trace/Read RabbitMQ Messages
 description: Fill me up!
 authors: [kbbgl]

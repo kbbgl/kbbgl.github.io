@@ -34,6 +34,13 @@ const config: Config = {
           onInlineAuthors: "warn",
           onUntruncatedBlogPosts: "warn",
         },
+        sitemap: {
+          lastmod: 'datetime',
+          changefreq: 'daily',
+          priority: 0.5,
+          ignorePatterns: ['/tags/**'],
+          filename: 'sitemap.xml'
+        },
         theme: {
           customCss: "./src/css/custom.css",
         },
@@ -78,7 +85,7 @@ const config: Config = {
           items: [
             {
               label: "Knowledgebase",
-              to: "/docs/intro",
+              to: "/docs",
             },
           ],
         },
