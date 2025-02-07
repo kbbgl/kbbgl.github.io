@@ -11,6 +11,7 @@ const config: Config = {
   organizationName: "kbbgl",
   projectName: "kbbgl.github.io",
   onBrokenLinks: "warn",
+  trailingSlash: false,
   onBrokenMarkdownLinks: "warn",
   i18n: {
     defaultLocale: "en",
