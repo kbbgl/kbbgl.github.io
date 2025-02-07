@@ -4,7 +4,7 @@
         <title>Kobbi's Knowledgebase Blog</title>
         <link>https://kbbgl.github.io/blog</link>
         <description>Kobbi's Knowledgebase Blog</description>
-        <lastBuildDate>Fri, 31 Jan 2025 14:55:28 GMT</lastBuildDate>
+        <lastBuildDate>Fri, 07 Feb 2025 06:33:37 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>https://github.com/jpmonette/feed</generator>
         <language>en</language>
@@ -12,7 +12,7 @@
             <title><![CDATA[3-Way Data Migration between Support Systems]]></title>
             <link>https://kbbgl.github.io/blog/3-way-data-migration-between-support-systems</link>
             <guid>https://kbbgl.github.io/blog/3-way-data-migration-between-support-systems</guid>
-            <pubDate>Fri, 31 Jan 2025 14:55:28 GMT</pubDate>
+            <pubDate>Fri, 07 Feb 2025 06:33:37 GMT</pubDate>
             <description><![CDATA[Fill me up!]]></description>
             <content:encoded><![CDATA[<h2 class="anchor anchorWithStickyNavbar_LWe7" id="introduction">Introduction<a href="https://kbbgl.github.io/blog/3-way-data-migration-between-support-systems#introduction" class="hash-link" aria-label="Direct link to Introduction" title="Direct link to Introduction">​</a></h2>
 <p>The company I work for decided a few months ago that we’ll be moving all customer tickets and assets from two separate systems (one for chat and one for old-school tickets) into a new, integrated system which provides both capabilites.
@@ -196,7 +196,7 @@ This is the script I wrote to produce just that:</p>
             <title><![CDATA[Angstrom CTF2021 | Exploiting Python Pickle in Flask Web App]]></title>
             <link>https://kbbgl.github.io/blog/angstrom-ctf2021-exploiting-python-pickle-in-flask</link>
             <guid>https://kbbgl.github.io/blog/angstrom-ctf2021-exploiting-python-pickle-in-flask</guid>
-            <pubDate>Fri, 31 Jan 2025 14:55:28 GMT</pubDate>
+            <pubDate>Fri, 07 Feb 2025 06:33:37 GMT</pubDate>
             <description><![CDATA[Fill me up!]]></description>
             <content:encoded><![CDATA[<h2 class="anchor anchorWithStickyNavbar_LWe7" id="introduction">Introduction<a href="https://kbbgl.github.io/blog/angstrom-ctf2021-exploiting-python-pickle-in-flask#introduction" class="hash-link" aria-label="Direct link to Introduction" title="Direct link to Introduction">​</a></h2>
 <p>Recently, I became interested in understanding a bit more about web application exploitation. This interest evolved with my daily work with web applications over the last few years, reviewing already developed web application source code, modifying it at times in order to resolve a customer issue and needing to dive deep and debug customer problems in production.
@@ -324,7 +324,7 @@ I then ran the script:</p>
             <title><![CDATA[How To Catch EBUSY Event on Windows using NodeJS]]></title>
             <link>https://kbbgl.github.io/blog/catch-ebusy-on-nodejs</link>
             <guid>https://kbbgl.github.io/blog/catch-ebusy-on-nodejs</guid>
-            <pubDate>Fri, 31 Jan 2025 14:55:28 GMT</pubDate>
+            <pubDate>Fri, 07 Feb 2025 06:33:37 GMT</pubDate>
             <description><![CDATA[Introduction]]></description>
             <content:encoded><![CDATA[<h2 class="anchor anchorWithStickyNavbar_LWe7" id="introduction">Introduction<a href="https://kbbgl.github.io/blog/catch-ebusy-on-nodejs#introduction" class="hash-link" aria-label="Direct link to Introduction" title="Direct link to Introduction">​</a></h2>
 <p>During a debugging session of one of our NodeJS microservices misbehaving on a Windows Server 2019 instances, I opened the microservice log to begin investigating the faulty behavior.</p>
@@ -390,7 +390,7 @@ I then ran the script:</p>
             <title><![CDATA[Debugging NodeJS Microservice with Shared Storage on Kubernetes]]></title>
             <link>https://kbbgl.github.io/blog/debugging-nodejs-microservice-with-shared-storage-on-kubernetes</link>
             <guid>https://kbbgl.github.io/blog/debugging-nodejs-microservice-with-shared-storage-on-kubernetes</guid>
-            <pubDate>Fri, 31 Jan 2025 14:55:28 GMT</pubDate>
+            <pubDate>Fri, 07 Feb 2025 06:33:37 GMT</pubDate>
             <description><![CDATA[Fill me up!]]></description>
             <content:encoded><![CDATA[<p><img decoding="async" loading="lazy" src="https://tilsupport.files.wordpress.com/2021/05/sort_exceeded-1.png" alt="sort-exceeded" class="img_ev3q"></p>
 <h2 class="anchor anchorWithStickyNavbar_LWe7" id="introduction">Introduction<a href="https://kbbgl.github.io/blog/debugging-nodejs-microservice-with-shared-storage-on-kubernetes#introduction" class="hash-link" aria-label="Direct link to Introduction" title="Direct link to Introduction">​</a></h2>
@@ -465,7 +465,7 @@ Next step was to add a couple of more commands to the container before the NodeJ
             <title><![CDATA[How To Set Up Dotless Email Validation in Swagger]]></title>
             <link>https://kbbgl.github.io/blog/dotless-email-regex-validation-swagger</link>
             <guid>https://kbbgl.github.io/blog/dotless-email-regex-validation-swagger</guid>
-            <pubDate>Fri, 31 Jan 2025 14:55:28 GMT</pubDate>
+            <pubDate>Fri, 07 Feb 2025 06:33:37 GMT</pubDate>
             <description><![CDATA[A detailed explanation what dotless emails are and how to set them up in Swagger.]]></description>
             <content:encoded><![CDATA[<h2 class="anchor anchorWithStickyNavbar_LWe7" id="introduction">Introduction<a href="https://kbbgl.github.io/blog/dotless-email-regex-validation-swagger#introduction" class="hash-link" aria-label="Direct link to Introduction" title="Direct link to Introduction">​</a></h2>
 <p>One of our customers recently attempted (for reason unknown to us) to log into our platform using <a href="https://www.okta.com/products/single-sign-on/" target="_blank" rel="noopener noreferrer">Okta Single Sign On (SSO)</a> and <a href="https://openid.net/connect/" target="_blank" rel="noopener noreferrer">OpenID-Connect</a> with emails missing a top-level domain (TLD) while they could log in just fine with a standard email address.</p>
@@ -535,7 +535,7 @@ Next step was to add a couple of more commands to the container before the NodeJ
             <title><![CDATA[Fixing Ubuntu Hibernation]]></title>
             <link>https://kbbgl.github.io/blog/fixing-ubuntu-hibernation</link>
             <guid>https://kbbgl.github.io/blog/fixing-ubuntu-hibernation</guid>
-            <pubDate>Fri, 31 Jan 2025 14:55:28 GMT</pubDate>
+            <pubDate>Fri, 07 Feb 2025 06:33:37 GMT</pubDate>
             <description><![CDATA[Introduction]]></description>
             <content:encoded><![CDATA[<h2 class="anchor anchorWithStickyNavbar_LWe7" id="introduction">Introduction<a href="https://kbbgl.github.io/blog/fixing-ubuntu-hibernation#introduction" class="hash-link" aria-label="Direct link to Introduction" title="Direct link to Introduction">​</a></h2>
 <p>One day, seemingly out of the blue, my (using <a href="https://docusaurus.io/" target="_blank" rel="noopener noreferrer">Docusaurus</a> blog site, which is set up as an Ubuntu <code>systemd</code> service on the Raspberry Pi 4, stopped being accessible.</p>
@@ -563,7 +563,7 @@ Next step was to add a couple of more commands to the container before the NodeJ
             <title><![CDATA[How to Run a Sequential gulp.js Task using PowerShell]]></title>
             <link>https://kbbgl.github.io/blog/gulpjs-task-using-powershell</link>
             <guid>https://kbbgl.github.io/blog/gulpjs-task-using-powershell</guid>
-            <pubDate>Fri, 31 Jan 2025 14:55:28 GMT</pubDate>
+            <pubDate>Fri, 07 Feb 2025 06:33:37 GMT</pubDate>
             <description><![CDATA[Fill me up!]]></description>
             <content:encoded><![CDATA[<h2 class="anchor anchorWithStickyNavbar_LWe7" id="introduction">Introduction<a href="https://kbbgl.github.io/blog/gulpjs-task-using-powershell#introduction" class="hash-link" aria-label="Direct link to Introduction" title="Direct link to Introduction">​</a></h2>
 <p>One of our largest and strategic customer recently requested to be able to execute an automated ETL pipeline from one of their Windows multinode cluster in a sequential manner.</p>
@@ -639,7 +639,7 @@ I needed to ensure that the PowerShell script would be initialized after a reboo
             <title><![CDATA[Hack The Box ‘Archetype’ Challenge]]></title>
             <link>https://kbbgl.github.io/blog/hack-the-box-archetype-challenge</link>
             <guid>https://kbbgl.github.io/blog/hack-the-box-archetype-challenge</guid>
-            <pubDate>Fri, 31 Jan 2025 14:55:28 GMT</pubDate>
+            <pubDate>Fri, 07 Feb 2025 06:33:37 GMT</pubDate>
             <description><![CDATA[Fill me up!]]></description>
             <content:encoded><![CDATA[<h2 class="anchor anchorWithStickyNavbar_LWe7" id="what-is-hack-the-box">What is Hack The Box?<a href="https://kbbgl.github.io/blog/hack-the-box-archetype-challenge#what-is-hack-the-box" class="hash-link" aria-label="Direct link to What is Hack The Box?" title="Direct link to What is Hack The Box?">​</a></h2>
 <p><a href="https://www.hackthebox.eu/" target="_blank" rel="noopener noreferrer">Hack The Box</a> is a website offering vulnerable machines for practising hacking skills. The goal of the ‘Labs’ are to hack into the system and capture the flag (CTF) which can be found in a text file in the desktop of a regular and an administrator user.
@@ -756,7 +756,7 @@ I did some research and found <a href="https://superuser.com/a/1421775/506517" t
             <title><![CDATA[How To Trace/Read RabbitMQ Messages]]></title>
             <link>https://kbbgl.github.io/blog/how-to-trace-read-rabbitmq messages</link>
             <guid>https://kbbgl.github.io/blog/how-to-trace-read-rabbitmq messages</guid>
-            <pubDate>Fri, 31 Jan 2025 14:55:28 GMT</pubDate>
+            <pubDate>Fri, 07 Feb 2025 06:33:37 GMT</pubDate>
             <description><![CDATA[Fill me up!]]></description>
             <content:encoded><![CDATA[<h2 class="anchor anchorWithStickyNavbar_LWe7" id="introduction">Introduction<a href="https://kbbgl.github.io/blog/how-to-trace-read-rabbitmq%C2%A0messages#introduction" class="hash-link" aria-label="Direct link to Introduction" title="Direct link to Introduction">​</a></h2>
 <p>This week, I needed to debug a production issue where one of the critical ReactJS applications happened to load exactly after 60 seconds.</p>
@@ -839,7 +839,7 @@ We first need to install it:</p>
             <title><![CDATA[Installing PiHole On Raspberry Pi 4, MicroK8s running Ubuntu 20.04 (focal)]]></title>
             <link>https://kbbgl.github.io/blog/install-pihole-rpi4-microk8s-ubuntu-2004</link>
             <guid>https://kbbgl.github.io/blog/install-pihole-rpi4-microk8s-ubuntu-2004</guid>
-            <pubDate>Fri, 31 Jan 2025 14:55:28 GMT</pubDate>
+            <pubDate>Fri, 07 Feb 2025 06:33:37 GMT</pubDate>
             <description><![CDATA[Fill me up!]]></description>
             <content:encoded><![CDATA[<h2 class="anchor anchorWithStickyNavbar_LWe7" id="pihole-whats-that">PiHole, What’s That?<a href="https://kbbgl.github.io/blog/install-pihole-rpi4-microk8s-ubuntu-2004#pihole-whats-that" class="hash-link" aria-label="Direct link to PiHole, What’s That?" title="Direct link to PiHole, What’s That?">​</a></h2>
 <p>The <a href="https://en.wikipedia.org/wiki/Pi-hole" target="_blank" rel="noopener noreferrer">Wikipedia definition</a> should be sufficient in explaining what the software does:</p>
@@ -1002,7 +1002,7 @@ We need to run the following sequence of commands to be able to ensure that our 
             <title><![CDATA[Installing Ubuntu 20.04 on 2013 MacBook Air]]></title>
             <link>https://kbbgl.github.io/blog/installing-ubuntu-2004-on-2013-macbook-air</link>
             <guid>https://kbbgl.github.io/blog/installing-ubuntu-2004-on-2013-macbook-air</guid>
-            <pubDate>Fri, 31 Jan 2025 14:55:28 GMT</pubDate>
+            <pubDate>Fri, 07 Feb 2025 06:33:37 GMT</pubDate>
             <description><![CDATA[Fill me up!]]></description>
             <content:encoded><![CDATA[<h2 class="anchor anchorWithStickyNavbar_LWe7" id="introduction">Introduction<a href="https://kbbgl.github.io/blog/installing-ubuntu-2004-on-2013-macbook-air#introduction" class="hash-link" aria-label="Direct link to Introduction" title="Direct link to Introduction">​</a></h2>
 <p>The other day when visiting my family, under a large pile of torn up binders and laminated documents, I found my sibling’s old 2013 MacBook Air. I thought it would be wasteful to just leave it there so I picked it up and took it to the lab, AKA home.
@@ -1075,7 +1075,7 @@ But once I restarted the computer, I saw that the changes were reverted. I neede
             <title><![CDATA[MacBook Pro 2020 High CPU caused by Siri]]></title>
             <link>https://kbbgl.github.io/blog/macbook-pro-2020-high-cpu-caused-siri</link>
             <guid>https://kbbgl.github.io/blog/macbook-pro-2020-high-cpu-caused-siri</guid>
-            <pubDate>Fri, 31 Jan 2025 14:55:28 GMT</pubDate>
+            <pubDate>Fri, 07 Feb 2025 06:33:37 GMT</pubDate>
             <description><![CDATA[Fill me up!]]></description>
             <content:encoded><![CDATA[<h2 class="anchor anchorWithStickyNavbar_LWe7" id="introduction">Introduction<a href="https://kbbgl.github.io/blog/macbook-pro-2020-high-cpu-caused-siri#introduction" class="hash-link" aria-label="Direct link to Introduction" title="Direct link to Introduction">​</a></h2>
 <p>A few months ago, I received a highly-anticipated 2020 32GB, 2.3 GHz Quad-Core Intel Core i7 MacBook Pro. Highly-anticipated because I already had one stolen (a 2019 version) earlier last year in a robbery in an AirBnB apartment I was renting while I was staying in Barcelona. It was quite a dramatic story but I won’t get into the details. This is a tech blog after all.</p>
@@ -1147,7 +1147,7 @@ What I found was that the OS crashed because of a segmentation fault:</p>
             <title><![CDATA[Deploying PostgresSQL in Kubernetes]]></title>
             <link>https://kbbgl.github.io/blog/pgsql-k8s</link>
             <guid>https://kbbgl.github.io/blog/pgsql-k8s</guid>
-            <pubDate>Fri, 31 Jan 2025 14:55:28 GMT</pubDate>
+            <pubDate>Fri, 07 Feb 2025 06:33:37 GMT</pubDate>
             <description><![CDATA[Deploying a PostgresSQL database in a Kubernetes cluster]]></description>
             <content:encoded><![CDATA[<p>In this tutorial we deploy a PostgresSQL database in Kubernetes cluster.</p>
 <h2 class="anchor anchorWithStickyNavbar_LWe7" id="set-up-postgres">Set Up Postgres<a href="https://kbbgl.github.io/blog/pgsql-k8s#set-up-postgres" class="hash-link" aria-label="Direct link to Set Up Postgres" title="Direct link to Set Up Postgres">​</a></h2>
@@ -1174,7 +1174,7 @@ What I found was that the OS crashed because of a segmentation fault:</p>
             <title><![CDATA[Fixing Production Down caused by MongoDB Corruption and Heketi/GlusterFS Failed Provisioning]]></title>
             <link>https://kbbgl.github.io/blog/prod-down-mongodb-corrupt-heketi-glusterfs-provisioning</link>
             <guid>https://kbbgl.github.io/blog/prod-down-mongodb-corrupt-heketi-glusterfs-provisioning</guid>
-            <pubDate>Fri, 31 Jan 2025 14:55:28 GMT</pubDate>
+            <pubDate>Fri, 07 Feb 2025 06:33:37 GMT</pubDate>
             <description><![CDATA[Fill me up!]]></description>
             <content:encoded><![CDATA[<h2 class="anchor anchorWithStickyNavbar_LWe7" id="introduction">Introduction<a href="https://kbbgl.github.io/blog/prod-down-mongodb-corrupt-heketi-glusterfs-provisioning#introduction" class="hash-link" aria-label="Direct link to Introduction" title="Direct link to Introduction">​</a></h2>
 <p>Today I received an escalation from one of our largest and most strategic customers. Over the weekend, the customer had ‘patched’ their 3 Ubuntu 18.04 nodes running Kubernetes 1.17.  They were using <a href="https://www.gluster.org/" target="_blank" rel="noopener noreferrer"><code>glusterfs</code></a> as their shared storage class.</p>

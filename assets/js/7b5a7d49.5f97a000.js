@@ -1,1 +1,0 @@
-"use strict";(self.webpackChunkkgkb=self.webpackChunkkgkb||[]).push([[69586],{41714:e=>{e.exports=JSON.parse('{"tag":{"label":"intro","permalink":"/docs/tags/intro","allTagsPath":"/docs/tags","count":1,"items":[{"id":"intro","title":"Welcome","description":"Landing page","permalink":"/docs/welcome"}],"unlisted":false}}')}}]);
