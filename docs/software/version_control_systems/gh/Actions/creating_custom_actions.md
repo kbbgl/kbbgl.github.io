@@ -10,7 +10,24 @@ mkdir .github/actions/hello
 touch .github/actions/hello/action.yml
 ```
 
-An example of a Javascript custom action can be found in [here](./greet/action.yml).
+An example of a Javascript custom action:
+
+```yml title='action.yml'
+name: Greet
+author: Kobbi Gal
+description: This is a custom action
+inputs:
+  who-to-greet:
+    description: 'Who to greet'
+    required: true
+    default: Kobbi
+outputs:
+  time:
+    description: "Time of greeting"
+runs:
+  using: 'node12'
+  main: 'dist/index.js'
+```
 
 Some very useful actions for JavaScript can be found in [toolkit](https://github.com/actions/toolkit). For example, in order to get inputs and set outputs, we would need to install the `core` and `github` packages:
 

@@ -37,7 +37,7 @@ The following questions will help guide your investigation:
 
 ## Evidence
 
-Investigators provide you with a packet capture from Ann’s home network, [`evidence-packet-analysis.pcap`](./evidence-packet-analysis.pcap) They also inform you that in the course of their monitoring, they have found that Ann’s laptop has the MAC address `00:21:70:4D:4F:AE`.
+Investigators provide you with a packet capture from Ann’s home network, [`evidence-packet-analysis.pcap`]. They also inform you that in the course of their monitoring, they have found that Ann’s laptop has the MAC address `00:21:70:4D:4F:AE`.
 
 
 ## Analysis
