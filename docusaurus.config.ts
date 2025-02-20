@@ -133,6 +133,7 @@ const config: Config = {
         "excel-formula",
         "css",
         "protobuf",
+        "splunk-spl"
       ],
     },
     // https://docusaurus.io/docs/search#connecting-algolia
