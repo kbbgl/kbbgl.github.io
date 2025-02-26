@@ -100,3 +100,10 @@ To delete all keys in Redis:
 ```
 FLUSHALL
 ```
+
+## Configuration
+
+### Set Log Level
+```
+CONFIG SET loglevel debug
+```
