@@ -63,7 +63,7 @@ ROOT_TOKEN=$(jq -r '.root_token' vault-keys.json)
 vault login $ROOT_TOKEN
 ```
 
-Once we're logged in, we can [Enable Key/Value Store](#enable-key-value-store), [Add Secrets to Key/Value Store](#add-secrets-to-key-value-store), [Create Token](#create-token).
+Once we're logged in, we can [Enable Key/Value Store](#enable-keyvalue-store), [Add Secrets to Key/Value Store](#add-secrets-to-keyvalue-store), [Create Token](#create-token).
 
 ## Enable Key/Value Store
 
