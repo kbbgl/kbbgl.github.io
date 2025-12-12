@@ -59,7 +59,7 @@ gcloud artifacts repositories remove-iam-policy-binding $GCP_REPO_NAME \
 
 ```bash
 export AWS_ACCOUNT_ID=1234
-export AWS_REGION="us-east-1"  # e.g., us-east-1
+export AWS_REGION="us-east-1"
 export REPO_NAME=dapr
 ```
 
