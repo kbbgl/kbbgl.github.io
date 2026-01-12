@@ -1,0 +1,1 @@
+"use strict";(globalThis.webpackChunkkgkb=globalThis.webpackChunkkgkb||[]).push([[41269],{7753:(c,e,l)=>{l.r(e),l.d(e,{default:()=>i});l(96540);var n=l(41957),s=l(74848);const i=function(){return(0,s.jsx)(n.A,{title:"Hack Blog",children:(0,s.jsxs)("div",{children:[(0,s.jsx)("h1",{children:"Welcome to Hack Blog"}),(0,s.jsx)("p",{children:"Under construction!"})]})})}}}]);
