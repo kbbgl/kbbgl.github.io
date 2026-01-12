@@ -6,8 +6,6 @@ authors: [kgal-akl]
 tags: [cheatsheet, helm, k8s, deploy]
 ---
 
-# Helm Cheat Sheet
-
 ## Releases
 
 ### List Releases in All Namespaces
