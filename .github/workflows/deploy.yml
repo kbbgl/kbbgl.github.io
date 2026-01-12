@@ -13,12 +13,6 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      - name: Set Git User
-        run: |
-          git config --global user.email "${{ secrets.REPO_OWNER_EMAIL }}"
-          git config --global user.name "${{ github.repository_owner }}"
-          git remote set-url origin https://${{ github.repository_owner }}:${{ secrets.KBBGL_GITHUB_IO_DEPLOY_TOKEN }}@github.com/${{ github.repository }}.git
-
       - name: Set Algolia Search
         run: |
           echo "ALGOLIA_APP_ID=${{ secrets.ALGOLIA_APP_ID }}" >> $GITHUB_ENV
@@ -38,6 +32,10 @@ jobs:
         run: yarn build
 
       - name: Deploy to GitHub Pages
-        run: yarn deploy
+        run: |
+          git config --global user.email "${{ secrets.REPO_OWNER_EMAIL }}"
+          git config --global user.name "${{ github.repository_owner }}"
+          yarn deploy
         env:
-          GITHUB_TOKEN: ${{ secrets.KBBGL_GITHUB_IO_DEPLOY_TOKEN }}
+          GIT_USER: ${{ github.repository_owner }}
+          GIT_PASS: ${{ secrets.GITHUB_TOKEN }}
