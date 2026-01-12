@@ -20,6 +20,8 @@ To do this you will need to have root/administrator access to the UNIX operating
 
 We begin by collecting the relevant information and later performing the modifications.
 
+<!-- truncate -->
+
 ## Collection
 
 The first thing we will need to do is to collect the IP addresses of the restricted services that we want to only access using the VPN. In the example below I will use `global.svc.dev`, `us.svc.dev`, `eu.svc.dev` as the hostnames for the services that require access.
