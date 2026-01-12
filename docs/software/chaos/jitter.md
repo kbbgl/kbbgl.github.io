@@ -1,7 +1,7 @@
 ---
 slug: add-flaky-network
 title: How to Add Network Flakiness
-description: 
+description: How to add network flakiness for testing applications.
 authors: [kgal-akl]
 tags: [network, testing, development, vm, linux, kernel, traffic, latency, performance, kubernetes, k8s, chaos]
 ---
