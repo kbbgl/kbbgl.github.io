@@ -47,7 +47,7 @@ It's the most valuable technique to analyze and exploit application network prot
 
 Port forwarding is the easiest way to proxy a connection. We set up a TCP port-forwarding proxy server that listens for new connections. When a new connection is made to the proxy server, it will open a forwarding connection to the real service and logically connect the two.
 
-We then send the request that was meant to the intended server to the port-forwarding proxy server first by sending the client request to http://localhost:$LOCALPORT/resource if the original request was headed to http://domain.com/resource.
+We then send the request that was meant to the intended server to the port-forwarding proxy server first by sending the client request to `http://localhost:$LOCALPORT/resource` if the original request was headed to `http://domain.com/resource`.
 
 #### SOCKS Proxies
 
