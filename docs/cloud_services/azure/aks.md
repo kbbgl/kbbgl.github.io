@@ -64,7 +64,7 @@ az identity federated-credential create \
 --identity-name $AZURE_IDENTITY_NAME \
 --resource-group $AZURE_RESOURCE_GROUP \
 --issuer $OIDC_ISSUER_URL \
---subject "system:serviceaccount:${AKEYLESS_K8S_GATEWAY_SERVICE_ACCOUNT_NAMESPACE}:${AKEYLESS_K8S_GATEWAY_SERVICE_ACCOUNT_NAME}" \
+--subject "system:serviceaccount:${APP_K8S_GATEWAY_SERVICE_ACCOUNT_NAMESPACE}:${APP_K8S_GATEWAY_SERVICE_ACCOUNT_NAME}" \
 --audiences api://AzureADTokenExchange
 {
   "audiences": [

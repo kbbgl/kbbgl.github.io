@@ -17,7 +17,7 @@ helm list --all-namespaces
 ### Upgrading Release
 
 ```bash
-helm upgrade --install akeyless-gw akeyless/akeyless-api-gateway -f deploy/akl-gw/values.yaml
+helm upgrade --install app-gw app/app-api-gateway -f deploy/akl-gw/values.yaml
 ```
 
 ## Repo
@@ -25,21 +25,21 @@ helm upgrade --install akeyless-gw akeyless/akeyless-api-gateway -f deploy/akl-g
 ### Adding Repo
 
 ```bash
-helm repo add akeyless https://akeylesslabs.github.io/helm-charts
+helm repo add app https://applabs.github.io/helm-charts
 helm repo update
 ```
 
 ### Updating Repo
 
 ```bash
-helm repo akeyless update
+helm repo app update
 ```
 
 ### Updating Repo with Git Change
 If we want to update a repo to use a specific git ref (e.g. branch, commit), we can use [`helm git`](https://github.com/aslafy-z/helm-git). For example, if we pushed a change to a chart in a remote branch (`fix-allowedAccessPermissions-type-api-gw`) and we want to test it out, we can add a new helm repo:
 
 ```bash
-helm repo add akeyless-dev git+https://github.com/akeylesslabs/helm-charts@charts?ref=fix-allowedAccessPermissions-type-api-gw
+helm repo add app-dev git+https://github.com/applabs/helm-charts@charts?ref=fix-allowedAccessPermissions-type-api-gw
 ```
 
 ## Charts
@@ -59,7 +59,7 @@ helm upgrade $MY_RELEASE_NAME $MY_REPO/$MY_CHART -f $MY_CHART_VALUES.yaml --vers
 ### Get Chart Values
 
 ```bash
-helm show values akeyless/akeyless-api-gateway | yq
+helm show values app/app-api-gateway | yq
 ```
 
 ### Overriding Values

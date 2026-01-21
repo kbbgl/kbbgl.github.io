@@ -29,7 +29,7 @@ apiVersion: cert-manager.io/v1
 kind: Certificate
 metadata:
   name: kgal-localhost-kind-dev-tls
-  namespace: akeyless-gateway
+  namespace: app-gateway
 spec:
   secretName: kgal-localhost-kind-dev-tls-cert-manager
   issuerRef:
