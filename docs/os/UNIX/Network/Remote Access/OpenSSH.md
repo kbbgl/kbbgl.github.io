@@ -56,7 +56,6 @@ AllowAgentForwarding no
 
 ```bash
 Host web
-
      HostName www.example.com
      User webusr
 ```
@@ -67,7 +66,6 @@ This is an example of a more advanced configuration:
 $ cat ~/.ssh/config
 
 Host web
-
      KeepAlive yes
      IdentityFile ~/.ssh/web_id_rsa
      HostName www.example.com
@@ -202,3 +200,38 @@ The `vncserver` opens ports starting from 5901 and up. The display number :1 may
 The client, `vncviewer`, is usually packaged separately. It connects to the VNC server on the specified port or display number. Passwords are not sent in clear text.
 
 On its own, VNC is not secure after the authentication step. However, the protocol can be tunneled through SSH or VPN connections.
+
+## Logs
+
+```bash
+tail -f /var/log/auth.log
+sudo journalctl -u sshd -f
+```
+
+## Client
+
+```bash
+ssh -v -o PubkeyAuthentication=no $USER$@$IP
+```
+
+Look for enabled authentication types:
+
+```
+debug1: Authentications that can continue: publickey,password debug1: Next authentication method: password
+```
+
+## Azure
+
+On Azure VMs, basic authentication is disabled by default. To enable it we need to edit this file:
+
+```bash
+sudo vim /etc/ssh/sshd_config.d/50-cloud-init.conf
+```
+
+and set `PasswordAuthentication yes`.
+
+Then run for changes to take effect:
+
+```bash
+sudo service ssh restart
+```

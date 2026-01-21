@@ -47,7 +47,7 @@ DAP uses PAM and `system-config-authentication` or `authconfig-tui`. One has to 
 
 When you configure a system for LDAP authentication, five files are changed:
 
-```text
+```bash
 /etc/openldap/ldap.conf
 /etc/pam_ldap.conf
 /etc/nslcd.conf
@@ -56,3 +56,9 @@ When you configure a system for LDAP authentication, five files are changed:
 ```
 
 You can edit these files manually or use one of the utility programs available (`system-config-authentication` or `authconfig-tui`).
+
+We can use LDAP search to check for successful client authentication:
+
+```bash
+ldapsearch -H ldaps://ldap.kbbgl.github.io:636/ -b "DC=kbbgl,DC=io" -D "CN=kbbgl.gh.io,OU=svcacct,DC=kbbgl,DC=io" -w "$PASSWORD" -ZZ -x -v -d 1 -o nettimeout=10 -o tls_cacert=./ca-chain.pem tls ca cert "cn=*" dn
+```
