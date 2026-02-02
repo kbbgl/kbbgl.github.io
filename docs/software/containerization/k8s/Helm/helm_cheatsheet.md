@@ -83,18 +83,35 @@ to later `kubectl apply` them to the cluster.
 To render the manifest into one file, we can use:
 
 ```bash
-helm template $RELEASE_NAME $CHART_PATH_OR_NAME --namespace $NAMESPACE > $OUTPUT_FILENAME.yaml
+helm template \
+$RELEASE_NAME \
+$CHART_PATH_OR_NAME \
+--namespace $NAMESPACE \
+-f values.yaml > $OUTPUT_FILENAME.yaml
 
 # example for postgres
-helm template mypostgres bitnami/postgresql --namespace database > postgresql.yaml
+helm template \
+mypostgres \
+bitnami/postgresql \
+--namespace database > postgresql.yaml
 ```
 
 To render separate manifests into a directory instead of one file:
 
 ```bash
-helm template $RELEASE_NAME $CHART_PATH_OR_NAME --namespace $NAMESPACE --output-dir ./generated-manifests
+helm template \
+$RELEASE_NAME \
+$CHART_PATH_OR_NAME \
+--namespace $NAMESPACE \
+--output-dir ./generated-manifests \
+-f values.yaml
 ```
 
 ```bash
-helm template mypostgres bitnami/postgresql --namespace database --output-dir ./generated-manifests
+helm template \
+mypostgres \
+bitnami/postgresql \
+--namespace database \
+--output-dir ./generated-manifests \
+-f values.yaml
 ```

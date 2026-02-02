@@ -210,3 +210,5 @@ To check and retrieve the OCSP URL:
 ```bash
 openssl x509 -in client.crt -noout -text | grep "OCSP - URI"
 ```
+
+### 
