@@ -16,8 +16,10 @@ kubectl auth can-i create deployments --as bob
 # no
 
 kubectl auth can-i create deployments --as bob --namespace developer
-# yes
 
+kubectl -n legacy auth can-i update secrets/gw-cache-encryption-key --as=system:serviceaccount:ns:app
+
+kubectl -n legacy auth can-i create secrets --as=system:serviceaccount:ns:app
 ```
 
 There are 3 APIs which can be applied to set who and what can be queried:
