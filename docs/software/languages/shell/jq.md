@@ -25,8 +25,6 @@ jq '.[]	| select(.id == 101)'
 jq '.[]	| select(.status == "active" and .count > 5)'
 ```
 
-test husky https://corp:8000
-
 ### Select items that match a value in a nested array
 
 ```bash
