@@ -6,7 +6,30 @@ authors: [kbbgl]
 tags: [cybersecurity,certificates,encryption,openssl,cli,k8s]
 ---
 
-## Display Certificate Information
+The documentation below references a PEM-encoded certificate.
+
+```bash
+CRT_PATH=/tmp/kbbgl-gh-io-tls.crt.pem
+```
+
+## Verifying Certificates
+
+### Trusted
+
+This command checks if a certificate is trusted by a given Certificate Authority (CA):
+
+```bash
+openssl verify -CAfile ca.pem crt.pem
+```
+
+We can also get the certificate directly and verify it from `stdin`:
+
+```bash
+openssl s_client -connect $REMOTE_SERVER_HOSTNAME:${REMOTE_SERVER_PORT:-443} -showcerts </dev/null 2>/dev/null | \
+openssl verify -CAfile /etc/pki/ca-trust/source/anchors/$REMOTE_SERVER_HOSTNAME -
+```
+
+### Display Certificate Information
 
 ### Full Information
 
@@ -64,16 +87,7 @@ Not After : Sep 21 15:41:35 2070 GMT
 ```
 
 
-## Verifying Certificate
-
-This command checks if a certificate is trusted by a given Certificate Authority (CA):
-
-```bash
-openssl verify -CAfile ca.pem crt.pem
-```
-
-
-## Public Keys
+### Public Keys
 
 ### Extract Public Key from Certificate
 
@@ -102,7 +116,7 @@ openssl x509 \
 ```
 
 
-## Private Keys
+### Private Keys
 
 ### Displaying Private Key Information
 
@@ -117,7 +131,7 @@ openssl rsa -in privatekey.pem -check -noout
 ```
 
 
-## Certificate Signing Request (CSR)
+### Certificate Signing Request (CSR)
 
 Print the CSR content:
 
@@ -125,24 +139,7 @@ Print the CSR content:
 openssl req -in docs.kbbgl-gh-io.dev.key -text -noout -verify
 ```
 
-
-## Add Self-Signed Certificate to CA Store in Ubuntu
-
-```bash
-CRT_PATH=/tmp/kbbgl-gh-io-tls.crt
-
-sudo cp $CRT_PATH /usr/local/share/ca-certificates/
-
-sudo update-ca-certificates
-
-Updating certificates in /etc/ssl/certs...
-1 added, 0 removed; done.
-Running hooks in /etc/ca-certificates/update.d...
-done.
-```
-
-
-## Checking Kubernetes TLS Secret
+### Checking Kubernetes TLS Secret
 
 ```bash
 kubectl get secrets -n default tls-kbbgl-gh-io-dev-crt -o jsonpath='{.data.tls\.crt}' | base64 -d | openssl x509 -text -noout | grep -A 1 "Subject Alternative Name"
@@ -150,7 +147,7 @@ kubectl get secrets -n default tls-kbbgl-gh-io-dev-crt -o jsonpath='{.data.tls\.
                 DNS:kbbgl-gh-io.dev, DNS:*.kbbgl-gh-io.dev
 ```
 
-## Certificate Expiration
+### Certificate Expiration
 
 When validating certificates, there could be a couple of other components in the certificate that might be relevant to understand whether a certificate has expired or not.
 
@@ -172,6 +169,33 @@ Or the "Not Before" "Not After" attribute:
 ```bash
 openssl x509 -in client.crt -noout -text | grep -E "Not Before|After"
 ```
+
+
+## Adding Self-Signed Certificate to CA Store 
+
+### Ubuntu
+
+```bash
+sudo cp $CRT_PATH /usr/local/share/ca-certificates/
+sudo update-ca-certificates
+```
+
+### RHEL
+
+```bash
+sudo cp $CRT_PATH /etc/pki/ca-trust/source/anchors/kbbgl-gh-io-tls.crt.pem
+sudo update-ca-certificates
+sudo update-ca-trust extract
+```
+
+
+### MacOS Keychain
+
+```bash
+sudo security add-trusted-cert -d -r trustRoot -k "/Library/Keychains/System.keychain" $CRT_PATH
+```
+
+## Certificate Revocation
 
 ### CRL (Certificate Revocation List)
 
@@ -210,5 +234,3 @@ To check and retrieve the OCSP URL:
 ```bash
 openssl x509 -in client.crt -noout -text | grep "OCSP - URI"
 ```
-
-### 
