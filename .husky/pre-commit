@@ -1,0 +1,9 @@
+#!/usr/bin/env sh
+. "$(dirname -- "$0")/_/husky.sh"
+
+command -v gitleaks >/dev/null 2>&1 || {
+  echo "gitleaks is required. Install with: brew install gitleaks"
+  exit 1
+}
+
+gitleaks git --staged --config .gitleaks.toml --redact --verbose --log-level trace
