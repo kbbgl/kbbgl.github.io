@@ -2,7 +2,7 @@
 title: How to Create an EKS Cluster using eksctl
 slug: how-to-create-eks-cluster-ekctl
 app2or: kgal-akl
-tags: [$AWS_PROFILEops, k8s, kubernetes, kubectl, eksctl, eks]
+tags: [devops, k8s, kubernetes, kubectl, eksctl, eks, iam, aws]
 ---
 
 
@@ -81,3 +81,103 @@ users:
 ```
 
 We can then run `kubectl` commands.
+
+## Deploying AWS Load Balancer in EKS
+
+First thing we need to do is to install the AWS Load Balancer Controller in the cluster:
+
+```bash
+helm repo add eks https://aws.github.io/eks-charts
+helm repo update
+helm install aws-load-balancer-controller eks/aws-load-balancer-controller \
+-n kube-system \
+-f values.yaml
+```
+
+The helm chart will deploy a `Pod` and a `ServiceAccount` named `aws-lb-controller` in the `kube-system` namespace (among other things). Per the [AWS documentation](https://kubernetes-sigs.github.io/aws-load-balancer-controller/latest/deploy/installation/#configure-iam):
+
+> The controller runs on the worker nodes, so it needs access to the AWS ALB/NLB APIs with IAM permissions.
+The IAM permissions can either be setup using IAM roles for service accounts (IRSA), Pod Identity, or can be attached directly to the worker node IAM roles. The best practice is using IRSA if you're using Amazon EKS.
+
+To create the AWS Load Balancer Controller IAM policy, we need to download the official policy from [GitHub](https://github.com/kubernetes-sigs/aws-load-balancer-controller) and apply it:
+
+```bash
+curl -o /tmp/iam_policy.json https://raw.githubusercontent.com/kubernetes-sigs/aws-load-balancer-controller/v3.0.0/docs/install/iam_policy.json
+
+aws iam create-policy \
+--policy-name AWSLoadBalancerControllerIAMPolicy \
+--policy-document file:///tmp/iam_policy.json \
+--profile $AWS_PROFILE
+```
+
+The response will contain the `PolicyArn` that we will need later.
+
+Now that we have the AWS Load Balancer Controller IAM policy, we can create the IAM role and trust policy.
+
+We first need to retrieve the cluster OIDC issuer, AWS account ID an set the AWS Load Balancer Kubernetes `ServiceAccount` and namespace:
+
+```bash
+OIDC_ISSUER=$(aws eks describe-cluster --name $EKS_CLUSTER_NAME --query "cluster.identity.oidc.issuer" --output text --profile $AWS_PROFILE)
+# e.g. https://oidc.eks.us-east-1.amazonaws.com/id/EXAMPLED539D4633E53DE1B716D3041E
+
+ACCOUNT_ID=$(aws sts get-caller-identity --query Account --output text --profile $AWS_PROFILE)
+OIDC_ID=$(echo $OIDC_ISSUER | sed -e 's|https://oidc.eks.'"$AWS_REGION"'.amazonaws.com/id/||')
+# EXAMPLED539D4633E53DE1B716D3041E
+SA_NAME=aws-lb-controller
+NAMESPACE=kube-system
+
+cat > /tmp/trust-policy.json << EOF
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Effect": "Allow",
+      "Principal": {
+        "Federated": "arn:aws:iam::${ACCOUNT_ID}:oidc-provider/oidc.eks.${AWS_REGION}.amazonaws.com/id/${OIDC_ID}"
+      },
+      "Action": "sts:AssumeRoleWithWebIdentity",
+      "Condition": {
+        "StringEquals": {
+          "oidc.eks.${AWS_REGION}.amazonaws.com/id/${OIDC_ID}:sub": "system:serviceaccount:${NAMESPACE}:${SA_NAME}",
+          "oidc.eks.${AWS_REGION}.amazonaws.com/id/${OIDC_ID}:aud": "sts.amazonaws.com"
+        }
+      }
+    }
+  ]
+}
+EOF
+```
+
+And we create the role:
+
+```bash
+aws iam create-role \
+--role-name eks-${EKS_CLUSTER_NAME}-aws-lb-controller \
+--assume-role-policy-document file:///tmp/trust-policy.json \
+--description "IRSA for AWS Load Balancer Controller on $EKS_CLUSTER_NAME" \
+--profile $AWS_PROFILE
+  ```
+
+And attach the policy to the role:
+
+```bash
+aws iam attach-role-policy \
+--role-name eks-${EKS_CLUSTER_NAME}-aws-lb-controller \
+--policy-arn arn:aws:iam::${ACCOUNT_ID}:policy/AWSLoadBalancerControllerIAMPolicy \
+--profile $AWS_PROFILE
+```
+
+We then annotate the AWS Load Balancer Kubernetes `ServiceAccount` with new role ARN:
+
+```bash
+ROLE_ARN=$(aws iam get-role --role-name eks-$EKS_CLUSTER_NAME-aws-lb-controller --query "Role.Arn" --output text --profile $AWS_PROFILE)
+
+kubectl annotate serviceaccounts -n $NAMESPACE aws-lb-controller eks.amazonaws.com/role-arn=$ROLE_ARN --overwrite
+```
+
+Restart the controller to pick up the new role:
+
+```bash
+kubectl rollout restart deployment -n $NAMESPACE -l app.kubernetes.io/name=aws-load-balancer-controller
+```
+
