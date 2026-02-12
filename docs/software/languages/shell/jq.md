@@ -25,6 +25,7 @@ jq '.[]	| select(.id == 101)'
 jq '.[]	| select(.status == "active" and .count > 5)'
 ```
 
+test husky https://corp:8000
 
 ### Select items that match a value in a nested array
 
@@ -35,12 +36,18 @@ jq '.[]	| select(.tags[] == "urgent")'
 ### Select based on the presence of a key
 
 ```bash
-`jq '.[] | select(has("optional_field"))'`
+`jq '.[] | select(has("optional_field"))'
 ```
 
 
 ### Select specific data from filtered objects
 
 ```bash
-jq -r '.files[] | select(.fileName=="FOO")
+jq -r '.files[] | select(.fileName=="FOO")'
+```
+
+### Select with contains
+
+```bash
+jq -r '.files[] | select(.<field> | contains("<value>")'
 ```
