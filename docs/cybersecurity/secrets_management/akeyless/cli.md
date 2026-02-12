@@ -199,14 +199,6 @@ Dynamic secret test-gworkspace-ds successfully created
 
 ## SRA
 
-### Connect to Target
-```bash
-akeyless connect \
---target $VM_USER@$TARGET_IP \
---via-sra 11.22.33.44 \
---cert-issuer-name /ssh-issuer-name \
---profile $AKEYLESS_PROFILE
-```
 
 ### Connect to EKS Target
 ```bash
@@ -220,6 +212,61 @@ akeyless connect \
 ```
 
 We can add `--debug` to see some details about the command that is being run to set up the connection.
+
+### Connect to SSH Target
+
+```bash
+akeyless connect 
+--target "$SSH_USER@$SSH_SERVER_IP:$SSH_SERVER_PORT" \
+--cert-issuer-name "$CERT_ISSUER_NAME" \
+--gateway-rest-endpoint "$GW_CONFIG_URL/api" \
+--debug
+```
+
+This will work if we have the following settings:
+
+- `~/.akeyless-connect.rc` doesn't exists.
+- The certificate issuer includes the `$SSH_USER` and `session_*` in allowed users:
+
+```bash
+akeyless describe-item --name "$CERT_ISSUER_NAME"
+```
+
+```json
+{
+  "item_name": "$CERT_ISSUER_NAME",
+  "cert_issuer_signer_key_name": "$CERT_ISSUER_SIGNING_KEY",
+  "certificate_issue_details": {
+    "ssh_cert_issuer_details": {
+      "allowed_users": [
+        "$SSH_USER",
+        "session_*"
+      ]
+    }
+  },
+  "item_general_info": {
+    "cert_issue_details": {
+      "ssh_cert_issuer_details": {
+        "allowed_users": [
+          "testuser",
+          "session_*"
+        ]
+      }
+    },
+    "secure_remote_access_details": {
+      "enable": true,
+      "use_internal_bastion": true,
+      "ssh_user": "testuser",
+      "host": [
+        "52.201.53.169"
+      ],
+      "is_cli": true,
+      "host_provider_type": "explicit",
+      "gw_cluster_id": 66355
+    }
+  }
+}
+```
 
 ## Certificates
 
@@ -242,10 +289,13 @@ akeyless get-certificate-value \
 --profile $AKEYLESS_PROFILE
 ```
 
-#### Targets
-
-### Get Target Details
+### Get Certificate Public Key
 
 ```bash
-akeyless target get-details --name target-1 --profile $AKEYLESS_PROFILE
+akeyless get-rsa-public \
+--name $ENCRYPTION_KEY_NAME \
+--json \
+--jq-expression='.ssh' \
+--profile $AKEYLESS_PROFILE
 ```
+
