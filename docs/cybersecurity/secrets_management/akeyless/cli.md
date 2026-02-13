@@ -67,6 +67,23 @@ akeyless get-cloud-identity --describe-sub-claims
 akeyless auth gcp --access-id $GCP_IAM_ACCESS_ID --cloud-id $CLOUD_ID
 ```
 
+To see the actual claims:
+
+```bash
+akeyless get-cloud-identity | base64 -d | cut -d'.' -f2 | base64 -d | jq
+```
+
+```json
+{
+  "aud": "https://kbbgl.azure.dev",
+  "iss": "https://sts.windows.net/$AZURE_TENANT_ID/",
+  "idp": "https://sts.windows.net/$AZURE_TENANT_ID/",
+  "sub": "[redacted]",
+  "xms_az_rid": "/subscriptions/$AZURE_SUBSCRIPTION_ID/resourcegroups/$AZURE_RESOURCE_GROUP/providers/Microsoft.App/containerApps/$AZURE_CONTAINER_APP_NAME",
+  "xms_mirid": "/subscriptions/$AZURE_SUBSCRIPTION_ID/resourcegroups/$AZURE_RESOURCE_GROUP/providers/Microsoft.ManagedIdentity/userAssignedIdentities/$ACA_MI",
+}
+```
+
 ### LDAP
 
 ```bash
