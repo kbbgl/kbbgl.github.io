@@ -55,28 +55,4 @@ gcloud artifacts repositories remove-iam-policy-binding $GCP_REPO_NAME \
 
 ## AWS ECR
 
-### Configuration
-
-```bash
-export AWS_ACCOUNT_ID=1234
-export AWS_REGION="us-east-1"
-export REPO_NAME=dapr
-```
-
-### Create Repository
-
-```bash
-aws ecr create-repository --repository-name $REPO_NAME --region $AWS_REGION
-```
-
-### Authenticate Docker
-
-```bash
-aws ecr get-login-password --region $AWS_REGION | docker login --username AWS --password-stdin $AWS_ACCOUNT_ID.dkr.ecr.$AWS_REGION.amazonaws.com
-```
-
-### List Images
-
-```bash
-aws ecr list-images --repository-name $REPO_NAME --no-cli-pager
-```
+See [ECR](../../../../cloud_services/aws/ecr.md)
