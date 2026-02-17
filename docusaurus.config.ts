@@ -71,12 +71,12 @@ const config: Config = {
           position: "left",
           label: "Blog",
         },
-        {
-          to: "/hack_blog",
-          sidebarId: "hackBlogSidebar",
-          position: "left",
-          label: "Hack Blog",
-        },
+        // {
+        //   to: "/hack_blog",
+        //   sidebarId: "hackBlogSidebar",
+        //   position: "left",
+        //   label: "Hack Blog",
+        // },
       ],
     },
     footer: {
