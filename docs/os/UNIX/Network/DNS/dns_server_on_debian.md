@@ -37,5 +37,11 @@ To disable the service (for setting up pihole) we can run:
 ```bash
 sudo systemctl stop systemd-resolved.service
 sudo systemctl disable systemd-resolved.service
+```
 
+
+### Getting IP Address from DNS
+
+```bash
+dig +short $SOME_URL
 ```

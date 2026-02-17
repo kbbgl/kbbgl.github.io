@@ -139,7 +139,7 @@ Print the CSR content:
 openssl req -in docs.kbbgl-gh-io.dev.key -text -noout -verify
 ```
 
-### Checking Kubernetes TLS Secret
+### Reading from STDIN
 
 ```bash
 kubectl get secrets -n default tls-kbbgl-gh-io-dev-crt -o jsonpath='{.data.tls\.crt}' | base64 -d | openssl x509 -text -noout | grep -A 1 "Subject Alternative Name"
