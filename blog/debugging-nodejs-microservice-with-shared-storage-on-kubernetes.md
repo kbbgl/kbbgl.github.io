@@ -4,6 +4,7 @@ title: Debugging NodeJS Microservice with Shared Storage on Kubernetes
 description: Fill me up!
 authors: [kbbgl]
 tags: [containers,debugging,dev,docker,droppy,k8s,kubernetes,node,nodejs,web,webapplication,webdevelopment]
+date: 2020-04-01
 ---
 
 ![sort-exceeded](https://tilsupport.files.wordpress.com/2021/05/sort_exceeded-1.png)
