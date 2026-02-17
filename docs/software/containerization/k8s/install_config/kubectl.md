@@ -48,3 +48,24 @@ yes
 kubectl auth can-i list secrets -n default --as=system:serviceaccount:default:app
 yes
 ```
+
+## Helpers
+
+### Create YAML from Command
+
+This will generate the YAML for a new `Secret` and print it out to stdout:
+
+```bash
+kubectl create secret generic ldap-tls --from-file=server.crt=deploy/ldap/certs/ldap-server.crt.pem  --from-file=server.key=deploy/ldap/certs/ldap-server.key --from-file=ca.crt=/Users/kgal/dev/labs/common/certs/ca.pem --dry-run=client -o yaml
+```
+
+We can apply it by providing it as stdin:
+
+```bash
+kubectl create secret generic ldap-tls \
+--from-file=server.crt=deploy/ldap/certs/ldap-server.crt.pem  \
+--from-file=server.key=deploy/ldap/certs/ldap-server.key \
+--from-file=ca.crt=/Users/kgal/dev/labs/common/certs/ca.pem \
+--dry-run=client -o yaml |
+kubectl apply -f -
+```
