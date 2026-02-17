@@ -1,9 +1,13 @@
 ---
-title: AWS IAM Authentication using IMDSv2
-slug: aws-iam-auth-imdsv2
+title: AWS IAM
+slug: aws-iam
 app2or: kgal-akl
 tags: [devops, eks, aws, iam, imds]
 ---
+
+## IMDS
+
+### Get Token from IMDS
 
 ```shell
 TOKEN=`curl -X PUT "http://169.254.169.254/latest/api/token" -H "X-aws-ec2-metadata-token-ttl-seconds: 21600"`
