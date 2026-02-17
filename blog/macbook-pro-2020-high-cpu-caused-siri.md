@@ -4,6 +4,7 @@ title: MacBook Pro 2020 High CPU caused by Siri
 description: Fill me up!
 authors: [kbbgl]
 tags: [apple,corespeechd,cpu,debugging,macos]
+date: 2020-07-03
 ---
 
 ## Introduction

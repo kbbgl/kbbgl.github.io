@@ -134,3 +134,21 @@ database:
 storage:
 
 postgres:
+
+gateway:
+
+api:
+
+aws:
+
+load_balancer:
+
+vpn:
+
+network:
+
+route:
+
+routing:
+
+unix:

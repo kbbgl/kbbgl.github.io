@@ -3,6 +3,7 @@ slug: catch-ebusy-on-nodejs
 title: How To Catch EBUSY Event on Windows using NodeJS
 authors: [kbbgl]
 tags: [nodejs, windows, web-dev, debugging]
+date: 2024-09-26
 ---
 
 ## Introduction

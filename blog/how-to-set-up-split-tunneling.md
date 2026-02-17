@@ -2,8 +2,9 @@
 slug: how-to-set-up-split-tunneling
 title: How To Set Up Split Tunneling with VPN
 description: This blog post describes how to set up split tunneling with a VPN on MacOS.
-authors: [kbbgl]
+authors: [kgal-akl]
 tags: [vpn,network,route,routing,macos,unix]
+date: 2025-10-19
 ---
 
 ## Introduction

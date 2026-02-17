@@ -1,9 +1,10 @@
 ---
 slug: how-to-deploy-k8s-svcs-using-aws-lbc-gw-api
-title: Hot to Deploy Kubernetes Services using Gateway API/AWS Load Balancer Controller
-description: Hot to Deploy Kubernetes Services using Gateway API/AWS Load Balancer Controller
+title: How to Deploy Kubernetes Services using Gateway API/AWS Load Balancer Controller
+description: How to Deploy Kubernetes Services using Gateway API/AWS Load Balancer Controller
 authors: [kgal-akl]
 tags: [k8s, kubernetes, gateway, api, aws, load_balancer]
+date: 2026-02-17
 ---
 
 This tutorial contains a working example of exposing **TCP services** (LDAP/LDAPS + SSH) from a **single-node k3s** cluster running on an EC2 instance, using:
@@ -14,6 +15,8 @@ This tutorial contains a working example of exposing **TCP services** (LDAP/LDAP
   - **ALB** (L7) via `HTTPRoute`/`GRPCRoute` (example file included)
 
 The key implementation detail for k3s-on-EC2 with the default overlay networking (flannel): **use `instance` targets + NodePorts** for L4 routes. ClusterIP + pod IP targets won’t work unless pods are VPC-routable (AWS VPC CNI).
+
+<!-- truncate -->
 
 ## Environment
 

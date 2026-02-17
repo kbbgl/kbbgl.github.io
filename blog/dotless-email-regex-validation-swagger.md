@@ -5,6 +5,7 @@ description: A detailed explanation what dotless emails are and how to set them 
 authors: [kbbgl]
 tags: [email, regex, web-dev, swagger]
 image: ./res/swagger-logo.png
+date: 2024-10-13
 ---
 
 ## Introduction

@@ -4,6 +4,7 @@ title: Deploying PostgresSQL in Kubernetes
 description: Deploying a PostgresSQL database in a Kubernetes cluster
 authors: [kgal-akl]
 tags: [k8s,kubernetes,database,storage,postgres,web,webapplication,webdevelopment]
+date: 2025-01-30
 ---
 
 In this tutorial we deploy a PostgresSQL database in Kubernetes cluster.

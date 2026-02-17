@@ -4,6 +4,7 @@ title: How to Run a Sequential gulp.js Task using PowerShell
 description: Fill me up!
 authors: [kbbgl]
 tags: [gulp,gulp.js,gulpjs,script,scripting,task_scheduler,windows]
+date: 2024-10-12
 ---
 
 ## Introduction

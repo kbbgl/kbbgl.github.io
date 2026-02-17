@@ -4,6 +4,7 @@ title: Hack The Box ‘Archetype’ Challenge
 description: Fill me up!
 authors: [kbbgl]
 tags: [capture_the_flag,ctf,cybersecurity,hacking,smb,windows]
+date: 2023-03-28
 ---
 
 ## What is Hack The Box?

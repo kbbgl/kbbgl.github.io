@@ -4,6 +4,7 @@ title: Installing Ubuntu 20.04 on 2013 MacBook Air
 description: Fill me up!
 authors: [kbbgl]
 tags: [mac,ubuntu]
+date: 2021-02-17
 ---
 
 ## Introduction

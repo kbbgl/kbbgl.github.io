@@ -4,6 +4,7 @@ title: Installing PiHole On Raspberry Pi 4, MicroK8s running Ubuntu 20.04 (foca
 description: Fill me up!
 authors: [kbbgl]
 tags: [docker,how-to,k8s,kubernetes,linux,pihole,raspberry_pi,troubleshooting]
+date: 2020-04-20
 ---
 
 ## PiHole, What’s That?

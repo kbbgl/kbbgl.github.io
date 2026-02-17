@@ -4,6 +4,7 @@ title: 3-Way Data Migration between Support Systems
 description: Fill me up!
 authors: [kbbgl]
 tags: [bash,data_engineering,jq,migration,pandas,python]
+date: 2025-09-26
 ---
 
 ## Introduction

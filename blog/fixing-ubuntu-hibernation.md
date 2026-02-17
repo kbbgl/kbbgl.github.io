@@ -3,6 +3,7 @@ slug: fixing-ubuntu-hibernation
 title: Fixing Ubuntu Hibernation
 authors: [kbbgl]
 tags: [ubuntu,boot,hibernation,raspberry_pi,swap,fs]
+date: 2025-05-14
 ---
 
 ## Introduction

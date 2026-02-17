@@ -4,6 +4,7 @@ title: Fixing Production Down caused by MongoDB Corruption and Heketi/GlusterFS 
 description: Fill me up!
 authors: [kbbgl]
 tags: [cluster,gluster,glusterfs,heketi,kubectl,kubernetes,mongo,mongodb,production,troubleshooting]
+date: 2019-04-11
 ---
 ## Introduction
 
