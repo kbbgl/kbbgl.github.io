@@ -49,6 +49,8 @@ curl -X POST https://login.microsoftonline.com/$AZURE_TENANT_ID/oauth2/v2.0/toke
 -d "grant_type=client_credentials"
 ```
 
+To check if the OIDC provider is enabled, see [Check Workload Identity](./aks.md#check-workload-identity).
+To enable Workload Identity using the Azure CLI, see [Enable Workload Identity](./aks.md#enable-workload-identity).
 
 
 ## Configuration
@@ -109,7 +111,6 @@ Otherwise, if we want to explicitly target Workload Identity:
 // It reads AZURE_TENANT_ID, AZURE_CLIENT_ID, and AZURE_FEDERATED_TOKEN_FILE from environment
 workloadCred, err := azidentity.NewWorkloadIdentityCredential(nil)
 ```
-
 
 ### Sources
 
