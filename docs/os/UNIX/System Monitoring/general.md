@@ -1,3 +1,10 @@
+---
+slug: unix-sys-monitoring
+title: UNIX System Monitoring
+authors: [kbbgl]
+tags: [unix, linux, monitoring, syslog]
+---
+
 # Tools
 
 ## Network
@@ -70,6 +77,25 @@ Important logs:
 - `secure` - security related messages.
 
 Files are rotated using `logrotate` (configuration in `/etc/logrotate.conf`.
+
+### Send Test Message to Syslog Server
+
+#### UDP
+```bash
+echo "<134>1 2026-02-25T20:00:00Z kbbgl-test dummy - - - hello from udp" | nc -u -w1 $SYSLOG_SERVER_IP $SYSLOG_SERVER_PORT
+```
+
+#### TCP
+```bash
+echo "<134>1 2026-02-25T20:00:00Z kbbgl-test dummy - - - hello from tcp" | nc -w3 $SYSLOG_SERVER_IP $SYSLOG_SERVER_PORT
+```
+
+#### TLS
+```bash
+openssl s_client -connect $SYSLOG_SERVER_IP:$SYSLOG_SERVER_PORT -quiet <<'EOF'
+<134>1 2026-02-25T20:00:00Z kbbgl-test dummy - - - hello from tls
+EOF
+```
 
 ## Systems Activity Report (`sar`)
 
