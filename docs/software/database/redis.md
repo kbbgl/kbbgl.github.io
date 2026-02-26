@@ -134,6 +134,22 @@ To delete all keys in Redis:
 FLUSHALL
 ```
 
+We can also delete them in batches if we don't access/permission/ to `FLUSHALL` or it's disabled:
+
+```bash
+BATCH_SIZE=100
+redis-cli --tls \
+--cert /opt/app/cache/certs/tls.crt \
+--key /opt/app/cache/certs/tls.key \
+--cacert /opt/app/cache/certs/ca.crt \
+-a "$REDIS_PASSWORD" --no-auth-warning \
+--scan | xargs -d '\n' -L $BATCH_SIZE redis-cli --tls \
+--cert /opt/app/cache/certs/tls.crt \
+--key /opt/app/cache/certs/tls.key \
+--cacert /opt/app/cache/certs/ca.crt \
+-a "$REDIS_PASSWORD" --no-auth-warning DEL
+```
+
 ## Monitor
 
 Observe every operation (e.g. key set/get, `HGETALL`, deletes):
