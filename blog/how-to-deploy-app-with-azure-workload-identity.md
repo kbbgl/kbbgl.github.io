@@ -15,16 +15,19 @@ This tutorial is a guide on how to deploy an application in Kubernetes that will
 - `kubectl` installed and access to the AKS cluster.
 - `helm`.
 
-See links for more information about [Azure Identity](../docs/cloud_services/azure/identity.md) and [AKS](../docs/cloud_services/azure/aks.md).
+See links for more information about [Azure Identity](/docs/cloud_services/azure/azure-identity) and [AKS](/docs/cloud_services/azure/managing-aks-azure).
 
 ## Enable OIDC on AKS
 
-1. [Check if the OIDC issuer is enabled in the AKS cluster](../docs/cloud_services/azure//aks.md#check-workload-identity). [Enable it](../docs/cloud_services/azure/aks.md#enable-workload-identity) if it's not.
+1. [Check if the OIDC issuer is enabled in the AKS cluster](/docs/cloud_services/azure/managing-aks-azure#check-workload-identity). [Enable it](/docs/cloud_services/azure/managing-aks-azure#enable-workload-identity) if it's not.
 
 ## (Optional) Enable Workload Identity plugin
 
 ```bash
-az aks update --resource-group "$AZURE_RESOURCE_GROUP" --name "$AKS_CLUSTER_NAME" --enable-workload-identity
+az aks update \
+--resource-group "$AZURE_RESOURCE_GROUP" \
+--name "$AKS_CLUSTER_NAME" \
+--enable-workload-identity
 ```
 
 This will deploy a `Deployment` named `azure-wi-webhook-controller-manager` in the `kube-system` namespace:
@@ -69,7 +72,7 @@ az identity federated-credential create \
 
 ## Install Azure Workload Identity Webhook
 
-This is what injects `AZURE_CLIENT_ID`, `AZURE_TENANT_ID`, `AZURE_FEDERATED_TOKEN_FILE`, and the projected token volume into pods that use the label. See [Service Principal](../docs/cloud_services/azure/identity.md#service-principal-with-secret) for more info on those environmental variables.
+This is what injects `AZURE_CLIENT_ID`, `AZURE_TENANT_ID`, `AZURE_FEDERATED_TOKEN_FILE`, and the projected token volume into pods that use the label. See [Service Principal](/docs/cloud_services/azure/azure-identity#service-principal-with-secret) for more info on those environmental variables.
 
 ```bash
 helm repo add azure-workload-identity https://azure.github.io/azure-workload-identity/charts
