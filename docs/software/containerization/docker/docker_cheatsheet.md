@@ -119,3 +119,7 @@ COPY . .
 # Your app's start command
 CMD ["npm", "start"]
 ```
+
+### BuildKit notes
+
+If you’re doing anything beyond “build an image from a Dockerfile” (export build artifacts locally, leverage more advanced caching, custom frontends), see [BuildKit](/docs/software/containerization/docker/buildkit).
