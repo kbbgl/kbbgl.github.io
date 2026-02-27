@@ -150,12 +150,11 @@ redis-cli --tls \
 -a "$REDIS_PASSWORD" --no-auth-warning DEL
 ```
 
-## Monitor
-
-Observe every operation (e.g. key set/get, `HGETALL`, deletes):
+## Persistence
 
 ```bash
-redis-cli --pass "$REDIS_PASSWORD" --no-auth-warning MONITOR
+redis-cli -a "$REDIS_PASSWORD" INFO persistence
+redis-cli -a "$REDIS_PASSWORD" CONFIG GET save
 ```
 
 ## Configuration
@@ -164,3 +163,47 @@ redis-cli --pass "$REDIS_PASSWORD" --no-auth-warning MONITOR
 ```
 CONFIG SET loglevel debug
 ```
+
+## Debugging
+
+### Monitor
+
+Observe every operation (e.g. key set/get, `HGETALL`, deletes):
+
+```bash
+redis-cli --pass "$REDIS_PASSWORD" --no-auth-warning MONITOR
+```
+
+### Ping a Remote Redis Server
+
+```bash
+redis-cli --tls \
+--cacert /opt/app/cache/certs/ca.crt \
+--cert /opt/app/cache/certs/tls.crt \
+--key /opt/app/cache/certs/tls.key \
+-h $REMOTE_REDIS_HOST -p 6379 \
+-a "$REDIS_PASS" PING
+```
+
+### Check Latency
+
+```bash
+redis-cli -a "$REDIS_PASSWORD" LATENCY DOCTOR
+redis-cli -a "$REDIS_PASSWORD" SLOWLOG GET 128
+```
+
+### List Clients
+
+The command provides all the clients that communicated with the Redis server:
+
+```bash
+redis-cli CLIENT LIST
+```
+
+It provides a file descriptor (`fd`) and an IP address/port of the client. It is very useful when there are connection/TLS issues and we see prints such as in the Redis server logs:
+
+```
+Error accepting a client connection: error:0A000126:SSL routines::unexpected eof while reading (conn: fd=259)
+```
+
+We see here that the client got assigned `fd=259` so we can use the command above to see the IP of that specific client belonging to that file descriptor.
