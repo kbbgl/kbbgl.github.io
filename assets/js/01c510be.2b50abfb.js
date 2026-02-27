@@ -1,0 +1,1 @@
+"use strict";(globalThis.webpackChunkkgkb=globalThis.webpackChunkkgkb||[]).push([[73398],{35146:s=>{s.exports=JSON.parse('{"tag":{"label":"pms","permalink":"/docs/tags/pms","allTagsPath":"/docs/tags","count":1,"items":[{"id":"os/linux/pms","title":"Package Management Systems","description":"Types of packages","permalink":"/docs/os/linux/os-linux-pms"}],"unlisted":false}}')}}]);
