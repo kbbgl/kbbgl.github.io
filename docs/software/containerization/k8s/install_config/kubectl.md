@@ -10,6 +10,7 @@ tags: [devops, k8s, kubernetes, kubectl, cheatsheet]
 `kubectl` is used to configure and manage the cluster.
 
 It will use the `~/.kube/config` file as the configuration file which includes the cluster IP, the credentials and the context.
+For more details (contexts, merging configs, security hardening), see [Kubeconfig](/docs/software/containerization/k8s/kubeconfig).
 
 A **context** is a combination of a cluster and user credentials.
 The context can be changed using:
