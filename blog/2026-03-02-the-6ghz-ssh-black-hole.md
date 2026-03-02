@@ -1,7 +1,7 @@
 ---
 slug: 6ghz-ssh-isolation-troubleshooting
 title: "The 6GHz Black Hole: Troubleshooting SSH Failures Across WiFi Bands"
-authors: [yourname]
+authors: [kbbgl]
 tags: [networking, macos, ssh, wifi6e]
 date: 2026-03-02
 ---
@@ -25,23 +25,21 @@ Result: `sshd` was listening on all interfaces (z). Testing `ssh localhost 22` w
 
 ## Step 2: Checking the "Shields"
 We checked the standard macOS suspects:
+- Application Firewall: Turned OFF.
+- Stealth Mode: Disabled.
+- Third-Party Tools: None (clean install).
 
-Application Firewall: Turned OFF.
-
-Stealth Mode: Disabled.
-
-Third-Party Tools: None (clean install).
-
-Despite this, a simple nc -vz 192.168.x.10 22 from the host timed out, and ping failed entirely.
+Despite this, a simple `nc -vz 192.168.x.10 22` from the host timed out, and ping failed entirely.
 
 ## Step 3: Following the Breadcrumbs (The Topology)
+
 By looking at the router’s device list, we noticed a discrepancy:
 
-The Host was on the 6GHz band.
-
-The Target was on the 5GHz band (linked via an extender).
+- The Host was on the 6GHz band.
+- The Target was on the 5GHz band (linked via an extender).
 
 ## The Theory: Why it Failed
+
 When we disabled the 6GHz radio on the router, forcing the Host onto the 5GHz band, everything started working immediately. Why? There are three concrete theories for this behavior:
 
 1. The ARP Bridge Failure (Layer 2): For the laptop to talk to the Mac Mini, it needs to know its MAC address via an ARP (Address Resolution Protocol) request. Many routers and extenders fail to "bridge" these broadcast requests across different physical radios (6GHz to 5GHz). If the ARP request never crosses the bridge, the Host has no "physical address" to send the SSH packets to.
