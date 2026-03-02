@@ -2,11 +2,79 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://kbbgl.github.io/blog</id>
     <title>Kobbi's Knowledgebase Blog</title>
-    <updated>2026-02-24T00:00:00.000Z</updated>
+    <updated>2026-03-02T00:00:00.000Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://kbbgl.github.io/blog"/>
     <subtitle>Kobbi's Knowledgebase Blog</subtitle>
     <icon>https://kbbgl.github.io/img/favicon.svg</icon>
+    <entry>
+        <title type="html"><![CDATA[The 6GHz Black Hole: Troubleshooting SSH Failures Across WiFi Bands]]></title>
+        <id>https://kbbgl.github.io/blog/6ghz-ssh-isolation-troubleshooting</id>
+        <link href="https://kbbgl.github.io/blog/6ghz-ssh-isolation-troubleshooting"/>
+        <updated>2026-03-02T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[Have you ever had a service that works perfectly on localhost but acts like it doesn't exist to the rest of your network? We recently spent an afternoon debugging a Mac Mini M4 that refused to accept SSH connections, despite every local check saying "All Systems Go."]]></summary>
+        <content type="html"><![CDATA[<p>Have you ever had a service that works perfectly on <code>localhost</code> but acts like it doesn't exist to the rest of your network? We recently spent an afternoon debugging a Mac Mini M4 that refused to accept SSH connections, despite every local check saying "All Systems Go."</p>
+<p>The culprit wasn't a firewall or a wrong config, it was the <strong>invisible wall between 5GHz and 6GHz WiFi bands</strong>.</p>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="the-setup">The Setup<a href="https://kbbgl.github.io/blog/6ghz-ssh-isolation-troubleshooting#the-setup" class="hash-link" aria-label="Direct link to The Setup" title="Direct link to The Setup">​</a></h2>
+<ul>
+<li><strong>Target:</strong> Mac Mini M4 (<code>192.168.x.10</code>) connected via a WiFi Extender on the <strong>5GHz</strong> band.</li>
+<li><strong>Host:</strong> Laptop (<code>192.168.x.20</code>) connected directly to the main router on the <strong>6GHz</strong> (Wi-Fi 6E) band.</li>
+<li><strong>Goal:</strong> Simple SSH access from Host to Target.</li>
+</ul>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="step-1-is-the-service-actually-running">Step 1: Is the service actually running?<a href="https://kbbgl.github.io/blog/6ghz-ssh-isolation-troubleshooting#step-1-is-the-service-actually-running" class="hash-link" aria-label="Direct link to Step 1: Is the service actually running?" title="Direct link to Step 1: Is the service actually running?">​</a></h2>
+<p>First, we checked if the target was actually listening on Port 22.</p>
+<div class="language-bash codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_biex"><pre tabindex="0" class="prism-code language-bash codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token function" style="color:#d73a49">sudo</span><span class="token plain"> </span><span class="token function" style="color:#d73a49">lsof</span><span class="token plain"> </span><span class="token parameter variable" style="color:#36acaa">-i</span><span class="token plain"> :22</span><br></span></code></pre><div class="buttonGroup__atx"><button type="button" aria-label="Copy code to clipboard" title="Copy" class="clean-btn"><span class="copyButtonIcons_eSgA" aria-hidden="true"><svg viewBox="0 0 24 24" class="copyButtonIcon_y97N"><path fill="currentColor" d="M19,21H8V7H19M19,5H8A2,2 0 0,0 6,7V21A2,2 0 0,0 8,23H19A2,2 0 0,0 21,21V7A2,2 0 0,0 19,5M16,1H4A2,2 0 0,0 2,3V17H4V3H16V1Z"></path></svg><svg viewBox="0 0 24 24" class="copyButtonSuccessIcon_LjdS"><path fill="currentColor" d="M21,7L9,19L3.5,13.5L4.91,12.09L9,16.17L19.59,5.59L21,7Z"></path></svg></span></button></div></div></div>
+<p>Result: <code>sshd</code> was listening on all interfaces (z). Testing <code>ssh localhost 22</code> worked perfectly. The "phone was off the hook," but the call wasn't getting through.</p>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="step-2-checking-the-shields">Step 2: Checking the "Shields"<a href="https://kbbgl.github.io/blog/6ghz-ssh-isolation-troubleshooting#step-2-checking-the-shields" class="hash-link" aria-label="Direct link to Step 2: Checking the &quot;Shields&quot;" title="Direct link to Step 2: Checking the &quot;Shields&quot;">​</a></h2>
+<p>We checked the standard macOS suspects:</p>
+<ul>
+<li>Application Firewall: Turned OFF.</li>
+<li>Stealth Mode: Disabled.</li>
+<li>Third-Party Tools: None (clean install).</li>
+</ul>
+<p>Despite this, a simple <code>nc -vz 192.168.x.10 22</code> from the host timed out, and ping failed entirely.</p>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="step-3-following-the-breadcrumbs-the-topology">Step 3: Following the Breadcrumbs (The Topology)<a href="https://kbbgl.github.io/blog/6ghz-ssh-isolation-troubleshooting#step-3-following-the-breadcrumbs-the-topology" class="hash-link" aria-label="Direct link to Step 3: Following the Breadcrumbs (The Topology)" title="Direct link to Step 3: Following the Breadcrumbs (The Topology)">​</a></h2>
+<p>By looking at the router’s device list, we noticed a discrepancy:</p>
+<ul>
+<li>The Host was on the 6GHz band.</li>
+<li>The Target was on the 5GHz band (linked via an extender).</li>
+</ul>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="the-theory-why-it-failed">The Theory: Why it Failed<a href="https://kbbgl.github.io/blog/6ghz-ssh-isolation-troubleshooting#the-theory-why-it-failed" class="hash-link" aria-label="Direct link to The Theory: Why it Failed" title="Direct link to The Theory: Why it Failed">​</a></h2>
+<p>When we disabled the 6GHz radio on the router, forcing the Host onto the 5GHz band, everything started working immediately. Why? There are three concrete theories for this behavior:</p>
+<ol>
+<li>
+<p>The ARP Bridge Failure (Layer 2): For the laptop to talk to the Mac Mini, it needs to know its MAC address via an ARP (Address Resolution Protocol) request. Many routers and extenders fail to "bridge" these broadcast requests across different physical radios (6GHz to 5GHz). If the ARP request never crosses the bridge, the Host has no "physical address" to send the SSH packets to.</p>
+</li>
+<li>
+<p>Extender "Station Separation": WiFi extenders often use a technique called MAC Translation to manage clients. This can sometimes create a "one-way mirror" effect where the client on the extender can reach the internet, but unsolicited incoming traffic (like a New SSH Connection) from the main router's side is dropped because the extender doesn't recognize the route.</p>
+</li>
+<li>
+<p>mDNS/Bonjour Isolation: macOS relies heavily on Bonjour (mDNS) for discovery. 6GHz is often treated as a "high-security" or "high-speed" isolated segment by consumer routers. If the router isn't explicitly configured to repeat Multicast traffic between the 6GHz and 5GHz radios, the devices remain invisible to each other.</p>
+</li>
+</ol>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="the-solution">The Solution<a href="https://kbbgl.github.io/blog/6ghz-ssh-isolation-troubleshooting#the-solution" class="hash-link" aria-label="Direct link to The Solution" title="Direct link to The Solution">​</a></h2>
+<p>If you encounter "Port 22 Timeout" on a modern Wi-Fi 6E/7 network:</p>
+<ol>
+<li>
+<p>Check your bands: Ensure both devices are on the same frequency (2.4, 5, or 6GHz).</p>
+</li>
+<li>
+<p>Disable "Smart Connect" / SON: Give your 5GHz and 6GHz networks different names to control exactly where your "Server" devices land.</p>
+</li>
+<li>
+<p>Wired Backhaul: If using an extender, connect it to the router via Ethernet or MoCA to avoid wireless bridging bugs.</p>
+</li>
+</ol>
+<p>The lesson? Just because they have the same IP subnet doesn't mean they're on the same "road."</p>]]></content>
+        <author>
+            <name>Kobbi Gal</name>
+            <uri>https://github.com/kbbgl</uri>
+        </author>
+        <category label="networking" term="networking"/>
+        <category label="Macos" term="Macos"/>
+        <category label="ssh" term="ssh"/>
+        <category label="wifi6e" term="wifi6e"/>
+    </entry>
     <entry>
         <title type="html"><![CDATA[How To Deploy Application with Azure Workload Identity]]></title>
         <id>https://kbbgl.github.io/blog/how-to-deploy-app-with-azure-workload-identity</id>
@@ -1200,7 +1268,7 @@ What I found was that the OS crashed because of a segmentation fault:</p>
         <link href="https://kbbgl.github.io/blog/install-pihole-rpi4-microk8s-ubuntu-2004"/>
         <updated>2020-04-20T00:00:00.000Z</updated>
         <summary type="html"><![CDATA[Fill me up!]]></summary>
-        <content type="html"><![CDATA[<h2 class="anchor anchorWithStickyNavbar_LWe7" id="pihole-whats-that">PiHole, What’s That?<a href="https://kbbgl.github.io/blog/install-pihole-rpi4-microk8s-ubuntu-2004#pihole-whats-that" class="hash-link" aria-label="Direct link to PiHole, What’s That?" title="Direct link to PiHole, What’s That?">​</a></h2>
+        <content type="html"><![CDATA[<h2 class="anchor anchorWithStickyNavbar_LWe7" id="pihole-whats-that">PiHole, What’s That?<a href="https://kbbgl.github.io/blog/install-pihole-rpi4-microk8s-ubuntu-2004#pihole-whats-that" class="hash-link" aria-label="Direct link to PiHole, What’s That?" title="Direct link to PiHole, What�’s That?">​</a></h2>
 <p>The <a href="https://en.wikipedia.org/wiki/Pi-hole" target="_blank" rel="noopener noreferrer">Wikipedia definition</a> should be sufficient in explaining what the software does:</p>
 <blockquote>
 <p>Pi-hole or Pihole is a Linux network-level advertisement and Internet tracker blocking application which acts as a DNS sinkhole and optionally a DHCP server, intended for use on a private network</p>
