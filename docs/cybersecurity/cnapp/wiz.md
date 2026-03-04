@@ -18,8 +18,8 @@ IMAGE_TO_SCAN="${CONTAINER_REGISTRY}:${IMAGE_NAME}:${IMAGE_TAG}"
 
 wizcli docker scan \
 --name "$ISSUE_NAME-rc1" \
---image=$IMAGE_TO_SCAN\
---human-output-file=/tmp/${IMAGE_NAME}:${IMAGE_TAG}"
+--image=$IMAGE_TO_SCAN \
+--human-output-file="/tmp/${IMAGE_NAME}:${IMAGE_TAG}"
 ```
 
 
