@@ -3,4 +3,23 @@ command -v gitleaks >/dev/null 2>&1 || {
   exit 1
 }
 
+echo "$(date -u) [husky-precommit-hook-gitleaks] start"
 gitleaks git --staged --config .gitleaks.toml --redact --verbose --log-level trace
+echo "$(date -u) [husky-precommit-hook-gitleaks] end"
+
+
+echo "$(date -u) [husky-precommit-hook-remark] start"
+git diff --cached --name-only -z --diff-filter=ACMR -- docs blog \
+  | while IFS= read -r -d '' file; do
+      case "$file" in
+        *.md|*.mdx)
+          remark --quiet --frail \
+            --use remark-mdx \
+            --use remark-validate-links \
+            -o /dev/null \
+            "$file"
+          ;;
+      esac
+    done
+echo "$(date -u) [husky-precommit-hook-remark] end"
+
