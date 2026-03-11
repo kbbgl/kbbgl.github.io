@@ -171,13 +171,25 @@ openssl x509 -in client.crt -noout -text | grep -E "Not Before|After"
 ```
 
 
-## Adding Self-Signed Certificate to CA Store 
+## Managing Certificate CA Store 
 
 ### Ubuntu
 
+#### Add
+
 ```bash
-sudo cp $CRT_PATH /usr/local/share/ca-certificates/
+sudo install -m 0644 $CRT_PATH.crt /usr/local/share/ca-certificates/$CRT_NAME.crt
 sudo update-ca-certificates
+```
+
+#### Remove
+
+```bash
+sudo rm /usr/local/share/ca-certificates/$CRT_NAME.crt
+sudo update-ca-certificates --fresh
+
+# verify it's gone
+grep -i "$CRT_NAME" /etc/ssl/certs/ca-certificates.crt
 ```
 
 ### RHEL
@@ -190,6 +202,7 @@ sudo update-ca-trust extract
 
 
 ### MacOS Keychain
+
 
 ```bash
 sudo security add-trusted-cert -d -r trustRoot -k "/Library/Keychains/System.keychain" $CRT_PATH
