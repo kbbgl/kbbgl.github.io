@@ -31,7 +31,7 @@ akeyless auth --access-id $GCP_IAM_ACCESS_ID --access-type gcp
 
 #### Create Auth Method
 
-Get the `AZURE_TENANT_ID` by [retreiving the Tenant ID](../../../cloud_services/azure/account.md#retrieve-tenant-id).
+Get the `AZURE_TENANT_ID` by [retreiving the Tenant ID](/docs/cloud_services/azure/account.md#retrieve-tenant-id).
 ```bash
 AZURE_TENANT_ID=$(az account show \
 --query tenantId \
@@ -43,7 +43,7 @@ akeyless create-auth-method-azure-ad \
 --profile kgal-azure-dev-gw-admin;
 ```
 
-Make sure to [enable a managed idenitity](../../../cloud_services/azure/vm.md#assign-a-managed-identity-to-vm).
+Make sure to [enable a managed idenitity](/docs/cloud_services/azure/vm.md#assign-a-managed-identity-to-vm).
 
 Then authenticate:
 
@@ -61,7 +61,7 @@ akeyless validate-token --token $AKEYLESS_T_TOKEN --debug
 
 #### Get Cloud Identity
 
-We can run this within a cloud provider environment to retrieve the cloud ID and use it to authenticate to [AWS](./cli.md#aws-iam), [Azure](./cli.md#azure) or [GCP](./cli.md#gcp-iamsa)
+We can run this within a cloud provider environment to retrieve the cloud ID and use it to authenticate to [AWS](/docs/cloud_services/aws/cli.md), [Azure](/docs/cloud_services/azure/identity.md) or [GCP](/docs/cloud_services/gcloud/iam.md).
 ```bash
 akeyless get-cloud-identity --describe-sub-claims
 akeyless auth gcp --access-id $GCP_IAM_ACCESS_ID --cloud-id $CLOUD_ID
@@ -233,7 +233,7 @@ We can add `--debug` to see some details about the command that is being run to 
 ### Connect to SSH Target
 
 ```bash
-akeyless connect 
+akeyless connect \
 --target "$SSH_USER@$SSH_SERVER_IP:$SSH_SERVER_PORT" \
 --cert-issuer-name "$CERT_ISSUER_NAME" \
 --gateway-rest-endpoint "$GW_CONFIG_URL/api" \
