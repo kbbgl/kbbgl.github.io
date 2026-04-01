@@ -94,16 +94,6 @@ Not After : Sep 21 15:41:35 2070 GMT
 This extracts the public key from a certificate and displays it in PEM format:
 
 ```bash
-openssl x509 \
--in /tmp/kgal-localhost-kind-kubeconfig-cluster-cert-auth-data.pem \
--noout \
--pubkey
-
------BEGIN PUBLIC KEY-----
-MIIBIj....AB
------END PUBLIC KEY-----
-```
-
 
 ### Displaying Public Key Information
 
@@ -115,6 +105,12 @@ openssl x509 \
 -text
 ```
 
+
+### Extract Public Key from Private Key
+
+```bash
+ssh-keygen -y -f ~/.ssh/id_rsa > ~/.ssh/id_rsa.pub
+```
 
 ### Private Keys
 
