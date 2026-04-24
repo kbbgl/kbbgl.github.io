@@ -20,6 +20,19 @@ helm list --all-namespaces
 helm upgrade --install app-gw app/app-api-gateway -f deploy/akl-gw/values.yaml
 ```
 
+### Get Release Values
+
+Helm saves the deployment values in a secret in the namespace where the chart was deployed. We can retrieve them in JSON format using:
+
+```bash
+kubectl get secret sh.helm.release.v1.$release_name.$release_version \
+-o jsonpath='{.data.release}' \
+| base64 -d \
+| base64 -d \
+| gunzip \
+| jq > $release_name.$release_version.json
+```
+
 ## Repo
 
 ### Adding Repo
