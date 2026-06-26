@@ -26,3 +26,16 @@ Run `route -n` and see if the routing table makes sense.
 ## Hostname Resolution
 
 Run `dig` or `host` on a URL and see if DNS is working properly.
+
+## Send an HTTP request with `curl`
+
+```bash
+exec 3<>/dev/tcp/localhost/8000
+printf 'GET /health HTTP/1.1\r\nHost: localhost\r\nConnection: close\r\n\r\n' >&3
+cat <&3
+
+HTTP/1.1 200 OK
+Health Check Ok
+```
+
+[source](https://mareksuppa.com/til/bash-dev-tcp-http-without-curl/)
