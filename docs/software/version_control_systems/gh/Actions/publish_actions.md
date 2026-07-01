@@ -10,7 +10,7 @@ npm install
 
 Then change the code in yml/`index.js`, install all missing dependencies and use `ncc` to build the bundle as we saw in [Creating Custom Actions](creating_custom_actions.md#javascript).
 
-To the [action yml](../actions/greet/action.yml), we also need to add the `branding` section:
+To the [action yml](greet/action.yml), we also need to add the `branding` section:
 
 ```yaml
 outputs:

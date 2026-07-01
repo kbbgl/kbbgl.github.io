@@ -10,6 +10,8 @@ When you see **`too many open files`** in a containerized app, it’s tempting t
 
 This post is a practical, copy/paste-friendly checklist to debug the problem on a real Kubernetes cluster.
 
+{/* truncate */}
+
 ## Step 0: Decide which “limit” you’re hitting
 
 There are (at least) three common failure modes that can all look like “too many open files”:

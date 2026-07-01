@@ -9,6 +9,8 @@ date: 2026-02-24
 
 This tutorial is a guide on how to deploy an application in Kubernetes that will authenticate using Azure Workload Identity on Azure Kubernetes Services (AKS).
 
+{/* truncate */}
+
 ## Prerequisites
 
 - Access to the Azure CLI and an Azure account.

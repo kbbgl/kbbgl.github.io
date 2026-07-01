@@ -152,3 +152,27 @@ route:
 routing:
 
 unix:
+
+daily-log:
+
+cursor:
+
+golang:
+
+networking:
+
+ssh:
+
+wifi6e:
+
+cloud:
+
+azure:
+
+aks:
+
+workload_identity:
+
+federation:
+
+terraform:
