@@ -10,6 +10,8 @@ Have you ever had a service that works perfectly on `localhost` but acts like it
 
 The culprit wasn't a firewall or a wrong config, it was the **invisible wall between 5GHz and 6GHz WiFi bands**.
 
+{/* truncate */}
+
 ## The Setup
 * **Target:** Mac Mini M4 (`192.168.x.10`) connected via a WiFi Extender on the **5GHz** band.
 * **Host:** Laptop (`192.168.x.20`) connected directly to the main router on the **6GHz** (Wi-Fi 6E) band.
