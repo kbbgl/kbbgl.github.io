@@ -17,6 +17,7 @@
 actually transferable. No customer names, no internal ticket numbers, just the engineering
 lessons that survive being taken out of context.</p>
 <p>Today had three things worth writing down.</p>
+<!-- -->
 <h2 class="anchor anchorWithStickyNavbar_LWe7" id="1-the-phantom-get---405-behind-a-cloud-load-balancer">1. The phantom <code>GET / → 405</code> behind a cloud load balancer<a href="https://kbbgl.github.io/blog/daily-log-2026-06-30#1-the-phantom-get---405-behind-a-cloud-load-balancer" class="hash-link" aria-label="Direct link to 1-the-phantom-get---405-behind-a-cloud-load-balancer" title="Direct link to 1-the-phantom-get---405-behind-a-cloud-load-balancer">​</a></h2>
 <p>A service was emitting a steady stream of <code>405 / "Unsupported method GET: url: /"</code> — tens of
 errors per second, millions per day. Enough to drown real signal and trip alerting.</p>
@@ -87,11 +88,11 @@ little category in the tag list — which is its own kind of honest signal.</p>]
             <name>Kobbi Gal</name>
             <uri>https://github.com/kbbgl</uri>
         </author>
-        <category label="daily-log" term="daily-log"/>
+        <category label="Daily-log" term="Daily-log"/>
         <category label="Debugging" term="Debugging"/>
         <category label="Kubernetes" term="Kubernetes"/>
         <category label="Security" term="Security"/>
-        <category label="cursor" term="cursor"/>
+        <category label="Cursor" term="Cursor"/>
     </entry>
     <entry>
         <title type="html"><![CDATA[Daily Log — 2026-06-29: is the fix actually live, AKS internal LB probes, and a field-dropping webhook]]></title>
@@ -188,10 +189,10 @@ sense — it's "the client asked for a URL the server doesn't serve". Print the 
             <name>Kobbi Gal</name>
             <uri>https://github.com/kbbgl</uri>
         </author>
-        <category label="daily-log" term="daily-log"/>
+        <category label="Daily-log" term="Daily-log"/>
         <category label="Kubernetes" term="Kubernetes"/>
-        <category label="azure" term="azure"/>
-        <category label="terraform" term="terraform"/>
+        <category label="Azure" term="Azure"/>
+        <category label="Terraform" term="Terraform"/>
         <category label="Debugging" term="Debugging"/>
     </entry>
     <entry>
@@ -202,6 +203,7 @@ sense — it's "the client asked for a URL the server doesn't serve". Print the 
         <summary type="html"><![CDATA[When you see too many open files in a containerized app, it’s tempting to jump straight to ulimit -n. Sometimes that’s correct. But on Linux (especially with Go apps using fsnotify), the error can also be caused by inotify limits—even if your process has a huge file-descriptor limit.]]></summary>
         <content type="html"><![CDATA[<p>When you see <strong><code>too many open files</code></strong> in a containerized app, it’s tempting to jump straight to <code>ulimit -n</code>. Sometimes that’s correct. But on Linux (especially with Go apps using <code>fsnotify</code>), the error can also be caused by <strong>inotify limits</strong>—even if your process has a huge file-descriptor limit.</p>
 <p>This post is a practical, copy/paste-friendly checklist to debug the problem on a real Kubernetes cluster.</p>
+<!-- -->
 <h2 class="anchor anchorWithStickyNavbar_LWe7" id="step-0-decide-which-limit-youre-hitting">Step 0: Decide which “limit” you’re hitting<a href="https://kbbgl.github.io/blog/too-many-open-files-kubernetes-inotify-debugging#step-0-decide-which-limit-youre-hitting" class="hash-link" aria-label="Direct link to Step 0: Decide which “limit” you’re hitting" title="Direct link to Step 0: Decide which “limit” you’re hitting">​</a></h2>
 <p>There are (at least) three common failure modes that can all look like “too many open files”:</p>
 <ul>
@@ -309,7 +311,7 @@ sense — it's "the client asked for a URL the server doesn't serve". Print the 
         <category label="Kubernetes" term="Kubernetes"/>
         <category label="Linux" term="Linux"/>
         <category label="Debugging" term="Debugging"/>
-        <category label="golang" term="golang"/>
+        <category label="Golang" term="Golang"/>
     </entry>
     <entry>
         <title type="html"><![CDATA[The 6GHz Black Hole: Troubleshooting SSH Failures Across WiFi Bands]]></title>
@@ -319,6 +321,7 @@ sense — it's "the client asked for a URL the server doesn't serve". Print the 
         <summary type="html"><![CDATA[Have you ever had a service that works perfectly on localhost but acts like it doesn't exist to the rest of your network? We recently spent an afternoon debugging a Mac Mini M4 that refused to accept SSH connections, despite every local check saying "All Systems Go."]]></summary>
         <content type="html"><![CDATA[<p>Have you ever had a service that works perfectly on <code>localhost</code> but acts like it doesn't exist to the rest of your network? We recently spent an afternoon debugging a Mac Mini M4 that refused to accept SSH connections, despite every local check saying "All Systems Go."</p>
 <p>The culprit wasn't a firewall or a wrong config, it was the <strong>invisible wall between 5GHz and 6GHz WiFi bands</strong>.</p>
+<!-- -->
 <h2 class="anchor anchorWithStickyNavbar_LWe7" id="the-setup">The Setup<a href="https://kbbgl.github.io/blog/6ghz-ssh-isolation-troubleshooting#the-setup" class="hash-link" aria-label="Direct link to The Setup" title="Direct link to The Setup">​</a></h2>
 <ul>
 <li><strong>Target:</strong> Mac Mini M4 (<code>192.168.x.10</code>) connected via a WiFi Extender on the <strong>5GHz</strong> band.</li>
@@ -374,10 +377,10 @@ sense — it's "the client asked for a URL the server doesn't serve". Print the 
             <name>Kobbi Gal</name>
             <uri>https://github.com/kbbgl</uri>
         </author>
-        <category label="networking" term="networking"/>
+        <category label="Networking" term="Networking"/>
         <category label="Macos" term="Macos"/>
-        <category label="ssh" term="ssh"/>
-        <category label="wifi6e" term="wifi6e"/>
+        <category label="Ssh" term="Ssh"/>
+        <category label="Wifi6e" term="Wifi6e"/>
     </entry>
     <entry>
         <title type="html"><![CDATA[How To Deploy Application with Azure Workload Identity]]></title>
@@ -386,6 +389,7 @@ sense — it's "the client asked for a URL the server doesn't serve". Print the 
         <updated>2026-02-24T00:00:00.000Z</updated>
         <summary type="html"><![CDATA[This blog post describes how to set up split tunneling with a VPN on MacOS.]]></summary>
         <content type="html"><![CDATA[<p>This tutorial is a guide on how to deploy an application in Kubernetes that will authenticate using Azure Workload Identity on Azure Kubernetes Services (AKS).</p>
+<!-- -->
 <h2 class="anchor anchorWithStickyNavbar_LWe7" id="prerequisites">Prerequisites<a href="https://kbbgl.github.io/blog/how-to-deploy-app-with-azure-workload-identity#prerequisites" class="hash-link" aria-label="Direct link to Prerequisites" title="Direct link to Prerequisites">​</a></h2>
 <ul>
 <li>Access to the Azure CLI and an Azure account.</li>
@@ -424,13 +428,13 @@ sense — it's "the client asked for a URL the server doesn't serve". Print the 
             <name>Kobbi Gal (Akeyless)</name>
             <uri>https://github.com/kgal-akl</uri>
         </author>
-        <category label="cloud" term="cloud"/>
-        <category label="azure" term="azure"/>
-        <category label="aks" term="aks"/>
-        <category label="workload_identity" term="workload_identity"/>
+        <category label="Cloud" term="Cloud"/>
+        <category label="Azure" term="Azure"/>
+        <category label="Aks" term="Aks"/>
+        <category label="Workload_identity" term="Workload_identity"/>
         <category label="K8s" term="K8s"/>
         <category label="Kubernetes" term="Kubernetes"/>
-        <category label="federation" term="federation"/>
+        <category label="Federation" term="Federation"/>
     </entry>
     <entry>
         <title type="html"><![CDATA[How to Deploy Kubernetes Services using Gateway API/AWS Load Balancer Controller]]></title>
