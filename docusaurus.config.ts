@@ -13,6 +13,15 @@ const config: Config = {
   onBrokenLinks: "warn",
   trailingSlash: false,
   onBrokenMarkdownLinks: "warn",
+
+  scripts: [
+    {
+      src: "https://cloud.umami.is/script.js",
+      "data-website-id": process.env.UMAMI_WEBSITE_ID ?? "dummy-website-id",
+      defer: true,
+    },
+  ],
+
   i18n: {
     defaultLocale: "en",
     locales: ["en"],
