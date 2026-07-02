@@ -1,6 +1,7 @@
 name: Deploy to GitHub Pages
 
 on:
+  workflow_dispatch:
   push:
     branches:
       - master
@@ -8,6 +9,8 @@ on:
       - 'docs/**'
       - 'blog/**'
       - 'docusaurus.config.ts'
+      - 'package.json'
+      - 'yarn.lock'
 
 permissions:
   contents: write
