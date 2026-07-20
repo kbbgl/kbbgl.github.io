@@ -128,3 +128,9 @@ bitnami/postgresql \
 --output-dir ./generated-manifests \
 -f values.yaml
 ```
+
+### Pulling Chart
+
+```bash
+helm pull bitnami/redis --version 1.48.2 --untar --untardir /tmp/redis
+```
