@@ -1,3 +1,10 @@
+# Block Algolia's Crawler from indexing blog posts so the free-tier record
+# limit isn't exhausted by the daily logs. Other crawlers (Google, etc.) are
+# unaffected. Remove this group to make the blog searchable again (e.g. on a paid plan).
+User-agent: Algolia Crawler
+Disallow: /blog/
+
 User-agent: *
 Disallow:
+
 # Algolia-Crawler-Verif: BE814D5FFCE3F6A2

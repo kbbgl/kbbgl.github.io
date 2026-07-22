@@ -8,6 +8,7 @@ on:
     paths:
       - 'docs/**'
       - 'blog/**'
+      - 'static/**'
       - 'docusaurus.config.ts'
       - 'package.json'
       - 'yarn.lock'
